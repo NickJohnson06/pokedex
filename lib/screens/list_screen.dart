@@ -3,6 +3,7 @@ import '../repo/pokemon_repository.dart';
 import '../models/pokemon.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
+import '../utils/poke_assets.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -133,20 +134,21 @@ class _ListScreenState extends State<ListScreen> {
               itemBuilder: (context, i) {
                 final p = filtered[i];
 
-                Widget leadingThumb() {
-                  final hasImage = (p.imageUrl != null && p.imageUrl!.isNotEmpty);
-                  final thumb = hasImage
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(24),
-                          child: Image.network(
-                            p.imageUrl!,
-                            width: 48,
-                            height: 48,
-                            fit: BoxFit.cover,
-                          ),
-                        )
-                      : CircleAvatar(child: Text(p.name.isNotEmpty ? p.name[0] : '?'));
-                  return Hero(tag: 'poke-${p.id}', child: Material(color: Colors.transparent, child: thumb));
+                Widget leadingThumb(Pokemon p) {
+                  final path = assetPathFromName(p.name);
+                  return Hero(
+                    tag: 'poke-${p.id}',
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(24),
+                      child: Image.asset(
+                        path,
+                        width: 48,
+                        height: 48,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => CircleAvatar(child: Text(p.name[0])),
+                      ),
+                    ),
+                  );
                 }
 
                 return ListTile(

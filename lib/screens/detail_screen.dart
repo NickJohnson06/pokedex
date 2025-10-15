@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import '../models/pokemon.dart';
+import '../utils/poke_assets.dart';
 
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
   const DetailScreen({super.key, required this.pokemon});
 
-  Widget _avatar() {
-    final hasImage = pokemon.imageUrl != null && pokemon.imageUrl!.isNotEmpty;
-    if (hasImage) {
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(64),
-        child: Image.network(
-          pokemon.imageUrl!,
-          width: 128,
-          height: 128,
-          fit: BoxFit.cover,
-        ),
-      );
-    }
-    return CircleAvatar(radius: 64, child: Text(pokemon.name.isNotEmpty ? pokemon.name[0] : '?'));
-  }
+Widget _avatar() {
+  final path = assetPathFromName(pokemon.name);
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(64),
+    child: Image.asset(
+      path,
+      width: 128,
+      height: 128,
+      fit: BoxFit.cover,
+      errorBuilder: (_, __, ___) => CircleAvatar(radius: 64, child: Text(pokemon.name[0])),
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
