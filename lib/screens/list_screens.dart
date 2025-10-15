@@ -27,15 +27,28 @@ class _ListScreenState extends State<ListScreen> {
     setState(() => _items = rows);
   }
 
+  void _toast(String m) =>
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
+
   Future<void> _add() async {
     final p = await Navigator.push<Pokemon>(
       context,
       MaterialPageRoute(builder: (_) => const AddEditScreen()),
     );
     if (p != null) {
-      await _repo.insert(p);
-      _load();
-      _toast('Caught ${p.name}');
+      try {
+        // prevent duplicate by name (optional)
+        final existing = await _repo.findByName(p.name);
+        if (existing != null) {
+          _toast('A Pokémon named ${p.name} already exists.');
+          return;
+        }
+        await _repo.insert(p);
+        await _load();
+        _toast('Caught ${p.name}');
+      } catch (e) {
+        _toast('Failed to save: $e');
+      }
     }
   }
 
@@ -45,9 +58,19 @@ class _ListScreenState extends State<ListScreen> {
       MaterialPageRoute(builder: (_) => AddEditScreen(existing: p)),
     );
     if (updated != null) {
-      await _repo.update(updated..id = p.id);
-      _load();
-      _toast('Evolved to ${updated.name}');
+      try {
+        // avoid name collision with others
+        final existing = await _repo.findByName(updated.name);
+        if (existing != null && existing.id != p.id) {
+          _toast('Another Pokémon named ${updated.name} already exists.');
+          return;
+        }
+        await _repo.update(updated..id = p.id);
+        await _load();
+        _toast('Evolved to ${updated.name}');
+      } catch (e) {
+        _toast('Failed to update: $e');
+      }
     }
   }
 
@@ -64,13 +87,15 @@ class _ListScreenState extends State<ListScreen> {
       ),
     );
     if (ok == true) {
-      await _repo.delete(p.id!);
-      _load();
-      _toast('Released ${p.name}');
+      try {
+        await _repo.delete(p.id!);
+        await _load();
+        _toast('Released ${p.name}');
+      } catch (e) {
+        _toast('Failed to delete: $e');
+      }
     }
   }
-
-  void _toast(String m) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
 
   @override
   Widget build(BuildContext context) {
@@ -107,18 +132,38 @@ class _ListScreenState extends State<ListScreen> {
               separatorBuilder: (_, __) => const Divider(height: 0),
               itemBuilder: (context, i) {
                 final p = filtered[i];
+
+                Widget leadingThumb() {
+                  final hasImage = (p.imageUrl != null && p.imageUrl!.isNotEmpty);
+                  final thumb = hasImage
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(24),
+                          child: Image.network(
+                            p.imageUrl!,
+                            width: 48,
+                            height: 48,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : CircleAvatar(child: Text(p.name.isNotEmpty ? p.name[0] : '?'));
+                  return Hero(tag: 'poke-${p.id}', child: Material(color: Colors.transparent, child: thumb));
+                }
+
                 return ListTile(
-                  leading: Hero(tag: 'poke-${p.id}', child: CircleAvatar(child: Text(p.name[0]))),
+                  leading: leadingThumb(),
                   title: Text(p.name, style: const TextStyle(fontWeight: FontWeight.w600)),
                   subtitle: Text('Type: ${p.type} • #${p.id}'),
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
                   ),
-                  trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-                    IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
-                    IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
-                  ]),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
+                      IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
+                    ],
+                  ),
                 );
               },
             ),
