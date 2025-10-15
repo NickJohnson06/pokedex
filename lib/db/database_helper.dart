@@ -8,7 +8,7 @@ class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._();
 
   static const _dbName = 'pokedex.db';
-  static const _dbVersion = 1;
+  static const _dbVersion = 2;
 
   Database? _db;
 
@@ -25,6 +25,7 @@ class DatabaseHelper {
       path,
       version: _dbVersion,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
   }
 
@@ -32,10 +33,18 @@ class DatabaseHelper {
     await db.execute('''
       CREATE TABLE pokemon (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
+        name TEXT NOT NULL COLLATE NOCASE,
         type TEXT NOT NULL,
         imageUrl TEXT
       )
     ''');
+    await db.execute('CREATE UNIQUE INDEX idx_pokemon_name ON pokemon(name);'); // case-insensitive because of COLLATE
+  }
+
+  FutureOr<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Add case-insensitive unique index for existing installs
+      await db.execute('CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_name ON pokemon(name COLLATE NOCASE);');
+    }
   }
 }

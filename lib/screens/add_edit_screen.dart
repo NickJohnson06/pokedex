@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/pokemon.dart';
+import '../repo/pokemon_repository.dart';
 
 class AddEditScreen extends StatefulWidget {
   final Pokemon? existing;
@@ -15,6 +16,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
   late final TextEditingController _nameCtrl;
   late final TextEditingController _typeCtrl;
   late final TextEditingController _imageCtrl;
+  final _repo = PokemonRepository();
+  bool _saving = false;
 
   @override
   void initState() {
@@ -35,14 +38,13 @@ class _AddEditScreenState extends State<AddEditScreen> {
   bool _looksLikeUrl(String v) {
     final s = v.trim();
     if (s.isEmpty) return true; // optional
-    // Very lightweight check (http/https + dot)
-    final hasScheme = s.startsWith('http://') || s.startsWith('https://');
-    final hasDot = s.contains('.');
-    return hasScheme && hasDot;
+    return (s.startsWith('http://') || s.startsWith('https://')) && s.contains('.');
   }
 
-  void _save() {
+  Future<void> _save() async {
     if (!_formKey.currentState!.validate()) return;
+
+    setState(() => _saving = true);
 
     final p = Pokemon(
       id: widget.existing?.id,
@@ -51,7 +53,25 @@ class _AddEditScreenState extends State<AddEditScreen> {
       imageUrl: _imageCtrl.text.trim().isEmpty ? null : _imageCtrl.text.trim(),
     );
 
-    Navigator.of(context).pop(p); // return to caller (ListScreen) with data
+    try {
+      // Prevent duplicate names
+      final existing = await _repo.findByName(p.name);
+      if (existing != null && existing.id != p.id) {
+        _showToast('A Pokémon named ${p.name} already exists.');
+        setState(() => _saving = false);
+        return;
+      }
+
+      Navigator.of(context).pop(p); // return Pokémon back to ListScreen
+    } catch (e) {
+      _showToast('Error saving Pokémon: $e');
+    } finally {
+      setState(() => _saving = false);
+    }
+  }
+
+  void _showToast(String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
   }
 
   @override
@@ -96,6 +116,9 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 validator: (v) {
                   if (v == null || v.trim().isEmpty) return 'Name is required';
                   if (v.trim().length < 2) return 'Name too short';
+                  if (!RegExp(r"^[a-zA-Z0-9\s]+$").hasMatch(v.trim())) {
+                    return 'Only letters and numbers allowed';
+                  }
                   return null;
                 },
               ),
@@ -106,6 +129,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 textInputAction: TextInputAction.next,
                 validator: (v) {
                   if (v == null || v.trim().isEmpty) return 'Type is required';
+                  if (v.trim().length < 3) return 'Type too short';
                   return null;
                 },
               ),
@@ -128,8 +152,14 @@ class _AddEditScreenState extends State<AddEditScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: _save,
-                  icon: const Icon(Icons.save),
+                  onPressed: _saving ? null : _save,
+                  icon: _saving
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                        )
+                      : const Icon(Icons.save),
                   label: Text(isEdit ? 'Save Changes' : 'Catch'),
                 ),
               ),
