@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../repo/pokemon_repository.dart';
 import '../models/pokemon.dart';
+import '../utils/poke_assets.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
-import '../utils/poke_assets.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -16,6 +16,7 @@ class _ListScreenState extends State<ListScreen> {
   final _repo = PokemonRepository();
   List<Pokemon> _items = [];
   String _query = '';
+  bool _loading = true;
 
   @override
   void initState() {
@@ -24,8 +25,17 @@ class _ListScreenState extends State<ListScreen> {
   }
 
   Future<void> _load() async {
-    final rows = await _repo.getAll();
-    setState(() => _items = rows);
+    setState(() => _loading = true);
+    try {
+      final rows = await _repo.getAll();
+      setState(() {
+        _items = rows;
+        _loading = false;
+      });
+    } catch (e) {
+      setState(() => _loading = false);
+      _toast('Failed to load: $e');
+    }
   }
 
   void _toast(String m) =>
@@ -38,7 +48,6 @@ class _ListScreenState extends State<ListScreen> {
     );
     if (p != null) {
       try {
-        // prevent duplicate by name (optional)
         final existing = await _repo.findByName(p.name);
         if (existing != null) {
           _toast('A Pokémon named ${p.name} already exists.');
@@ -60,9 +69,8 @@ class _ListScreenState extends State<ListScreen> {
     );
     if (updated != null) {
       try {
-        // avoid name collision with others
-        final existing = await _repo.findByName(updated.name);
-        if (existing != null && existing.id != p.id) {
+        final clash = await _repo.findByName(updated.name);
+        if (clash != null && clash.id != p.id) {
           _toast('Another Pokémon named ${updated.name} already exists.');
           return;
         }
@@ -98,6 +106,28 @@ class _ListScreenState extends State<ListScreen> {
     }
   }
 
+  Widget _leadingThumb(Pokemon p) {
+    final path = assetPathFromName(p.name);
+    // Fixed-size, non-cropping thumbnail with rounded corners
+    return Hero(
+      tag: 'poke-${p.id}',
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: SizedBox(
+          width: 56,
+          height: 56,
+          child: Image.asset(
+            path,
+            fit: BoxFit.contain,           // keep full sprite visible
+            filterQuality: FilterQuality.high,
+            errorBuilder: (_, __, ___) =>
+                Center(child: CircleAvatar(radius: 20, child: Text(p.name[0]))),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final filtered = _items.where((p) {
@@ -110,7 +140,7 @@ class _ListScreenState extends State<ListScreen> {
       appBar: AppBar(
         title: const Text('Your Personal Pokedex'),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(56),
+          preferredSize: const Size.fromHeight(60),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
             child: TextField(
@@ -118,57 +148,47 @@ class _ListScreenState extends State<ListScreen> {
                 hintText: 'Search by name or type…',
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                 isDense: true,
+                contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               ),
               onChanged: (v) => setState(() => _query = v),
             ),
           ),
         ),
       ),
-      body: filtered.isEmpty
-          ? const Center(child: Text('No Pokémon yet. Tap + to catch one!'))
-          : ListView.separated(
-              itemCount: filtered.length,
-              separatorBuilder: (_, __) => const Divider(height: 0),
-              itemBuilder: (context, i) {
-                final p = filtered[i];
-
-                Widget leadingThumb(Pokemon p) {
-                  final path = assetPathFromName(p.name);
-                  return Hero(
-                    tag: 'poke-${p.id}',
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                        path,
-                        width: 48,
-                        height: 48,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => CircleAvatar(child: Text(p.name[0])),
+      body: _loading
+          ? const Center(child: CircularProgressIndicator())
+          : filtered.isEmpty
+              ? const Center(child: Text('No Pokémon yet. Tap + to catch one!'))
+              : ListView.separated(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  itemCount: filtered.length,
+                  separatorBuilder: (_, __) => const Divider(height: 0),
+                  itemBuilder: (context, i) {
+                    final p = filtered[i];
+                    return ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                      leading: _leadingThumb(p),
+                      title: Text(
+                        p.name,
+                        style: const TextStyle(fontWeight: FontWeight.w600),
                       ),
-                    ),
-                  );
-                }
-
-                return ListTile(
-                  leading: leadingThumb(),
-                  title: Text(p.name, style: const TextStyle(fontWeight: FontWeight.w600)),
-                  subtitle: Text('Type: ${p.type} • #${p.id}'),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
-                      IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
-                    ],
-                  ),
-                );
-              },
-            ),
+                      subtitle: Text('Type: ${p.type} • #${p.id}'),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
+                          IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
+                        ],
+                      ),
+                    );
+                  },
+                ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _add,
         icon: const Icon(Icons.add),

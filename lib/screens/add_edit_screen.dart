@@ -32,19 +32,39 @@ class _AddEditScreenState extends State<AddEditScreen> {
   Future<Widget> _buildPreview() async {
     final name = _nameCtrl.text.trim();
     if (name.isEmpty) return const SizedBox.shrink();
+
     final path = assetPathFromName(name);
     final ok = await assetExists(path);
+
     if (!ok) {
       return const Padding(
         padding: EdgeInsets.only(top: 12),
         child: Text('No matching image in assets/pokemon/.'),
       );
     }
+
     return Padding(
       padding: const EdgeInsets.only(top: 12),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Image.asset(path, width: double.infinity, height: 160, fit: BoxFit.cover),
+      child: SizedBox(
+        height: 160,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.25),
+          ),
+          child: Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                path,
+                height: 140,            // inside the 160 box -> no cropping
+                fit: BoxFit.contain,    // preserve aspect ratio
+                filterQuality: FilterQuality.high,
+                errorBuilder: (_, __, ___) => const Text('Image failed to load'),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -70,10 +90,13 @@ class _AddEditScreenState extends State<AddEditScreen> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
                 controller: _nameCtrl,
-                decoration: const InputDecoration(labelText: 'Name (must match filename)'),
+                decoration: const InputDecoration(
+                  labelText: 'Name (must match filename, e.g., pikachu)',
+                ),
                 textInputAction: TextInputAction.next,
                 onChanged: (_) => setState(() {}), // refresh preview
                 validator: (v) {
@@ -102,13 +125,10 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 },
               ),
               const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: _save,
-                  icon: const Icon(Icons.save),
-                  label: Text(isEdit ? 'Save Changes' : 'Catch'),
-                ),
+              ElevatedButton.icon(
+                onPressed: _save,
+                icon: const Icon(Icons.save),
+                label: Text(isEdit ? 'Save Changes' : 'Catch'),
               ),
             ],
           ),
