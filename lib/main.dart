@@ -1,91 +1,82 @@
-// Starter Flutter/Dart Code for Personal Pokedex CRUD App
-
 import 'package:flutter/material.dart';
+import 'repo/pokemon_repository.dart';
+import 'models/pokemon.dart';
 
-void main() {
-  runApp(PokedexApp());
-}
+void main() => runApp(const PokedexApp());
 
 class PokedexApp extends StatelessWidget {
+  const PokedexApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal Pokedex',
-      theme: ThemeData(primarySwatch: Colors.red),
-      home: PokedexHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: const PokedexHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class Pokemon {
-  int id;
-  String name;
-  String type;
-
-  Pokemon({required this.id, required this.name, required this.type});
-}
-
 class PokedexHomePage extends StatefulWidget {
+  const PokedexHomePage({super.key});
+
   @override
-  _PokedexHomePageState createState() => _PokedexHomePageState();
+  State<PokedexHomePage> createState() => _PokedexHomePageState();
 }
 
 class _PokedexHomePageState extends State<PokedexHomePage> {
-  List<Pokemon> pokedex = [];
-  int nextId = 1;
+  final _repo = PokemonRepository();
+  List<Pokemon> _pokedex = [];
 
-  void catchPokemon(String name, String type) {
-    setState(() {
-      pokedex.add(Pokemon(id: nextId++, name: name, type: type));
-    });
+  @override
+  void initState() {
+    super.initState();
+    _loadPokedex();
   }
 
-  void evolvePokemon(int id, String newName, String newType) {
-    setState(() {
-      for (var p in pokedex) {
-        if (p.id == id) {
-          p.name = newName;
-          p.type = newType;
-          break;
-        }
-      }
-    });
+  Future<void> _loadPokedex() async {
+    final all = await _repo.getAll();
+    setState(() => _pokedex = all);
   }
 
-  void releasePokemon(int id) {
-    setState(() {
-      pokedex.removeWhere((p) => p.id == id);
-    });
+  Future<void> _catchPokemon() async {
+    // for now, we’ll just hardcode Pikachu to test SQLite
+    final pikachu = Pokemon(name: 'Pikachu', type: 'Electric');
+    await _repo.insert(pikachu);
+    _loadPokedex();
   }
 
-  Pokemon? findPokemonByName(String name) {
-    return pokedex.firstWhere((p) => p.name.toLowerCase() == name.toLowerCase(), orElse: () => null);
+  Future<void> _releasePokemon(int id) async {
+    await _repo.delete(id);
+    _loadPokedex();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Your Personal Pokedex')),
-      body: ListView.builder(
-        itemCount: pokedex.length,
-        itemBuilder: (context, index) {
-          final pokemon = pokedex[index];
-          return ListTile(
-            title: Text(pokemon.name),
-            subtitle: Text('Type: ${pokemon.type}'),
-            trailing: IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () => releasePokemon(pokemon.id),
+      appBar: AppBar(title: const Text('Your Personal Pokedex')),
+      body: _pokedex.isEmpty
+          ? const Center(child: Text('No Pokémon yet. Tap + to catch one!'))
+          : ListView.builder(
+              itemCount: _pokedex.length,
+              itemBuilder: (context, index) {
+                final pokemon = _pokedex[index];
+                return ListTile(
+                  title: Text(pokemon.name),
+                  subtitle: Text('Type: ${pokemon.type}'),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () => _releasePokemon(pokemon.id!),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Example: Catch a new Pokémon
-          catchPokemon('Pikachu', 'Electric');
-        },
-        child: Icon(Icons.add),
+        onPressed: _catchPokemon,
+        child: const Icon(Icons.add),
       ),
     );
   }
