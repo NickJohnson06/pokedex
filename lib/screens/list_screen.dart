@@ -5,6 +5,7 @@ import '../utils/poke_assets.dart';
 import '../widgets/dual_type_chip.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
+import '../theme/theme_controller.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -142,8 +143,22 @@ class _ListScreenState extends State<ListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Personal Pokedex'),
+        title: const Text('Personal Pokedex'),
         actions: [
+          // Theme toggle (sun/moon)
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: ThemeController.themeMode,
+            builder: (context, mode, _) {
+              final isDark = mode == ThemeMode.dark ||
+                  (mode == ThemeMode.system &&
+                      MediaQuery.of(context).platformBrightness == Brightness.dark);
+              return IconButton(
+                tooltip: isDark ? 'Switch to light mode' : 'Switch to dark mode',
+                icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+                onPressed: ThemeController.toggle,
+              );
+            },
+          ),
           IconButton(
             tooltip: _grid ? 'List view' : 'Grid view',
             icon: Icon(_grid ? Icons.view_list : Icons.grid_view),
