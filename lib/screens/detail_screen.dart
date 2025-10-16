@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
-import '../utils/type_colors.dart';
+import '../widgets/dual_type_chip.dart';
 
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
@@ -25,8 +25,6 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final type2Text = (pokemon.type2 ?? '').trim();
-
     return Scaffold(
       appBar: AppBar(title: Text(pokemon.name)),
       body: Center(
@@ -43,29 +41,9 @@ class DetailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
-              Wrap(
-                spacing: 8,
-                runSpacing: 4,
-                alignment: WrapAlignment.center,
-                children: [
-                  Chip(
-                    label: Text(pokemon.type),
-                    backgroundColor: typeColor(pokemon.type).withOpacity(0.15),
-                    labelStyle:
-                        TextStyle(color: typeColor(pokemon.type).withOpacity(0.95)),
-                  ),
-                  if (type2Text.isNotEmpty)
-                    Chip(
-                      label: Text(type2Text),
-                      backgroundColor: typeColor(type2Text).withOpacity(0.15),
-                      labelStyle: TextStyle(
-                          color: typeColor(type2Text).withOpacity(0.95)),
-                    ),
-                ],
-              ),
+              DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
               const SizedBox(height: 24),
-              // (Optional) Room for more details later
-              // Text('Dex: ...'), Stats, etc.
+              // room for more info later (stats, abilities, etc.)
             ],
           ),
         ),

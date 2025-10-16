@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../repo/pokemon_repository.dart';
 import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
-import '../utils/type_colors.dart';
+import '../widgets/dual_type_chip.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
 
@@ -211,27 +211,7 @@ class _ListScreenState extends State<ListScreen> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               leading: _leadingThumb(p),
               title: Text(p.name, style: const TextStyle(fontWeight: FontWeight.w600)),
-              subtitle: Wrap(
-                spacing: 8,
-                runSpacing: 4,
-                children: [
-                  Chip(
-                    label: Text(p.type),
-                    backgroundColor: typeColor(p.type).withOpacity(0.15),
-                    labelStyle: TextStyle(color: typeColor(p.type).withOpacity(0.95)),
-                    visualDensity: VisualDensity.compact,
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                  ),
-                  if ((p.type2 ?? '').trim().isNotEmpty)
-                    Chip(
-                      label: Text(p.type2!),
-                      backgroundColor: typeColor(p.type2!).withOpacity(0.15),
-                      labelStyle: TextStyle(color: typeColor(p.type2!).withOpacity(0.95)),
-                      visualDensity: VisualDensity.compact,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                    ),
-                ],
-              ),
+              subtitle: DualTypeChip(type1: p.type, type2: p.type2),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
@@ -293,27 +273,8 @@ class _ListScreenState extends State<ListScreen> {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(fontWeight: FontWeight.w600),
                   ),
-                  const SizedBox(height: 4),
-                  Wrap(
-                    spacing: 6,
-                    children: [
-                      Chip(
-                        label: Text(p.type, style: const TextStyle(fontSize: 11)),
-                        backgroundColor: typeColor(p.type).withOpacity(0.15),
-                        labelStyle: TextStyle(color: typeColor(p.type).withOpacity(0.95)),
-                        visualDensity: VisualDensity.compact,
-                        padding: EdgeInsets.zero,
-                      ),
-                      if ((p.type2 ?? '').trim().isNotEmpty)
-                        Chip(
-                          label: Text(p.type2!, style: const TextStyle(fontSize: 11)),
-                          backgroundColor: typeColor(p.type2!).withOpacity(0.15),
-                          labelStyle: TextStyle(color: typeColor(p.type2!).withOpacity(0.95)),
-                          visualDensity: VisualDensity.compact,
-                          padding: EdgeInsets.zero,
-                        ),
-                    ],
-                  ),
+                  const SizedBox(height: 6),
+                  DualTypeChip(type1: p.type, type2: p.type2),
                 ],
               ),
             ),
