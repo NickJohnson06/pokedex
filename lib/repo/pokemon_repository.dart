@@ -8,7 +8,11 @@ class PokemonRepository {
   Future<int> insert(Pokemon p) async {
     final db = await DatabaseHelper.instance.database;
     try {
-      return await db.insert(_table, p.toMap(), conflictAlgorithm: ConflictAlgorithm.abort);
+      return await db.insert(
+        _table,
+        p.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.abort,
+      );
     } on DatabaseException catch (e) {
       if (e.isUniqueConstraintError()) {
         throw Exception('A Pokémon named ${p.name} already exists.');
@@ -20,7 +24,13 @@ class PokemonRepository {
   Future<int> update(Pokemon p) async {
     final db = await DatabaseHelper.instance.database;
     try {
-      return await db.update(_table, p.toMap(), where: 'id = ?', whereArgs: [p.id], conflictAlgorithm: ConflictAlgorithm.abort);
+      return await db.update(
+        _table,
+        p.toMap(),
+        where: 'id = ?',
+        whereArgs: [p.id],
+        conflictAlgorithm: ConflictAlgorithm.abort,
+      );
     } on DatabaseException catch (e) {
       if (e.isUniqueConstraintError()) {
         throw Exception('A Pokémon named ${p.name} already exists.');

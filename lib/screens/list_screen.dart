@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../repo/pokemon_repository.dart';
 import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
+import '../utils/type_colors.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
 
@@ -17,6 +18,7 @@ class _ListScreenState extends State<ListScreen> {
   List<Pokemon> _items = [];
   String _query = '';
   bool _loading = true;
+  bool _grid = false;
 
   @override
   void initState() {
@@ -108,7 +110,6 @@ class _ListScreenState extends State<ListScreen> {
 
   Widget _leadingThumb(Pokemon p) {
     final path = assetPathFromName(p.name);
-    // Fixed-size, non-cropping thumbnail with rounded corners
     return Hero(
       tag: 'poke-${p.id}',
       child: ClipRRect(
@@ -118,7 +119,7 @@ class _ListScreenState extends State<ListScreen> {
           height: 56,
           child: Image.asset(
             path,
-            fit: BoxFit.contain,           // keep full sprite visible
+            fit: BoxFit.contain, // keep full sprite visible
             filterQuality: FilterQuality.high,
             errorBuilder: (_, __, ___) =>
                 Center(child: CircleAvatar(radius: 20, child: Text(p.name[0]))),
@@ -133,12 +134,22 @@ class _ListScreenState extends State<ListScreen> {
     final filtered = _items.where((p) {
       if (_query.isEmpty) return true;
       final q = _query.toLowerCase();
-      return p.name.toLowerCase().contains(q) || p.type.toLowerCase().contains(q);
+      final t2 = p.type2?.toLowerCase() ?? '';
+      return p.name.toLowerCase().contains(q)
+          || p.type.toLowerCase().contains(q)
+          || t2.contains(q);
     }).toList();
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Personal Pokedex'),
+        actions: [
+          IconButton(
+            tooltip: _grid ? 'List view' : 'Grid view',
+            icon: Icon(_grid ? Icons.view_list : Icons.grid_view),
+            onPressed: () => setState(() => _grid = !_grid),
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: Padding(
@@ -159,40 +170,155 @@ class _ListScreenState extends State<ListScreen> {
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : filtered.isEmpty
-              ? const Center(child: Text('No Pokémon yet. Tap + to catch one!'))
-              : ListView.separated(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  itemCount: filtered.length,
-                  separatorBuilder: (_, __) => const Divider(height: 0),
-                  itemBuilder: (context, i) {
-                    final p = filtered[i];
-                    return ListTile(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-                      leading: _leadingThumb(p),
-                      title: Text(
-                        p.name,
-                        style: const TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                      subtitle: Text('Type: ${p.type} • #${p.id}'),
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
-                          IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+          : _grid
+              ? _buildGrid(filtered)
+              : _buildList(filtered),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _add,
         icon: const Icon(Icons.add),
         label: const Text('Catch'),
+      ),
+    );
+  }
+
+  Widget _buildList(List<Pokemon> data) {
+    if (data.isEmpty) {
+      return ListView(
+        children: const [
+          SizedBox(height: 120),
+          Icon(Icons.catching_pokemon, size: 64),
+          SizedBox(height: 12),
+          Center(child: Text('No Pokémon yet')),
+          SizedBox(height: 4),
+          Center(child: Text('Tap the Catch button to add your first one.')),
+          SizedBox(height: 120),
+        ],
+      );
+    }
+    return RefreshIndicator(
+      onRefresh: _load,
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        itemCount: data.length,
+        separatorBuilder: (_, __) => const Divider(height: 0),
+        itemBuilder: (context, i) {
+          final p = data[i];
+          return Card(
+            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            elevation: 1.5,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            child: ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              leading: _leadingThumb(p),
+              title: Text(p.name, style: const TextStyle(fontWeight: FontWeight.w600)),
+              subtitle: Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                children: [
+                  Chip(
+                    label: Text(p.type),
+                    backgroundColor: typeColor(p.type).withOpacity(0.15),
+                    labelStyle: TextStyle(color: typeColor(p.type).withOpacity(0.95)),
+                    visualDensity: VisualDensity.compact,
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                  ),
+                  if ((p.type2 ?? '').trim().isNotEmpty)
+                    Chip(
+                      label: Text(p.type2!),
+                      backgroundColor: typeColor(p.type2!).withOpacity(0.15),
+                      labelStyle: TextStyle(color: typeColor(p.type2!).withOpacity(0.95)),
+                      visualDensity: VisualDensity.compact,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                    ),
+                ],
+              ),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
+              ),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
+                  IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildGrid(List<Pokemon> data) {
+    if (data.isEmpty) {
+      return _buildList(data); // reuse empty state
+    }
+    return RefreshIndicator(
+      onRefresh: _load,
+      child: GridView.builder(
+        padding: const EdgeInsets.all(12),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, crossAxisSpacing: 12, mainAxisSpacing: 12, childAspectRatio: .8,
+        ),
+        itemCount: data.length,
+        itemBuilder: (_, i) {
+          final p = data[i];
+          final path = assetPathFromName(p.name);
+          return GestureDetector(
+            onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p))),
+            child: Card(
+              elevation: 1,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Hero(
+                    tag: 'poke-${p.id}',
+                    child: SizedBox(
+                      width: 64, height: 64,
+                      child: Image.asset(
+                        path,
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, __, ___) =>
+                            CircleAvatar(child: Text(p.name[0])),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    p.name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 4),
+                  Wrap(
+                    spacing: 6,
+                    children: [
+                      Chip(
+                        label: Text(p.type, style: const TextStyle(fontSize: 11)),
+                        backgroundColor: typeColor(p.type).withOpacity(0.15),
+                        labelStyle: TextStyle(color: typeColor(p.type).withOpacity(0.95)),
+                        visualDensity: VisualDensity.compact,
+                        padding: EdgeInsets.zero,
+                      ),
+                      if ((p.type2 ?? '').trim().isNotEmpty)
+                        Chip(
+                          label: Text(p.type2!, style: const TextStyle(fontSize: 11)),
+                          backgroundColor: typeColor(p.type2!).withOpacity(0.15),
+                          labelStyle: TextStyle(color: typeColor(p.type2!).withOpacity(0.95)),
+                          visualDensity: VisualDensity.compact,
+                          padding: EdgeInsets.zero,
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

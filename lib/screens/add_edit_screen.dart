@@ -13,20 +13,27 @@ class AddEditScreen extends StatefulWidget {
 class _AddEditScreenState extends State<AddEditScreen> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _nameCtrl;
-  late final TextEditingController _typeCtrl;
+  late final TextEditingController _typeCtrl;   // primary (required)
+  late final TextEditingController _type2Ctrl;  // secondary (optional)
 
   @override
   void initState() {
     super.initState();
-    _nameCtrl = TextEditingController(text: widget.existing?.name ?? '');
-    _typeCtrl = TextEditingController(text: widget.existing?.type ?? '');
+    _nameCtrl  = TextEditingController(text: widget.existing?.name  ?? '');
+    _typeCtrl  = TextEditingController(text: widget.existing?.type  ?? '');
+    _type2Ctrl = TextEditingController(text: widget.existing?.type2 ?? '');
   }
 
   @override
   void dispose() {
     _nameCtrl.dispose();
     _typeCtrl.dispose();
+    _type2Ctrl.dispose();
     super.dispose();
+  }
+
+  void _toast(String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
   }
 
   Future<Widget> _buildPreview() async {
@@ -43,6 +50,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
       );
     }
 
+    // Non-cropping centered preview box
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: SizedBox(
@@ -57,8 +65,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
                 path,
-                height: 140,            // inside the 160 box -> no cropping
-                fit: BoxFit.contain,    // preserve aspect ratio
+                height: 140,
+                fit: BoxFit.contain,
                 filterQuality: FilterQuality.high,
                 errorBuilder: (_, __, ___) => const Text('Image failed to load'),
               ),
@@ -71,11 +79,23 @@ class _AddEditScreenState extends State<AddEditScreen> {
 
   void _save() {
     if (!_formKey.currentState!.validate()) return;
+
+    final t1 = _typeCtrl.text.trim();
+    final t2raw = _type2Ctrl.text.trim();
+    final t2 = t2raw.isEmpty ? null : t2raw;
+
+    if (t2 != null && t2.toLowerCase() == t1.toLowerCase()) {
+      _toast('Primary and secondary types must be different.');
+      return;
+    }
+
     final p = Pokemon(
       id: widget.existing?.id,
       name: _nameCtrl.text.trim(),
-      type: _typeCtrl.text.trim(),
+      type: t1,
+      type2: t2,
     );
+
     Navigator.of(context).pop(p);
   }
 
@@ -92,13 +112,14 @@ class _AddEditScreenState extends State<AddEditScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Name (must match asset filename convention, e.g., "zapdos")
               TextFormField(
                 controller: _nameCtrl,
                 decoration: const InputDecoration(
-                  labelText: 'Name (must match filename, e.g., pikachu)',
+                  labelText: 'Name (must match filename, e.g., zapdos)',
                 ),
                 textInputAction: TextInputAction.next,
-                onChanged: (_) => setState(() {}), // refresh preview
+                onChanged: (_) => setState(() {}), // refresh image preview as you type
                 validator: (v) {
                   if (v == null || v.trim().isEmpty) return 'Name is required';
                   if (v.trim().length < 2) return 'Name too short';
@@ -106,14 +127,27 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 },
               ),
               const SizedBox(height: 12),
+
+              // Primary type (required)
               TextFormField(
                 controller: _typeCtrl,
-                decoration: const InputDecoration(labelText: 'Type (e.g., Electric)'),
+                decoration: const InputDecoration(labelText: 'Primary Type (e.g., Electric)'),
+                textInputAction: TextInputAction.next,
                 validator: (v) {
-                  if (v == null || v.trim().isEmpty) return 'Type is required';
+                  if (v == null || v.trim().isEmpty) return 'Primary type is required';
                   return null;
                 },
               ),
+              const SizedBox(height: 12),
+
+              // Secondary type (optional)
+              TextFormField(
+                controller: _type2Ctrl,
+                decoration: const InputDecoration(labelText: 'Secondary Type (optional, e.g., Flying)'),
+                validator: (_) => null, // distinctness is checked in _save()
+              ),
+
+              // Local asset preview (non-cropping)
               const SizedBox(height: 12),
               FutureBuilder<Widget>(
                 future: _buildPreview(),
@@ -124,6 +158,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
                   return snap.data ?? const SizedBox.shrink();
                 },
               ),
+
               const SizedBox(height: 24),
               ElevatedButton.icon(
                 onPressed: _save,

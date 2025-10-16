@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
+import '../utils/type_colors.dart';
 
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
@@ -14,7 +15,7 @@ class DetailScreen extends StatelessWidget {
         path,
         width: 200,
         height: 200,
-        fit: BoxFit.contain,            // keep full sprite visible
+        fit: BoxFit.contain, // keep full sprite visible
         filterQuality: FilterQuality.high,
         errorBuilder: (_, __, ___) =>
             CircleAvatar(radius: 64, child: Text(pokemon.name[0])),
@@ -24,22 +25,49 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final type2Text = (pokemon.type2 ?? '').trim();
+
     return Scaffold(
       appBar: AppBar(title: Text(pokemon.name)),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Hero(tag: 'poke-${pokemon.id}', child: _avatar()),
-            const SizedBox(height: 16),
-            Text(
-              pokemon.name,
-              style: Theme.of(context).textTheme.headlineSmall,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Chip(label: Text(pokemon.type)),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Hero(tag: 'poke-${pokemon.id}', child: _avatar()),
+              const SizedBox(height: 16),
+              Text(
+                pokemon.name,
+                style: Theme.of(context).textTheme.headlineSmall,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                alignment: WrapAlignment.center,
+                children: [
+                  Chip(
+                    label: Text(pokemon.type),
+                    backgroundColor: typeColor(pokemon.type).withOpacity(0.15),
+                    labelStyle:
+                        TextStyle(color: typeColor(pokemon.type).withOpacity(0.95)),
+                  ),
+                  if (type2Text.isNotEmpty)
+                    Chip(
+                      label: Text(type2Text),
+                      backgroundColor: typeColor(type2Text).withOpacity(0.15),
+                      labelStyle: TextStyle(
+                          color: typeColor(type2Text).withOpacity(0.95)),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              // (Optional) Room for more details later
+              // Text('Dex: ...'), Stats, etc.
+            ],
+          ),
         ),
       ),
     );
