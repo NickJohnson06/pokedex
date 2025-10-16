@@ -13,9 +13,9 @@ class DualTypeChip extends StatelessWidget {
     final t2 = type2?.trim().isEmpty ?? true ? null : type2!.trim();
 
     if (t2 == null) {
-      // Single type chip with shadow + outline
+      // Single type chip
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
           color: typeColor(t1).withOpacity(0.9),
           borderRadius: BorderRadius.circular(20),
@@ -28,19 +28,22 @@ class DualTypeChip extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(
-          t1,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
+        child: Center(
+          child: Text(
+            t1,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       );
     }
 
-    // Dual type chip with gradient, border, shadow
+    // Dual type chip with gradient
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -59,11 +62,14 @@ class DualTypeChip extends StatelessWidget {
           ),
         ],
       ),
-      child: Text(
-        '$t1 / $t2',
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
+      child: Center(
+        child: Text(
+          '$t1 / $t2',
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );

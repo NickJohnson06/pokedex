@@ -239,7 +239,10 @@ class _ListScreenState extends State<ListScreen> {
       child: GridView.builder(
         padding: const EdgeInsets.all(12),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, crossAxisSpacing: 12, mainAxisSpacing: 12, childAspectRatio: .8,
+          crossAxisCount: 3,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+          childAspectRatio: 0.70, // ← taller cells to avoid overflow (was 0.80)
         ),
         itemCount: data.length,
         itemBuilder: (_, i) {
@@ -251,31 +254,47 @@ class _ListScreenState extends State<ListScreen> {
             child: Card(
               elevation: 1,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Hero(
-                    tag: 'poke-${p.id}',
-                    child: SizedBox(
-                      width: 64, height: 64,
-                      child: Image.asset(
-                        path,
-                        fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) =>
-                            CircleAvatar(child: Text(p.name[0])),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min, // ← don't force full height
+                  children: [
+                    Hero(
+                      tag: 'poke-${p.id}',
+                      child: SizedBox(
+                        width: 64, height: 64,
+                        child: Image.asset(
+                          path,
+                          fit: BoxFit.contain,
+                          errorBuilder: (_, __, ___) =>
+                              CircleAvatar(child: Text(p.name[0])),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    p.name,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 6),
-                  DualTypeChip(type1: p.type, type2: p.type2),
-                ],
+                    const SizedBox(height: 6),
+                    // Name scales down if tight
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          p.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    // DualTypeChip scales down if tight
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: DualTypeChip(type1: p.type, type2: p.type2),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
