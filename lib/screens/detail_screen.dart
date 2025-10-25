@@ -3,6 +3,8 @@ import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
 import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
+import '../widgets/stat_bar.dart';
+import '../services/pokedex_catalog.dart';
 
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
@@ -24,12 +26,20 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
+  Future _loadCatalogEntry() async {
+    final c = PokedexCatalog.instance;
+    if (pokemon.dex != null) {
+      return await c.byDex(pokemon.dex!);
+    }
+    return await c.byName(pokemon.name);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(pokemon.name)),
       body: Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -49,6 +59,52 @@ class DetailScreen extends StatelessWidget {
               const SizedBox(height: 8),
               DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
               const SizedBox(height: 24),
+
+              // Base stats + size from catalog JSON (if available)
+              FutureBuilder(
+                future: _loadCatalogEntry(),
+                builder: (context, snap) {
+                  if (snap.connectionState != ConnectionState.done) {
+                    return const SizedBox(
+                      height: 80,
+                      child: Center(child: CircularProgressIndicator()),
+                    );
+                  }
+                  final entry = snap.data;
+                  if (entry == null) {
+                    return const Text('No stats available.');
+                  }
+                  final s = entry.baseStats;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text('Base Stats',
+                          style: Theme.of(context).textTheme.titleMedium),
+                      const SizedBox(height: 8),
+                      StatBar(label: 'HP',  value: s.hp),
+                      StatBar(label: 'ATK', value: s.atk),
+                      StatBar(label: 'DEF', value: s.def),
+                      StatBar(label: 'SpA', value: s.spa),
+                      StatBar(label: 'SpD', value: s.spd),
+                      StatBar(label: 'SPE', value: s.spe),
+                      const SizedBox(height: 12),
+                      // Size (if provided)
+                      Builder(builder: (_) {
+                        final hasHeight = entry.heightM != null;
+                        final hasWeight = entry.weightKg != null;
+                        if (!hasHeight && !hasWeight) return const SizedBox.shrink();
+                        return Text(
+                          [
+                            if (hasHeight) 'Height: ${entry.heightM} m',
+                            if (hasWeight) 'Weight: ${entry.weightKg} kg',
+                          ].join('  •  '),
+                          textAlign: TextAlign.center,
+                        );
+                      }),
+                    ],
+                  );
+                },
+              ),
             ],
           ),
         ),

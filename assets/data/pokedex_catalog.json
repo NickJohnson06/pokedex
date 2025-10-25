@@ -1,0 +1,23 @@
+{
+  "bulbasaur": {
+    "dex": 1,
+    "types": ["Grass", "Poison"],
+    "base_stats": { "hp": 45, "atk": 49, "def": 49, "spa": 65, "spd": 65, "spe": 45 },
+    "height_m": 0.7,
+    "weight_kg": 6.9
+  },
+  "pikachu": {
+    "dex": 25,
+    "types": ["Electric"],
+    "base_stats": { "hp": 35, "atk": 55, "def": 40, "spa": 50, "spd": 50, "spe": 90 },
+    "height_m": 0.4,
+    "weight_kg": 6.0
+  },
+  "zapdos": {
+    "dex": 145,
+    "types": ["Electric", "Flying"],
+    "base_stats": { "hp": 90, "atk": 90, "def": 85, "spa": 125, "spd": 90, "spe": 100 },
+    "height_m": 1.6,
+    "weight_kg": 52.6
+  }
+}
