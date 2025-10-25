@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import '../repo/pokemon_repository.dart';
 import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
+import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
+import '../theme/theme_controller.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
-import '../theme/theme_controller.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -120,7 +121,7 @@ class _ListScreenState extends State<ListScreen> {
           height: 56,
           child: Image.asset(
             path,
-            fit: BoxFit.contain, // keep full sprite visible
+            fit: BoxFit.contain,
             filterQuality: FilterQuality.high,
             errorBuilder: (_, __, ___) =>
                 Center(child: CircleAvatar(radius: 20, child: Text(p.name[0]))),
@@ -134,18 +135,21 @@ class _ListScreenState extends State<ListScreen> {
   Widget build(BuildContext context) {
     final filtered = _items.where((p) {
       if (_query.isEmpty) return true;
-      final q = _query.toLowerCase();
+      final raw = _query.toLowerCase().trim();
+      final q = raw.startsWith('#') ? raw.substring(1) : raw;
       final t2 = p.type2?.toLowerCase() ?? '';
+      final dexStr = (p.dex ?? -1).toString();
       return p.name.toLowerCase().contains(q)
           || p.type.toLowerCase().contains(q)
-          || t2.contains(q);
+          || t2.contains(q)
+          || dexStr == q;
     }).toList();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Personal Pokedex'),
+        title: const Text('Your Personal Pokedex'),
         actions: [
-          // Theme toggle (sun/moon)
+          // Theme toggle
           ValueListenableBuilder<ThemeMode>(
             valueListenable: ThemeController.themeMode,
             builder: (context, mode, _) {
@@ -159,6 +163,7 @@ class _ListScreenState extends State<ListScreen> {
               );
             },
           ),
+          // Grid/List toggle
           IconButton(
             tooltip: _grid ? 'List view' : 'Grid view',
             icon: Icon(_grid ? Icons.view_list : Icons.grid_view),
@@ -171,7 +176,7 @@ class _ListScreenState extends State<ListScreen> {
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search by name or type…',
+                hintText: 'Search by name, type, or #dex…',
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 isDense: true,
@@ -225,7 +230,10 @@ class _ListScreenState extends State<ListScreen> {
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               leading: _leadingThumb(p),
-              title: Text(p.name, style: const TextStyle(fontWeight: FontWeight.w600)),
+              title: Text(
+                '${formatDex(p.dex)}  ${p.name}',
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
               subtitle: DualTypeChip(type1: p.type, type2: p.type2),
               onTap: () => Navigator.push(
                 context,
@@ -257,7 +265,7 @@ class _ListScreenState extends State<ListScreen> {
           crossAxisCount: 3,
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
-          childAspectRatio: 0.70, // ← taller cells to avoid overflow (was 0.80)
+          childAspectRatio: 0.70, // taller cells (fix overflow)
         ),
         itemCount: data.length,
         itemBuilder: (_, i) {
@@ -273,7 +281,7 @@ class _ListScreenState extends State<ListScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min, // ← don't force full height
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Hero(
                       tag: 'poke-${p.id}',
@@ -288,7 +296,18 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    // Name scales down if tight
+                    // #dex (scales down)
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          formatDex(p.dex),
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    // Name (scales down)
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
@@ -301,7 +320,7 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    // DualTypeChip scales down if tight
+                    // Chip (scales down)
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,

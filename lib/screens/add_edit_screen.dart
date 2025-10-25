@@ -15,6 +15,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
   late final TextEditingController _nameCtrl;
   late final TextEditingController _typeCtrl;   // primary (required)
   late final TextEditingController _type2Ctrl;  // secondary (optional)
+  late final TextEditingController _dexCtrl;
 
   @override
   void initState() {
@@ -22,6 +23,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
     _nameCtrl  = TextEditingController(text: widget.existing?.name  ?? '');
     _typeCtrl  = TextEditingController(text: widget.existing?.type  ?? '');
     _type2Ctrl = TextEditingController(text: widget.existing?.type2 ?? '');
+    _dexCtrl = TextEditingController(text: widget.existing?.dex?.toString() ?? '');
   }
 
   @override
@@ -50,7 +52,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
       );
     }
 
-    // Non-cropping centered preview box
+    // Centered preview box
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: SizedBox(
@@ -83,6 +85,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
     final t1 = _typeCtrl.text.trim();
     final t2raw = _type2Ctrl.text.trim();
     final t2 = t2raw.isEmpty ? null : t2raw;
+    final dexTxt = _dexCtrl.text.trim();
+final dexVal = dexTxt.isEmpty ? null : int.tryParse(dexTxt);
 
     if (t2 != null && t2.toLowerCase() == t1.toLowerCase()) {
       _toast('Primary and secondary types must be different.');
@@ -94,6 +98,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
       name: _nameCtrl.text.trim(),
       type: t1,
       type2: t2,
+      dex: dexVal,
     );
 
     Navigator.of(context).pop(p);
@@ -139,6 +144,11 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 },
               ),
               const SizedBox(height: 12),
+              TextFormField(
+                controller: _dexCtrl,
+                decoration: const InputDecoration(labelText: 'Dex Number (optional)'),
+                keyboardType: TextInputType.number,
+              ),
 
               // Secondary type (optional)
               TextFormField(
@@ -147,7 +157,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 validator: (_) => null, // distinctness is checked in _save()
               ),
 
-              // Local asset preview (non-cropping)
+              // Local asset preview
               const SizedBox(height: 12),
               FutureBuilder<Widget>(
                 future: _buildPreview(),

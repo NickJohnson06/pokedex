@@ -8,7 +8,7 @@ class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._();
 
   static const _dbName = 'pokedex.db';
-  static const _dbVersion = 4; // bumped version for type2 migration
+  static const _dbVersion = 5; // bumped version for dex entry
   static const _table = 'pokemon';
 
   Database? _db;
@@ -31,25 +31,29 @@ class DatabaseHelper {
   }
 
   FutureOr<void> _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE $_table (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL COLLATE NOCASE,
-        type TEXT NOT NULL,
-        type2 TEXT
-      )
-    ''');
-    await db.execute('CREATE UNIQUE INDEX idx_pokemon_name ON $_table(name);');
-  }
+  await db.execute('''
+    CREATE TABLE pokemon (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL COLLATE NOCASE,
+      type TEXT NOT NULL,
+      type2 TEXT,
+      dex INTEGER
+    )
+  ''');
+  await db.execute('CREATE UNIQUE INDEX idx_pokemon_name ON pokemon(name);');
+  await db.execute('CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_dex ON pokemon(dex);'); // allow nulls, unique when set
+}
 
-  FutureOr<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion < 2) {
-      await db.execute(
-          'CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_name ON $_table(name COLLATE NOCASE);');
-    }
-    if (oldVersion < 4) {
-      // add type2 column for dual typing
-      await db.execute('ALTER TABLE $_table ADD COLUMN type2 TEXT;');
-    }
+FutureOr<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+  if (oldVersion < 2) {
+    await db.execute('CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_name ON pokemon(name COLLATE NOCASE);');
   }
+  if (oldVersion < 4) {
+    await db.execute('ALTER TABLE pokemon ADD COLUMN type2 TEXT;');
+  }
+  if (oldVersion < 5) {
+    await db.execute('ALTER TABLE pokemon ADD COLUMN dex INTEGER;');
+    await db.execute('CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_dex ON pokemon(dex);');
+  }
+}
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
+import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class DetailScreen extends StatelessWidget {
         path,
         width: 200,
         height: 200,
-        fit: BoxFit.contain, // keep full sprite visible
+        fit: BoxFit.contain,
         filterQuality: FilterQuality.high,
         errorBuilder: (_, __, ___) =>
             CircleAvatar(radius: 64, child: Text(pokemon.name[0])),
@@ -40,10 +41,14 @@ class DetailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 4),
+              Text(
+                formatDex(pokemon.dex),
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
               const SizedBox(height: 8),
               DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
               const SizedBox(height: 24),
-              // room for more info later (stats, abilities, etc.)
             ],
           ),
         ),
