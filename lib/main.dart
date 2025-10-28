@@ -17,12 +17,12 @@ class PokedexApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             useMaterial3: true,
-            colorSchemeSeed: Colors.red,
+            colorSchemeSeed: const Color(0x1A5175),
             brightness: Brightness.light,
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
-            colorSchemeSeed: Colors.red,
+            colorSchemeSeed: const Color(0x1A5175),
             brightness: Brightness.dark,
           ),
           themeMode: mode, // ← react to toggle
