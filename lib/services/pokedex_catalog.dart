@@ -9,15 +9,21 @@ class PokedexEntry {
   final double? heightM;
   final double? weightKg;
 
-  PokedexEntry({required this.dex, required this.types, required this.baseStats, this.heightM, this.weightKg});
+  PokedexEntry({
+    required this.dex,
+    required this.types,
+    required this.baseStats,
+    this.heightM,
+    this.weightKg,
+  });
 
   factory PokedexEntry.fromMap(Map<String, dynamic> m) => PokedexEntry(
-    dex: m['dex'] as int,
-    types: (m['types'] as List).map((e) => (e as String).trim()).toList(),
-    baseStats: PokeStats.fromMap(m['base_stats'] as Map<String, dynamic>),
-    heightM: (m['height_m'] as num?)?.toDouble(),
-    weightKg: (m['weight_kg'] as num?)?.toDouble(),
-  );
+        dex: m['dex'] as int,
+        types: (m['types'] as List).map((e) => (e as String).trim()).toList(),
+        baseStats: PokeStats.fromMap(m['base_stats'] as Map<String, dynamic>),
+        heightM: (m['height_m'] as num?)?.toDouble(),
+        weightKg: (m['weight_kg'] as num?)?.toDouble(),
+      );
 }
 
 class PokedexCatalog {
@@ -52,6 +58,20 @@ class PokedexCatalog {
     return _byDex![dex];
   }
 
-  /// Returns National Dex for a given name (or null if unknown)
-  Future<int?> dexForName(String name) async => (await byName(name))?.dex;
+  Future<int?> dexForName(String name) async {
+    final e = await byName(name);
+    return e?.dex;
+  }
+
+  // Provide a sorted list of display names for Autocomplete.
+  Future<List<String>> allNames() async {
+    await _ensureLoaded();
+    final names = _byName!.keys.map((n) {
+      if (n.isEmpty) return n;
+      // Capitalize first letter for display
+      return n[0].toUpperCase() + n.substring(1);
+    }).toList();
+    names.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
+    return names;
+  }
 }
