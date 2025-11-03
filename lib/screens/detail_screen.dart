@@ -6,13 +6,15 @@ import '../widgets/dual_type_chip.dart';
 import '../widgets/stat_bar.dart';
 import '../services/pokedex_catalog.dart';
 import '../services/pokeapi_service.dart';
+import '../repo/pokemon_repository.dart';
 
 /// Internal shape to normalize data from either Catalog or PokeAPI.
 class _DetailData {
   final int? dex;
-  final List<String>? types; // Optional; you already show user's types via DualTypeChip.
+  final List<String>? types;
   final int? hp, atk, def, spa, spd, spe;
   final double? heightM, weightKg;
+  final String source; // 'catalog' or 'api'
 
   const _DetailData({
     required this.dex,
@@ -25,6 +27,7 @@ class _DetailData {
     this.spe,
     this.heightM,
     this.weightKg,
+    required this.source,
   });
 
   bool get hasStats =>
@@ -52,10 +55,11 @@ class DetailScreen extends StatelessWidget {
   }
 
   Future<_DetailData?> _loadDetailData() async {
-    // 1) Try local catalog first (fast, offline)
+    // 1) Try local catalog first (fast/offline)
     final catalog = PokedexCatalog.instance;
-    final entry =
-        pokemon.dex != null ? await catalog.byDex(pokemon.dex!) : await catalog.byName(pokemon.name);
+    final entry = pokemon.dex != null
+        ? await catalog.byDex(pokemon.dex!)
+        : await catalog.byName(pokemon.name);
 
     if (entry != null) {
       final s = entry.baseStats;
@@ -70,17 +74,37 @@ class DetailScreen extends StatelessWidget {
         spe: s.spe,
         heightM: entry.heightM,
         weightKg: entry.weightKg,
+        source: 'catalog',
       );
     }
 
-    // 2) Fallback to PokéAPI (online)
-    PokeApiEntry? api;
-    if (pokemon.dex != null) {
-      api = await PokeApiService.fetchByDex(pokemon.dex!);
-    }
-    api ??= await PokeApiService.fetchByName(pokemon.name);
+    // 2) Fallback to PokeAPI — IMPORTANT: prefer name first to avoid wrong-mon by dex
+    PokeApiEntry? api = await PokeApiService.fetchByName(pokemon.name);
+    api ??= (pokemon.dex != null) ? await PokeApiService.fetchByDex(pokemon.dex!) : null;
 
     if (api == null) return null;
+
+    // 2b) OPTIONAL: Correct stored dex if it differs (e.g., "Mew" saved as 146)
+    // This updates your DB so future loads are accurate.
+    if (pokemon.id != null && pokemon.dex != api.dex) {
+      try {
+        final repo = PokemonRepository();
+        final updated = Pokemon(
+          id: pokemon.id,
+          name: pokemon.name,
+          type: pokemon.type,
+          type2: pokemon.type2,
+          // set the correct dex from API
+          // (other fields unchanged)
+          // Note: your repo enforces unique dex, which is correct.
+          // If another entry mistakenly took that dex, you'll get a friendly error from repo.
+          dex: api.dex,
+        );
+        await repo.update(updated);
+      } catch (_) {
+        // Silent fail: we still show correct details from API even if DB update collides
+      }
+    }
 
     return _DetailData(
       dex: api.dex,
@@ -93,6 +117,7 @@ class DetailScreen extends StatelessWidget {
       spe: api.stats['spe'],
       heightM: api.heightM,
       weightKg: api.weightKg,
+      source: 'api',
     );
   }
 
@@ -114,6 +139,7 @@ class DetailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 4),
+              // Show whatever is currently stored; corrected dex will appear next time after DB update
               Text(
                 formatDex(pokemon.dex),
                 style: Theme.of(context).textTheme.labelLarge,
