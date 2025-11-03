@@ -2,6 +2,7 @@ import 'package:sqflite/sqflite.dart';
 import '../db/database_helper.dart';
 import '../models/pokemon.dart';
 import '../services/pokedex_catalog.dart';
+import '../services/pokeapi_service.dart';
 
 class PokemonRepository {
   final _table = 'pokemon';
@@ -11,12 +12,20 @@ class PokemonRepository {
     try {
       final data = p.toMap();
 
-      // 1) Try to infer dex from local catalog by name
+      // 1) Try local catalog (fast/offline)
       data['dex'] ??= await PokedexCatalog.instance.dexForName(p.name);
 
-      // 2) Fallback: auto-assign next available dex (MAX(dex) + 1)
-      data['dex'] ??= await _nextDex(db);
+      // 2) If still unknown, try PokeAPI (online)
+      if (data['dex'] == null) {
+        final api = await PokeApiService.fetchByName(p.name);
+        if (api != null) {
+          data['dex'] = api.dex;
+        }
+      }
 
+      // 3) If still null (offline or miss), save with dex = null (placeholder)
+      //    DO NOT auto-assign MAX(dex)+1 — that causes wrong numbers.
+      //    UI already shows '#—' for null dex via formatDex().
       return await db.insert(
         _table,
         data,
@@ -35,8 +44,12 @@ class PokemonRepository {
     try {
       final data = p.toMap();
 
-      // Keep existing dex; if it's missing, try to infer (then leave as null if still unknown)
+      // If caller didn't set dex, try to resolve it (catalog → API), but don't force
       data['dex'] ??= await PokedexCatalog.instance.dexForName(p.name);
+      if (data['dex'] == null) {
+        final api = await PokeApiService.fetchByName(p.name);
+        if (api != null) data['dex'] = api.dex;
+      }
 
       return await db.update(
         _table,
@@ -60,7 +73,7 @@ class PokemonRepository {
 
   Future<List<Pokemon>> getAll() async {
     final db = await DatabaseHelper.instance.database;
-    // Order: dex ascending; null dex at the end
+    // Sort: known dex first (ASC), then unknown (#—) at the end, then name
     final rows = await db.query(
       _table,
       orderBy:
@@ -91,11 +104,5 @@ class PokemonRepository {
     );
     if (rows.isEmpty) return null;
     return Pokemon.fromMap(rows.first);
-  }
-
-  Future<int?> _nextDex(Database db) async {
-    final res = await db.rawQuery('SELECT MAX(dex) AS m FROM $_table');
-    final max = (res.first['m'] as int?) ?? 0;
-    return max + 1;
   }
 }
