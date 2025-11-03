@@ -13,7 +13,6 @@ class AddEditScreen extends StatefulWidget {
 class _AddEditScreenState extends State<AddEditScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  // We still keep our own controllers for saving and autofill
   late final TextEditingController _nameCtrl;
   late final TextEditingController _type1Ctrl;
   late final TextEditingController _type2Ctrl;
@@ -21,7 +20,13 @@ class _AddEditScreenState extends State<AddEditScreen> {
   bool _type1Touched = false;
   bool _type2Touched = false;
   String? _lastAutofillName;
-  String? _autofillNote; // e.g., “Filled from catalog: Electric / Flying”
+  String? _autofillNote;
+
+  // cache the names so FutureBuilder doesn't restart on every setState
+  late final Future<List<String>> _namesFuture;
+
+  // only seed the Autocomplete field once
+  bool _seededNameIntoField = false;
 
   @override
   void initState() {
@@ -32,6 +37,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
 
     _type1Ctrl.addListener(() => _type1Touched = true);
     _type2Ctrl.addListener(() => _type2Touched = true);
+
+    _namesFuture = PokedexCatalog.instance.allNames(); // cache once
   }
 
   @override
@@ -45,7 +52,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
   Future<void> _maybeAutofillTypes(String rawName) async {
     final name = rawName.trim();
     if (name.isEmpty) {
-      setState(() => _autofillNote = null);
+      if (_autofillNote != null) setState(() => _autofillNote = null);
       return;
     }
     if (_lastAutofillName != null &&
@@ -55,7 +62,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
 
     final entry = await PokedexCatalog.instance.byName(name);
     if (entry == null) {
-      setState(() => _autofillNote = null);
+      if (_autofillNote != null) setState(() => _autofillNote = null);
       return;
     }
 
@@ -64,7 +71,6 @@ class _AddEditScreenState extends State<AddEditScreen> {
     final t2 = types.length > 1 ? types[1] : '';
 
     bool changed = false;
-
     if (!_type1Touched || (_type1Ctrl.text.trim().isEmpty)) {
       if (t1.isNotEmpty && _type1Ctrl.text != t1) {
         _type1Ctrl.text = t1;
@@ -73,24 +79,21 @@ class _AddEditScreenState extends State<AddEditScreen> {
     }
     if (!_type2Touched || (_type2Ctrl.text.trim().isEmpty)) {
       if (_type2Ctrl.text != t2) {
-        _type2Ctrl.text = t2; // empty allowed for mono-type
+        _type2Ctrl.text = t2; // may be empty for mono-type
         changed = true;
       }
     }
 
-    if (changed) {
+    if (changed || _autofillNote == null) {
       setState(() {
         _lastAutofillName = name;
-        _autofillNote = types.isNotEmpty
-            ? 'Filled from catalog: ${types.join(" / ")}'
-            : null;
+        _autofillNote = types.isNotEmpty ? 'Filled from catalog: ${types.join(" / ")}' : null;
       });
     }
   }
 
   void _save() {
     if (!_formKey.currentState!.validate()) return;
-
     final name = _nameCtrl.text.trim();
     final t1 = _type1Ctrl.text.trim();
     final t2 = _type2Ctrl.text.trim();
@@ -122,11 +125,10 @@ class _AddEditScreenState extends State<AddEditScreen> {
             children: [
               // Name with Autocomplete (typeahead)
               FutureBuilder<List<String>>(
-                future: PokedexCatalog.instance.allNames(),
+                future: _namesFuture, // cached
                 builder: (context, snap) {
                   final options = (snap.data ?? const <String>[]);
                   if (snap.connectionState != ConnectionState.done) {
-                    // Fallback simple field while loading options
                     return TextFormField(
                       controller: _nameCtrl,
                       decoration: const InputDecoration(
@@ -134,20 +136,17 @@ class _AddEditScreenState extends State<AddEditScreen> {
                         hintText: 'e.g., Pikachu, Zapdos',
                       ),
                       textCapitalization: TextCapitalization.words,
-                      onChanged: (v) {
-                        _maybeAutofillTypes(v);
-                      },
-                      validator: (v) =>
-                          (v == null || v.trim().isEmpty) ? 'Name required' : null,
+                      onChanged: _maybeAutofillTypes,
+                      validator: (v) => (v == null || v.trim().isEmpty)
+                          ? 'Name required'
+                          : null,
                     );
                   }
 
                   return Autocomplete<String>(
-                    initialValue: TextEditingValue(text: _nameCtrl.text),
                     optionsBuilder: (TextEditingValue tev) {
                       final q = tev.text.trim().toLowerCase();
                       if (q.isEmpty) return const Iterable<String>.empty();
-                      // Case-insensitive contains; limit for UX
                       return options
                           .where((name) => name.toLowerCase().contains(q))
                           .take(12);
@@ -155,6 +154,15 @@ class _AddEditScreenState extends State<AddEditScreen> {
                     displayStringForOption: (opt) => opt,
                     fieldViewBuilder:
                         (context, textCtrl, focusNode, onFieldSubmitted) {
+                      // Seed once (for edit mode), without touching again
+                      if (!_seededNameIntoField && _nameCtrl.text.isNotEmpty) {
+                        textCtrl.text = _nameCtrl.text;
+                        textCtrl.selection = TextSelection.fromPosition(
+                          TextPosition(offset: textCtrl.text.length),
+                        );
+                        _seededNameIntoField = true;
+                      }
+
                       return TextFormField(
                         controller: textCtrl,
                         focusNode: focusNode,
@@ -164,13 +172,14 @@ class _AddEditScreenState extends State<AddEditScreen> {
                         ),
                         textCapitalization: TextCapitalization.words,
                         onChanged: (v) {
-                          _nameCtrl.text = v;            // mirror only
-                          _nameCtrl.selection = textCtrl.selection;
-                          _maybeAutofillTypes(v);        // trigger autofill
+                          // Mirror into our controller only (no writes back to textCtrl)
+                          _nameCtrl.text = v;
+                          _maybeAutofillTypes(v);
                         },
                         onFieldSubmitted: (_) => onFieldSubmitted(),
-                        validator: (v) =>
-                            (v == null || v.trim().isEmpty) ? 'Name required' : null,
+                        validator: (v) => (v == null || v.trim().isEmpty)
+                            ? 'Name required'
+                            : null,
                       );
                     },
                     optionsViewBuilder: (context, onSelected, iterable) {
@@ -181,14 +190,15 @@ class _AddEditScreenState extends State<AddEditScreen> {
                           elevation: 4,
                           borderRadius: BorderRadius.circular(8),
                           child: ConstrainedBox(
-                            constraints:
-                                const BoxConstraints(maxHeight: 240, minWidth: 280),
+                            constraints: const BoxConstraints(
+                              maxHeight: 240,
+                              minWidth: 280,
+                            ),
                             child: ListView.separated(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
                               itemCount: results.length,
-                              separatorBuilder: (_, __) =>
-                                  const Divider(height: 0),
+                              separatorBuilder: (_, __) => const Divider(height: 0),
                               itemBuilder: (context, index) {
                                 final opt = results[index];
                                 return ListTile(
@@ -202,11 +212,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
                       );
                     },
                     onSelected: (String selected) {
-                      // Autocomplete will set its own field text automatically
+                      // Autocomplete updates its own field; we just mirror + autofill
                       _nameCtrl.text = selected;
-                      _nameCtrl.selection = TextSelection.fromPosition(
-                        TextPosition(offset: _nameCtrl.text.length),
-                      );
                       _maybeAutofillTypes(selected);
                     },
                   );
@@ -220,7 +227,6 @@ class _AddEditScreenState extends State<AddEditScreen> {
 
               const SizedBox(height: 16),
 
-              // Primary type
               TextFormField(
                 controller: _type1Ctrl,
                 decoration: const InputDecoration(labelText: 'Primary Type'),
@@ -229,7 +235,6 @@ class _AddEditScreenState extends State<AddEditScreen> {
               ),
               const SizedBox(height: 12),
 
-              // Secondary type (optional)
               TextFormField(
                 controller: _type2Ctrl,
                 decoration: const InputDecoration(
