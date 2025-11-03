@@ -5,6 +5,31 @@ import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
 import '../widgets/stat_bar.dart';
 import '../services/pokedex_catalog.dart';
+import '../services/pokeapi_service.dart';
+
+/// Internal shape to normalize data from either Catalog or PokeAPI.
+class _DetailData {
+  final int? dex;
+  final List<String>? types; // Optional; you already show user's types via DualTypeChip.
+  final int? hp, atk, def, spa, spd, spe;
+  final double? heightM, weightKg;
+
+  const _DetailData({
+    required this.dex,
+    this.types,
+    this.hp,
+    this.atk,
+    this.def,
+    this.spa,
+    this.spd,
+    this.spe,
+    this.heightM,
+    this.weightKg,
+  });
+
+  bool get hasStats =>
+      hp != null && atk != null && def != null && spa != null && spd != null && spe != null;
+}
 
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
@@ -26,12 +51,49 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
-  Future _loadCatalogEntry() async {
-    final c = PokedexCatalog.instance;
-    if (pokemon.dex != null) {
-      return await c.byDex(pokemon.dex!);
+  Future<_DetailData?> _loadDetailData() async {
+    // 1) Try local catalog first (fast, offline)
+    final catalog = PokedexCatalog.instance;
+    final entry =
+        pokemon.dex != null ? await catalog.byDex(pokemon.dex!) : await catalog.byName(pokemon.name);
+
+    if (entry != null) {
+      final s = entry.baseStats;
+      return _DetailData(
+        dex: entry.dex,
+        types: entry.types,
+        hp: s.hp,
+        atk: s.atk,
+        def: s.def,
+        spa: s.spa,
+        spd: s.spd,
+        spe: s.spe,
+        heightM: entry.heightM,
+        weightKg: entry.weightKg,
+      );
     }
-    return await c.byName(pokemon.name);
+
+    // 2) Fallback to PokéAPI (online)
+    PokeApiEntry? api;
+    if (pokemon.dex != null) {
+      api = await PokeApiService.fetchByDex(pokemon.dex!);
+    }
+    api ??= await PokeApiService.fetchByName(pokemon.name);
+
+    if (api == null) return null;
+
+    return _DetailData(
+      dex: api.dex,
+      types: api.types,
+      hp: api.stats['hp'],
+      atk: api.stats['atk'],
+      def: api.stats['def'],
+      spa: api.stats['spa'],
+      spd: api.stats['spd'],
+      spe: api.stats['spe'],
+      heightM: api.heightM,
+      weightKg: api.weightKg,
+    );
   }
 
   @override
@@ -58,49 +120,55 @@ class DetailScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
-              const SizedBox(height: 24),
 
-              // Base stats + size from catalog JSON (if available)
-              FutureBuilder(
-                future: _loadCatalogEntry(),
+              const SizedBox(height: 24),
+              FutureBuilder<_DetailData?>(
+                future: _loadDetailData(),
                 builder: (context, snap) {
                   if (snap.connectionState != ConnectionState.done) {
                     return const SizedBox(
-                      height: 80,
+                      height: 120,
                       child: Center(child: CircularProgressIndicator()),
                     );
                   }
-                  final entry = snap.data;
-                  if (entry == null) {
-                    return const Text('No stats available.');
+                  final data = snap.data;
+                  if (data == null) {
+                    return const Text('No additional details available.');
                   }
-                  final s = entry.baseStats;
+
+                  final statsSection = data.hasStats
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text('Base Stats',
+                                style: Theme.of(context).textTheme.titleMedium),
+                            const SizedBox(height: 8),
+                            StatBar(label: 'HP',  value: data.hp!),
+                            StatBar(label: 'ATK', value: data.atk!),
+                            StatBar(label: 'DEF', value: data.def!),
+                            StatBar(label: 'SpA', value: data.spa!),
+                            StatBar(label: 'SpD', value: data.spd!),
+                            StatBar(label: 'SPE', value: data.spe!),
+                          ],
+                        )
+                      : const SizedBox.shrink();
+
+                  final sizeLine = (data.heightM != null || data.weightKg != null)
+                      ? Text(
+                          [
+                            if (data.heightM != null) 'Height: ${data.heightM} m',
+                            if (data.weightKg != null) 'Weight: ${data.weightKg} kg',
+                          ].join('  •  '),
+                          textAlign: TextAlign.center,
+                        )
+                      : const SizedBox.shrink();
+
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text('Base Stats',
-                          style: Theme.of(context).textTheme.titleMedium),
-                      const SizedBox(height: 8),
-                      StatBar(label: 'HP',  value: s.hp),
-                      StatBar(label: 'ATK', value: s.atk),
-                      StatBar(label: 'DEF', value: s.def),
-                      StatBar(label: 'SpA', value: s.spa),
-                      StatBar(label: 'SpD', value: s.spd),
-                      StatBar(label: 'SPE', value: s.spe),
-                      const SizedBox(height: 12),
-                      // Size (if provided)
-                      Builder(builder: (_) {
-                        final hasHeight = entry.heightM != null;
-                        final hasWeight = entry.weightKg != null;
-                        if (!hasHeight && !hasWeight) return const SizedBox.shrink();
-                        return Text(
-                          [
-                            if (hasHeight) 'Height: ${entry.heightM} m',
-                            if (hasWeight) 'Weight: ${entry.weightKg} kg',
-                          ].join('  •  '),
-                          textAlign: TextAlign.center,
-                        );
-                      }),
+                      if (statsSection is! SizedBox) statsSection,
+                      if (statsSection is! SizedBox) const SizedBox(height: 12),
+                      sizeLine,
                     ],
                   );
                 },
