@@ -6,15 +6,16 @@ import '../widgets/dual_type_chip.dart';
 import '../widgets/stat_bar.dart';
 import '../services/pokedex_catalog.dart';
 import '../services/pokeapi_service.dart';
+import '../services/poke_cache.dart';
 import '../repo/pokemon_repository.dart';
 
-/// Internal shape to normalize data from either Catalog or PokeAPI.
+// Internal shape to normalize data from either Catalog, Cache, or PokeAPI.
 class _DetailData {
   final int? dex;
   final List<String>? types;
   final int? hp, atk, def, spa, spd, spe;
   final double? heightM, weightKg;
-  final String source; // 'catalog' or 'api'
+  final String source; // 'catalog' | 'cache' | 'api'
 
   const _DetailData({
     required this.dex,
@@ -66,8 +67,14 @@ class DetailScreen extends StatelessWidget {
       return _DetailData(
         dex: entry.dex,
         types: entry.types,
-        hp: s.hp, atk: s.atk, def: s.def, spa: s.spa, spd: s.spd, spe: s.spe,
-        heightM: entry.heightM, weightKg: entry.weightKg,
+        hp: s.hp,
+        atk: s.atk,
+        def: s.def,
+        spa: s.spa,
+        spd: s.spd,
+        spe: s.spe,
+        heightM: entry.heightM,
+        weightKg: entry.weightKg,
         source: 'catalog',
       );
     }
@@ -101,7 +108,7 @@ class DetailScreen extends StatelessWidget {
 
     if (api == null) return null;
 
-    // Correct stored dex if needed
+    // Correct stored dex if needed (e.g., Mew saved as 146)
     if (pokemon.id != null && pokemon.dex != api.dex) {
       try {
         final repo = PokemonRepository();
@@ -113,7 +120,9 @@ class DetailScreen extends StatelessWidget {
           dex: api.dex,
         );
         await repo.update(updated);
-      } catch (_) {}
+      } catch (_) {
+        // Ignore if update collides; we still display correct info
+      }
     }
 
     return _DetailData(
@@ -148,12 +157,6 @@ class DetailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 4),
-              // Show whatever is currently stored; corrected dex will appear next time after DB update
-              Text(
-                formatDex(pokemon.dex),
-                style: Theme.of(context).textTheme.labelLarge,
-              ),
               const SizedBox(height: 8),
               DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
 
@@ -171,6 +174,13 @@ class DetailScreen extends StatelessWidget {
                   if (data == null) {
                     return const Text('No additional details available.');
                   }
+
+                  // Show corrected dex immediately (from catalog/cache/api)
+                  final dexLine = Text(
+                    formatDex(data.dex),
+                    style: Theme.of(context).textTheme.labelLarge,
+                    textAlign: TextAlign.center,
+                  );
 
                   final statsSection = data.hasStats
                       ? Column(
@@ -202,6 +212,8 @@ class DetailScreen extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      dexLine,
+                      const SizedBox(height: 8),
                       if (statsSection is! SizedBox) statsSection,
                       if (statsSection is! SizedBox) const SizedBox(height: 12),
                       sizeLine,
