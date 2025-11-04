@@ -8,8 +8,8 @@ import '../services/pokedex_catalog.dart';
 import '../services/pokeapi_service.dart';
 import '../services/poke_cache.dart';
 import '../repo/pokemon_repository.dart';
+import '../utils/type_colors.dart';
 
-// Internal shape to normalize data from either Catalog, Cache, or PokeAPI.
 class _DetailData {
   final int? dex;
   final List<String>? types;
@@ -38,6 +38,11 @@ class _DetailData {
 class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
   const DetailScreen({super.key, required this.pokemon});
+
+  Color _primaryColor() => typeColor(pokemon.type);
+  Color _secondaryColor() => pokemon.type2 != null
+      ? typeColor(pokemon.type2!)
+      : typeColor(pokemon.type); // mono-type → same color
 
   Widget _avatar() {
     final path = assetPathFromName(pokemon.name);
@@ -118,6 +123,7 @@ class DetailScreen extends StatelessWidget {
           type: pokemon.type,
           type2: pokemon.type2,
           dex: api.dex,
+          favorite: pokemon.favorite, // preserve favorite
         );
         await repo.update(updated);
       } catch (_) {
@@ -142,86 +148,124 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final repo = PokemonRepository();
+
     return Scaffold(
-      appBar: AppBar(title: Text(pokemon.name)),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Hero(tag: 'poke-${pokemon.id}', child: _avatar()),
-              const SizedBox(height: 16),
-              Text(
-                pokemon.name,
-                style: Theme.of(context).textTheme.headlineSmall,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
-
-              const SizedBox(height: 24),
-              FutureBuilder<_DetailData?>(
-                future: _loadDetailData(),
-                builder: (context, snap) {
-                  if (snap.connectionState != ConnectionState.done) {
-                    return const SizedBox(
-                      height: 120,
-                      child: Center(child: CircularProgressIndicator()),
-                    );
-                  }
-                  final data = snap.data;
-                  if (data == null) {
-                    return const Text('No additional details available.');
-                  }
-
-                  // Show corrected dex immediately (from catalog/cache/api)
-                  final dexLine = Text(
-                    formatDex(data.dex),
-                    style: Theme.of(context).textTheme.labelLarge,
-                    textAlign: TextAlign.center,
-                  );
-
-                  final statsSection = data.hasStats
-                      ? Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text('Base Stats',
-                                style: Theme.of(context).textTheme.titleMedium),
-                            const SizedBox(height: 8),
-                            StatBar(label: 'HP',  value: data.hp!),
-                            StatBar(label: 'ATK', value: data.atk!),
-                            StatBar(label: 'DEF', value: data.def!),
-                            StatBar(label: 'SpA', value: data.spa!),
-                            StatBar(label: 'SpD', value: data.spd!),
-                            StatBar(label: 'SPE', value: data.spe!),
-                          ],
-                        )
-                      : const SizedBox.shrink();
-
-                  final sizeLine = (data.heightM != null || data.weightKg != null)
-                      ? Text(
-                          [
-                            if (data.heightM != null) 'Height: ${data.heightM} m',
-                            if (data.weightKg != null) 'Weight: ${data.weightKg} kg',
-                          ].join('  •  '),
-                          textAlign: TextAlign.center,
-                        )
-                      : const SizedBox.shrink();
-
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      dexLine,
-                      const SizedBox(height: 8),
-                      if (statsSection is! SizedBox) statsSection,
-                      if (statsSection is! SizedBox) const SizedBox(height: 12),
-                      sizeLine,
-                    ],
-                  );
+      appBar: AppBar(
+        title: Text(pokemon.name),
+        actions: [
+          // Favorite toggle without converting the whole screen to StatefulWidget
+          StatefulBuilder(
+            builder: (context, setFav) {
+              bool fav = pokemon.favorite;
+              return IconButton(
+                tooltip: fav ? 'Unfavorite' : 'Favorite',
+                icon: Icon(fav ? Icons.star : Icons.star_border),
+                color: fav ? Colors.amber : null,
+                onPressed: () async {
+                  if (pokemon.id == null) return;
+                  fav = !fav;
+                  await repo.setFavorite(pokemon.id!, fav);
+                  // reflect immediately in the AppBar
+                  setFav(() {});
                 },
-              ),
+              );
+            },
+          ),
+        ],
+      ),
+      body: AnimatedContainer(
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeInOut,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              _primaryColor().withOpacity(0.10),
+              _secondaryColor().withOpacity(0.04),
             ],
+          ),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Hero(tag: 'poke-${pokemon.id}', child: _avatar()),
+                const SizedBox(height: 16),
+                Text(
+                  pokemon.name,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
+
+                const SizedBox(height: 24),
+                FutureBuilder<_DetailData?>(
+                  future: _loadDetailData(),
+                  builder: (context, snap) {
+                    if (snap.connectionState != ConnectionState.done) {
+                      return const SizedBox(
+                        height: 120,
+                        child: Center(child: CircularProgressIndicator()),
+                      );
+                    }
+                    final data = snap.data;
+                    if (data == null) {
+                      return const Text('No additional details available.');
+                    }
+
+                    // Show corrected dex immediately (from catalog/cache/api)
+                    final dexLine = Text(
+                      formatDex(data.dex),
+                      style: Theme.of(context).textTheme.labelLarge,
+                      textAlign: TextAlign.center,
+                    );
+
+                    final statsSection = data.hasStats
+                        ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text('Base Stats',
+                                  style: Theme.of(context).textTheme.titleMedium),
+                              const SizedBox(height: 8),
+                              StatBar(label: 'HP',  value: data.hp!),
+                              StatBar(label: 'ATK', value: data.atk!),
+                              StatBar(label: 'DEF', value: data.def!),
+                              StatBar(label: 'SpA', value: data.spa!),
+                              StatBar(label: 'SpD', value: data.spd!),
+                              StatBar(label: 'SPE', value: data.spe!),
+                            ],
+                          )
+                        : const SizedBox.shrink();
+
+                    final sizeLine = (data.heightM != null || data.weightKg != null)
+                        ? Text(
+                            [
+                              if (data.heightM != null) 'Height: ${data.heightM} m',
+                              if (data.weightKg != null) 'Weight: ${data.weightKg} kg',
+                            ].join('  •  '),
+                            textAlign: TextAlign.center,
+                          )
+                        : const SizedBox.shrink();
+
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        dexLine,
+                        const SizedBox(height: 8),
+                        if (statsSection is! SizedBox) statsSection,
+                        if (statsSection is! SizedBox) const SizedBox(height: 12),
+                        sizeLine,
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

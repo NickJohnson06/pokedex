@@ -18,14 +18,10 @@ class PokemonRepository {
       // 2) If still unknown, try PokeAPI (online)
       if (data['dex'] == null) {
         final api = await PokeApiService.fetchByName(p.name);
-        if (api != null) {
-          data['dex'] = api.dex;
-        }
+        if (api != null) data['dex'] = api.dex;
       }
 
       // 3) If still null (offline or miss), save with dex = null (placeholder)
-      //    DO NOT auto-assign MAX(dex)+1 — that causes wrong numbers.
-      //    UI already shows '#—' for null dex via formatDex().
       return await db.insert(
         _table,
         data,
@@ -44,7 +40,7 @@ class PokemonRepository {
     try {
       final data = p.toMap();
 
-      // If caller didn't set dex, try to resolve it (catalog → API), but don't force
+      // Resolve dex if still missing (catalog → API)
       data['dex'] ??= await PokedexCatalog.instance.dexForName(p.name);
       if (data['dex'] == null) {
         final api = await PokeApiService.fetchByName(p.name);
@@ -71,15 +67,16 @@ class PokemonRepository {
     return await db.delete(_table, where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<List<Pokemon>> getAll() async {
+  /// Get all Pokémon, optionally filtering only favorites.
+  Future<List<Pokemon>> getAll({bool onlyFavorites = false}) async {
     final db = await DatabaseHelper.instance.database;
-    // Sort: known dex first (ASC), then unknown (#—) at the end, then name
     final rows = await db.query(
       _table,
+      where: onlyFavorites ? 'favorite = 1' : null,
       orderBy:
           'CASE WHEN dex IS NULL THEN 1 ELSE 0 END, dex ASC, name COLLATE NOCASE ASC',
     );
-    return rows.map((m) => Pokemon.fromMap(m)).toList();
+    return rows.map(Pokemon.fromMap).toList();
   }
 
   Future<Pokemon?> findByName(String name) async {
@@ -104,5 +101,16 @@ class PokemonRepository {
     );
     if (rows.isEmpty) return null;
     return Pokemon.fromMap(rows.first);
+  }
+
+  /// Toggle/set favorite flag.
+  Future<void> setFavorite(int id, bool favorite) async {
+    final db = await DatabaseHelper.instance.database;
+    await db.update(
+      _table,
+      {'favorite': favorite ? 1 : 0},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 }

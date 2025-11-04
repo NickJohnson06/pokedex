@@ -21,6 +21,7 @@ class _ListScreenState extends State<ListScreen> {
   String _query = '';
   bool _loading = true;
   bool _grid = false;
+  bool _onlyFavorites = false;
 
   @override
   void initState() {
@@ -31,7 +32,7 @@ class _ListScreenState extends State<ListScreen> {
   Future<void> _load() async {
     setState(() => _loading = true);
     try {
-      final rows = await _repo.getAll();
+      final rows = await _repo.getAll(onlyFavorites: _onlyFavorites);
       setState(() {
         _items = rows;
         _loading = false;
@@ -110,6 +111,18 @@ class _ListScreenState extends State<ListScreen> {
     }
   }
 
+  Future<void> _toggleFavorite(Pokemon p) async {
+    if (p.id == null) return;
+    await _repo.setFavorite(p.id!, !p.favorite);
+    await _load();
+  }
+
+  // NEW: toggle favorites-only filter
+  Future<void> _toggleFavoritesFilter() async {
+    setState(() => _onlyFavorites = !_onlyFavorites);
+    await _load();
+  }
+
   Widget _leadingThumb(Pokemon p) {
     final path = assetPathFromName(p.name);
     return Hero(
@@ -149,6 +162,12 @@ class _ListScreenState extends State<ListScreen> {
       appBar: AppBar(
         title: const Text('Your Personal Pokedex'),
         actions: [
+          // Favorites filter toggle
+          IconButton(
+            tooltip: _onlyFavorites ? 'Show all' : 'Show favorites',
+            icon: Icon(_onlyFavorites ? Icons.star : Icons.star_border),
+            onPressed: _toggleFavoritesFilter,
+          ),
           // Theme toggle
           ValueListenableBuilder<ThemeMode>(
             valueListenable: ThemeController.themeMode,
@@ -235,13 +254,19 @@ class _ListScreenState extends State<ListScreen> {
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               subtitle: DualTypeChip(type1: p.type, type2: p.type2),
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)),
-              ),
+              onTap: () => Navigator
+                  .push(context, MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)))
+                  .then((_) => _load()),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // NEW: star toggle
+                  IconButton(
+                    tooltip: p.favorite ? 'Unfavorite' : 'Favorite',
+                    icon: Icon(p.favorite ? Icons.star : Icons.star_border),
+                    color: p.favorite ? Colors.amber : null,
+                    onPressed: () => _toggleFavorite(p),
+                  ),
                   IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
                   IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
                 ],
@@ -272,8 +297,9 @@ class _ListScreenState extends State<ListScreen> {
           final p = data[i];
           final path = assetPathFromName(p.name);
           return GestureDetector(
-            onTap: () => Navigator.push(
-              context, MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p))),
+            onTap: () => Navigator
+                .push(context, MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)))
+                .then((_) => _load()),
             child: Card(
               elevation: 1,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -296,7 +322,6 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    // #dex (scales down)
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
@@ -307,7 +332,6 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 2),
-                    // Name (scales down)
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
@@ -320,12 +344,22 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    // Chip (scales down)
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: DualTypeChip(type1: p.type, type2: p.type2),
                       ),
+                    ),
+                    const SizedBox(height: 6),
+                    // NEW: tiny star button for grid
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                      iconSize: 20,
+                      tooltip: p.favorite ? 'Unfavorite' : 'Favorite',
+                      icon: Icon(p.favorite ? Icons.star : Icons.star_border),
+                      color: p.favorite ? Colors.amber : null,
+                      onPressed: () => _toggleFavorite(p),
                     ),
                   ],
                 ),
