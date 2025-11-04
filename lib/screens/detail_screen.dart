@@ -55,7 +55,7 @@ class DetailScreen extends StatelessWidget {
   }
 
   Future<_DetailData?> _loadDetailData() async {
-    // 1) Try local catalog first (fast/offline)
+    // 1) Local catalog first (fast/offline)
     final catalog = PokedexCatalog.instance;
     final entry = pokemon.dex != null
         ? await catalog.byDex(pokemon.dex!)
@@ -66,26 +66,42 @@ class DetailScreen extends StatelessWidget {
       return _DetailData(
         dex: entry.dex,
         types: entry.types,
-        hp: s.hp,
-        atk: s.atk,
-        def: s.def,
-        spa: s.spa,
-        spd: s.spd,
-        spe: s.spe,
-        heightM: entry.heightM,
-        weightKg: entry.weightKg,
+        hp: s.hp, atk: s.atk, def: s.def, spa: s.spa, spd: s.spd, spe: s.spe,
+        heightM: entry.heightM, weightKg: entry.weightKg,
         source: 'catalog',
       );
     }
 
-    // 2) Fallback to PokeAPI — IMPORTANT: prefer name first to avoid wrong-mon by dex
-    PokeApiEntry? api = await PokeApiService.fetchByName(pokemon.name);
-    api ??= (pokemon.dex != null) ? await PokeApiService.fetchByDex(pokemon.dex!) : null;
+    // 2) Cache by known dex
+    if (pokemon.dex != null) {
+      final cachedMap = await PokeCache.getByDex(pokemon.dex!);
+      if (cachedMap != null) {
+        final api = PokeApiEntry.fromJson(cachedMap);
+        return _DetailData(
+          dex: api.dex,
+          types: api.types,
+          hp: api.stats['hp'],
+          atk: api.stats['atk'],
+          def: api.stats['def'],
+          spa: api.stats['spa'],
+          spd: api.stats['spd'],
+          spe: api.stats['spe'],
+          heightM: api.heightM,
+          weightKg: api.weightKg,
+          source: 'cache',
+        );
+      }
+    }
+
+    // 3) Network fallback — prefer name to avoid wrong-mon by fallback dex
+    PokeApiEntry? api = await PokeApiService.fetchByName(pokemon.name, ttlMs: 0);
+    api ??= (pokemon.dex != null)
+        ? await PokeApiService.fetchByDex(pokemon.dex!, ttlMs: 0)
+        : null;
 
     if (api == null) return null;
 
-    // 2b) OPTIONAL: Correct stored dex if it differs (e.g., "Mew" saved as 146)
-    // This updates your DB so future loads are accurate.
+    // Correct stored dex if needed
     if (pokemon.id != null && pokemon.dex != api.dex) {
       try {
         final repo = PokemonRepository();
@@ -94,16 +110,10 @@ class DetailScreen extends StatelessWidget {
           name: pokemon.name,
           type: pokemon.type,
           type2: pokemon.type2,
-          // set the correct dex from API
-          // (other fields unchanged)
-          // Note: your repo enforces unique dex, which is correct.
-          // If another entry mistakenly took that dex, you'll get a friendly error from repo.
           dex: api.dex,
         );
         await repo.update(updated);
-      } catch (_) {
-        // Silent fail: we still show correct details from API even if DB update collides
-      }
+      } catch (_) {}
     }
 
     return _DetailData(
