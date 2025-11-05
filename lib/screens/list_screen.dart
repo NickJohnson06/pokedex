@@ -5,6 +5,7 @@ import '../utils/poke_assets.dart';
 import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
 import '../theme/theme_controller.dart';
+import '../utils/type_theme.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
 
@@ -21,6 +22,8 @@ class _ListScreenState extends State<ListScreen> {
   String _query = '';
   bool _loading = true;
   bool _grid = false;
+
+  // Favorites filter
   bool _onlyFavorites = false;
 
   @override
@@ -117,7 +120,6 @@ class _ListScreenState extends State<ListScreen> {
     await _load();
   }
 
-  // NEW: toggle favorites-only filter
   Future<void> _toggleFavoritesFilter() async {
     setState(() => _onlyFavorites = !_onlyFavorites);
     await _load();
@@ -242,10 +244,15 @@ class _ListScreenState extends State<ListScreen> {
         separatorBuilder: (_, __) => const Divider(height: 0),
         itemBuilder: (context, i) {
           final p = data[i];
-          return Card(
+          final ttheme = typeThemeFrom(p.type, p.type2);
+
+          return Container(
             margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            elevation: 1.5,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            decoration: BoxDecoration(
+              gradient: ttheme.surfaceGradient,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: ttheme.border),
+            ),
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               leading: _leadingThumb(p),
@@ -260,7 +267,6 @@ class _ListScreenState extends State<ListScreen> {
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // NEW: star toggle
                   IconButton(
                     tooltip: p.favorite ? 'Unfavorite' : 'Favorite',
                     icon: Icon(p.favorite ? Icons.star : Icons.star_border),
@@ -290,19 +296,24 @@ class _ListScreenState extends State<ListScreen> {
           crossAxisCount: 3,
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
-          childAspectRatio: 0.70, // taller cells (fix overflow)
+          childAspectRatio: 0.70, // taller cells
         ),
         itemCount: data.length,
         itemBuilder: (_, i) {
           final p = data[i];
           final path = assetPathFromName(p.name);
+          final ttheme = typeThemeFrom(p.type, p.type2);
+
           return GestureDetector(
             onTap: () => Navigator
                 .push(context, MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)))
                 .then((_) => _load()),
-            child: Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: ttheme.surfaceGradient,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: ttheme.border),
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
                 child: Column(
@@ -351,7 +362,6 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    // NEW: tiny star button for grid
                     IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),

@@ -10,7 +10,7 @@ final Map<String, Color> _map = {
   'fighting': Colors.deepOrange,
   'poison': Colors.purpleAccent,
   'ground': Colors.brown,
-  'flying': Colors.teal,
+  'flying': const Color(0xFF91B0FE),
   'psychic': Colors.pinkAccent,
   'bug': Colors.lightGreen,
   'rock': Colors.brown,

@@ -9,6 +9,7 @@ import '../services/pokeapi_service.dart';
 import '../services/poke_cache.dart';
 import '../repo/pokemon_repository.dart';
 import '../utils/type_colors.dart';
+import '../utils/type_theme.dart';
 
 class _DetailData {
   final int? dex;
@@ -178,14 +179,7 @@ class DetailScreen extends StatelessWidget {
         duration: const Duration(milliseconds: 350),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              _primaryColor().withOpacity(0.10),
-              _secondaryColor().withOpacity(0.04),
-            ],
-          ),
+          gradient: typeThemeFrom(pokemon.type, pokemon.type2).surfaceGradient,
         ),
         child: Center(
           child: SingleChildScrollView(
