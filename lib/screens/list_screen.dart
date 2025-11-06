@@ -71,27 +71,6 @@ class _ListScreenState extends State<ListScreen> {
     }
   }
 
-  Future<void> _edit(Pokemon p) async {
-    final updated = await Navigator.push<Pokemon>(
-      context,
-      MaterialPageRoute(builder: (_) => AddEditScreen(existing: p)),
-    );
-    if (updated != null) {
-      try {
-        final clash = await _repo.findByName(updated.name);
-        if (clash != null && clash.id != p.id) {
-          _toast('Another Pokémon named ${updated.name} already exists.');
-          return;
-        }
-        await _repo.update(updated..id = p.id);
-        await _load();
-        _toast('Evolved to ${updated.name}');
-      } catch (e) {
-        _toast('Failed to update: $e');
-      }
-    }
-  }
-
   Future<void> _delete(Pokemon p) async {
     final ok = await showDialog<bool>(
       context: context,
@@ -284,14 +263,25 @@ class _ListScreenState extends State<ListScreen> {
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // Info instead of Edit
+                  IconButton(
+                    tooltip: 'View details',
+                    icon: const Icon(Icons.info_outline),
+                    onPressed: () => Navigator
+                        .push(context, MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p)))
+                        .then((_) => _load()),
+                  ),
                   IconButton(
                     tooltip: p.favorite ? 'Unfavorite' : 'Favorite',
                     icon: Icon(p.favorite ? Icons.star : Icons.star_border),
                     color: p.favorite ? Colors.amber : null,
                     onPressed: () => _toggleFavorite(p),
                   ),
-                  IconButton(icon: const Icon(Icons.edit), onPressed: () => _edit(p)),
-                  IconButton(icon: const Icon(Icons.delete), onPressed: () => _delete(p)),
+                  IconButton(
+                    tooltip: 'Release',
+                    icon: const Icon(Icons.delete),
+                    onPressed: () => _delete(p),
+                  ),
                 ],
               ),
             ),
@@ -385,6 +375,7 @@ class _ListScreenState extends State<ListScreen> {
                       ),
                     ),
                     const SizedBox(height: 6),
+                    // Keep tiny favorite for grid
                     IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
