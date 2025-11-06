@@ -4,13 +4,14 @@ import '../utils/poke_assets.dart';
 import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
 import '../widgets/stat_bar.dart';
+import '../widgets/hero_text.dart';
 import '../services/pokedex_catalog.dart';
 import '../services/pokeapi_service.dart';
 import '../services/poke_cache.dart';
 import '../repo/pokemon_repository.dart';
-import '../utils/type_colors.dart';
 import '../utils/type_theme.dart';
 
+// Internal shape to normalize data from either Catalog, Cache, or PokeAPI.
 class _DetailData {
   final int? dex;
   final List<String>? types;
@@ -40,23 +41,21 @@ class DetailScreen extends StatelessWidget {
   final Pokemon pokemon;
   const DetailScreen({super.key, required this.pokemon});
 
-  Color _primaryColor() => typeColor(pokemon.type);
-  Color _secondaryColor() => pokemon.type2 != null
-      ? typeColor(pokemon.type2!)
-      : typeColor(pokemon.type); // mono-type → same color
-
   Widget _avatar() {
     final path = assetPathFromName(pokemon.name);
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(64),
-      child: Image.asset(
-        path,
-        width: 200,
-        height: 200,
-        fit: BoxFit.contain,
-        filterQuality: FilterQuality.high,
-        errorBuilder: (_, __, ___) =>
-            CircleAvatar(radius: 64, child: Text(pokemon.name[0])),
+    return Hero(
+      tag: 'poke-${pokemon.id}',
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(64),
+        child: Image.asset(
+          path,
+          width: 200,
+          height: 200,
+          fit: BoxFit.contain,
+          filterQuality: FilterQuality.high,
+          errorBuilder: (_, __, ___) =>
+              CircleAvatar(radius: 64, child: Text(pokemon.name[0])),
+        ),
       ),
     );
   }
@@ -124,7 +123,7 @@ class DetailScreen extends StatelessWidget {
           type: pokemon.type,
           type2: pokemon.type2,
           dex: api.dex,
-          favorite: pokemon.favorite, // preserve favorite
+          favorite: pokemon.favorite, // preserve favorite flag
         );
         await repo.update(updated);
       } catch (_) {
@@ -153,9 +152,12 @@ class DetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(pokemon.name),
+        title: HeroText( // animate name across routes
+          tag: 'name-${pokemon.id}',
+          child: Text(pokemon.name),
+        ),
         actions: [
-          // Favorite toggle without converting the whole screen to StatefulWidget
+          // ⭐ Favorite toggle without converting the whole screen to StatefulWidget
           StatefulBuilder(
             builder: (context, setFav) {
               bool fav = pokemon.favorite;
@@ -167,7 +169,6 @@ class DetailScreen extends StatelessWidget {
                   if (pokemon.id == null) return;
                   fav = !fav;
                   await repo.setFavorite(pokemon.id!, fav);
-                  // reflect immediately in the AppBar
                   setFav(() {});
                 },
               );
@@ -187,12 +188,15 @@ class DetailScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Hero(tag: 'poke-${pokemon.id}', child: _avatar()),
+                _avatar(),
                 const SizedBox(height: 16),
-                Text(
-                  pokemon.name,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                  textAlign: TextAlign.center,
+                HeroText( // animate name in page body too
+                  tag: 'name-${pokemon.id}',
+                  child: Text(
+                    pokemon.name,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
@@ -212,11 +216,14 @@ class DetailScreen extends StatelessWidget {
                       return const Text('No additional details available.');
                     }
 
-                    // Show corrected dex immediately (from catalog/cache/api)
-                    final dexLine = Text(
-                      formatDex(data.dex),
-                      style: Theme.of(context).textTheme.labelLarge,
-                      textAlign: TextAlign.center,
+                    // ✅ Show corrected dex immediately, with Hero transition
+                    final dexLine = HeroText(
+                      tag: 'dex-${pokemon.id}',
+                      child: Text(
+                        formatDex(data.dex),
+                        style: Theme.of(context).textTheme.labelLarge,
+                        textAlign: TextAlign.center,
+                      ),
                     );
 
                     final statsSection = data.hasStats

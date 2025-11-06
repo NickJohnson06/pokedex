@@ -6,6 +6,7 @@ import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
 import '../theme/theme_controller.dart';
 import '../utils/type_theme.dart';
+import '../widgets/hero_text.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
 
@@ -256,9 +257,25 @@ class _ListScreenState extends State<ListScreen> {
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               leading: _leadingThumb(p),
-              title: Text(
-                '${formatDex(p.dex)}  ${p.name}',
-                style: const TextStyle(fontWeight: FontWeight.w600),
+              title: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  HeroText(
+                    tag: 'dex-${p.id}',
+                    child: Text(
+                      formatDex(p.dex),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  HeroText(
+                    tag: 'name-${p.id}',
+                    child: Text(
+                      p.name,
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
               ),
               subtitle: DualTypeChip(type1: p.type, type2: p.type2),
               onTap: () => Navigator
@@ -336,9 +353,12 @@ class _ListScreenState extends State<ListScreen> {
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
-                        child: Text(
-                          formatDex(p.dex),
-                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        child: HeroText(
+                          tag: 'dex-${p.id}',
+                          child: Text(
+                            formatDex(p.dex),
+                            style: const TextStyle(fontWeight: FontWeight.w600),
+                          ),
                         ),
                       ),
                     ),
@@ -346,11 +366,14 @@ class _ListScreenState extends State<ListScreen> {
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
-                        child: Text(
-                          p.name,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        child: HeroText(
+                          tag: 'name-${p.id}',
+                          child: Text(
+                            p.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(fontWeight: FontWeight.w600),
+                          ),
                         ),
                       ),
                     ),
