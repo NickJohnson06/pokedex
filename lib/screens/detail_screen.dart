@@ -149,6 +149,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final repo = PokemonRepository();
+    final favVN = ValueNotifier<bool>(pokemon.favorite);
 
     return Scaffold(
       appBar: AppBar(
@@ -157,19 +158,18 @@ class DetailScreen extends StatelessWidget {
           child: Text(pokemon.name),
         ),
         actions: [
-          // ⭐ Favorite toggle without converting the whole screen to StatefulWidget
-          StatefulBuilder(
-            builder: (context, setFav) {
-              bool fav = pokemon.favorite;
+          ValueListenableBuilder<bool>(
+            valueListenable: favVN,
+            builder: (context, fav, _) {
               return IconButton(
                 tooltip: fav ? 'Unfavorite' : 'Favorite',
                 icon: Icon(fav ? Icons.star : Icons.star_border),
                 color: fav ? Colors.amber : null,
                 onPressed: () async {
                   if (pokemon.id == null) return;
-                  fav = !fav;
-                  await repo.setFavorite(pokemon.id!, fav);
-                  setFav(() {});
+                  final newVal = !fav;
+                  await repo.setFavorite(pokemon.id!, newVal);
+                  favVN.value = newVal; // update UI immediately
                 },
               );
             },
