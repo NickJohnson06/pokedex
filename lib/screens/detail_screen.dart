@@ -3,8 +3,8 @@ import '../models/pokemon.dart';
 import '../utils/poke_assets.dart';
 import '../utils/dex_format.dart';
 import '../widgets/dual_type_chip.dart';
-import '../widgets/stat_bar.dart';
 import '../widgets/hero_text.dart';
+import '../widgets/stat_view_container.dart';
 import '../services/pokedex_catalog.dart';
 import '../services/pokeapi_service.dart';
 import '../services/poke_cache.dart';
@@ -61,7 +61,7 @@ class DetailScreen extends StatelessWidget {
   }
 
   Future<_DetailData?> _loadDetailData() async {
-    // 1) Local catalog first (fast/offline)
+    // 1. Check local catalog
     final catalog = PokedexCatalog.instance;
     final entry = pokemon.dex != null
         ? await catalog.byDex(pokemon.dex!)
@@ -84,7 +84,7 @@ class DetailScreen extends StatelessWidget {
       );
     }
 
-    // 2) Cache by known dex
+    // 2. Check cache
     if (pokemon.dex != null) {
       final cachedMap = await PokeCache.getByDex(pokemon.dex!);
       if (cachedMap != null) {
@@ -105,7 +105,7 @@ class DetailScreen extends StatelessWidget {
       }
     }
 
-    // 3) Network fallback — prefer name to avoid wrong-mon by fallback dex
+    // 3. Network fallback
     PokeApiEntry? api = await PokeApiService.fetchByName(pokemon.name, ttlMs: 0);
     api ??= (pokemon.dex != null)
         ? await PokeApiService.fetchByDex(pokemon.dex!, ttlMs: 0)
@@ -113,7 +113,7 @@ class DetailScreen extends StatelessWidget {
 
     if (api == null) return null;
 
-    // Correct stored dex if needed (e.g., Mew saved as 146)
+    // Update stored dex if mismatched
     if (pokemon.id != null && pokemon.dex != api.dex) {
       try {
         final repo = PokemonRepository();
@@ -123,7 +123,7 @@ class DetailScreen extends StatelessWidget {
           type: pokemon.type,
           type2: pokemon.type2,
           dex: api.dex,
-          favorite: pokemon.favorite, // preserve favorite flag
+          favorite: pokemon.favorite,
         );
         await repo.update(updated);
       } catch (_) {
@@ -152,11 +152,11 @@ class DetailScreen extends StatelessWidget {
     final favVN = ValueNotifier<bool>(pokemon.favorite);
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: HeroText( // animate name across routes
-          tag: 'name-${pokemon.id}',
-          child: Text(pokemon.name),
-        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(pokemon.name),
         actions: [
           ValueListenableBuilder<bool>(
             valueListenable: favVN,
@@ -177,6 +177,7 @@ class DetailScreen extends StatelessWidget {
         ],
       ),
       body: AnimatedContainer(
+        padding: const EdgeInsets.only(top: kToolbarHeight + 24), // Add padding for status bar/app bar
         duration: const Duration(milliseconds: 350),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
@@ -227,19 +228,14 @@ class DetailScreen extends StatelessWidget {
                     );
 
                     final statsSection = data.hasStats
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text('Base Stats',
-                                  style: Theme.of(context).textTheme.titleMedium),
-                              const SizedBox(height: 8),
-                              StatBar(label: 'HP',  value: data.hp!),
-                              StatBar(label: 'ATK', value: data.atk!),
-                              StatBar(label: 'DEF', value: data.def!),
-                              StatBar(label: 'SpA', value: data.spa!),
-                              StatBar(label: 'SpD', value: data.spd!),
-                              StatBar(label: 'SPE', value: data.spe!),
-                            ],
+                        ? StatViewContainer(
+                            hp: data.hp!,
+                            atk: data.atk!,
+                            def: data.def!,
+                            spa: data.spa!,
+                            spd: data.spd!,
+                            spe: data.spe!,
+                            themeColor: typeThemeFrom(pokemon.type, pokemon.type2).primary,
                           )
                         : const SizedBox.shrink();
 

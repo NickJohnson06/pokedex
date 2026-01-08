@@ -11,7 +11,7 @@ class HeroText extends StatelessWidget {
     return Hero(
       tag: tag,
       transitionOnUserGestures: true,
-      // Wrap in Material so text animates cleanly without layout jank.
+      // Material wrapper prevents text layout jank during flight
       flightShuttleBuilder: (flightContext, animation, flightDirection, fromCtx, toCtx) {
         final toHero = toCtx.widget as Hero;
         return FadeTransition(

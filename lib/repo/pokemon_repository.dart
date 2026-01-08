@@ -12,16 +12,16 @@ class PokemonRepository {
     try {
       final data = p.toMap();
 
-      // 1) Try local catalog (fast/offline)
+      // 1. Try local catalog
       data['dex'] ??= await PokedexCatalog.instance.dexForName(p.name);
 
-      // 2) If still unknown, try PokeAPI (online)
+      // 2. Try PokeAPI
       if (data['dex'] == null) {
         final api = await PokeApiService.fetchByName(p.name);
         if (api != null) data['dex'] = api.dex;
       }
 
-      // 3) If still null (offline or miss), save with dex = null (placeholder)
+      // 3. Save (dex may be null)
       return await db.insert(
         _table,
         data,
@@ -40,7 +40,7 @@ class PokemonRepository {
     try {
       final data = p.toMap();
 
-      // Resolve dex if still missing (catalog → API)
+      // Resolve dex if missing
       data['dex'] ??= await PokedexCatalog.instance.dexForName(p.name);
       if (data['dex'] == null) {
         final api = await PokeApiService.fetchByName(p.name);
