@@ -57,12 +57,12 @@ class _StatViewContainerState extends State<StatViewContainer> with SingleTicker
               : Column(
                   key: const ValueKey('bars'),
                   children: [
-                    StatBar(label: 'HP',  value: widget.hp),
-                    StatBar(label: 'ATK', value: widget.atk),
-                    StatBar(label: 'DEF', value: widget.def),
-                    StatBar(label: 'SpA', value: widget.spa),
-                    StatBar(label: 'SpD', value: widget.spd),
-                    StatBar(label: 'SPE', value: widget.spe),
+                    StatBar(label: 'HP',  value: widget.hp,  color: widget.themeColor),
+                    StatBar(label: 'ATK', value: widget.atk, color: widget.themeColor),
+                    StatBar(label: 'DEF', value: widget.def, color: widget.themeColor),
+                    StatBar(label: 'SpA', value: widget.spa, color: widget.themeColor),
+                    StatBar(label: 'SpD', value: widget.spd, color: widget.themeColor),
+                    StatBar(label: 'SPE', value: widget.spe, color: widget.themeColor),
                   ],
                 ),
         ),

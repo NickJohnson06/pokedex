@@ -4,8 +4,15 @@ class StatBar extends StatelessWidget {
   final String label;
   final int value; // 0..255 typical
   final int maxValue;
+  final Color? color;
 
-  const StatBar({super.key, required this.label, required this.value, this.maxValue = 180});
+  const StatBar({
+    super.key,
+    required this.label,
+    required this.value,
+    this.maxValue = 180,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,7 @@ class StatBar extends StatelessWidget {
               child: LinearProgressIndicator(
                 value: v / maxValue,
                 minHeight: 10,
+                color: color, // Use the provided color
               ),
             ),
           ),

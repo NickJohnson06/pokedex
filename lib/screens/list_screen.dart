@@ -12,6 +12,8 @@ import '../models/sort_filter.dart';
 import '../widgets/filter_sheet.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
+import 'settings_screen.dart';
+import '../widgets/daily_pokemon_widget.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -222,19 +224,14 @@ class _ListScreenState extends State<ListScreen> {
             icon: Icon(_sortFilter.filter.favoritesOnly ? Icons.star : Icons.star_border),
             onPressed: _toggleFavFilter,
           ),
-          // Theme
-          ValueListenableBuilder<ThemeMode>(
-            valueListenable: ThemeController.themeMode,
-            builder: (context, mode, _) {
-              final isDark = mode == ThemeMode.dark ||
-                  (mode == ThemeMode.system &&
-                      MediaQuery.of(context).platformBrightness == Brightness.dark);
-              return IconButton(
-                tooltip: isDark ? 'Switch to light mode' : 'Switch to dark mode',
-                icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-                onPressed: ThemeController.toggle,
-              );
-            },
+          // Settings
+          IconButton(
+            tooltip: 'Settings',
+            icon: const Icon(Icons.settings),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const SettingsScreen()),
+            ),
           ),
           // Layout
           IconButton(
@@ -263,9 +260,16 @@ class _ListScreenState extends State<ListScreen> {
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : _grid
-              ? _buildGrid(filtered)
-              : _buildList(filtered),
+          : Column(
+              children: [
+                if (filtered.isNotEmpty) const DailyPokemonWidget(),
+                Expanded(
+                  child: _grid
+                      ? _buildGrid(filtered)
+                      : _buildList(filtered),
+                ),
+              ],
+            ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _add,
         icon: const Icon(Icons.add),
