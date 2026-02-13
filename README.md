@@ -16,7 +16,7 @@ A feature-rich, Pokedex application built with Flutter that allows you to manage
 - **Favorites**: Star your favorite Pokemon for quick access.
 - **Persistence**: All data is saved locally using SQLite (`sqflite`), so your collection is always available offline.
 
-### 🎨 **Beautiful & Dynamic UI**
+### 🎨 **Captivating & Dynamic UI**
 - **Dynamic Theming**: The app's color scheme adapts to the type of the Pokemon (e.g., Red for Fire, Blue for Water).
 - **Dark Mode Support**: Fully optimized for both Light and Dark themes.
 - **Hero Animations**: Smooth transitions between list and detail views.
