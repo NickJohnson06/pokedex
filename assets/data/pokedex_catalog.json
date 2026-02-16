@@ -29,7 +29,20 @@
         "dex": 3,
         "name": "venusaur"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "overgrow",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "chlorophyll",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Seed Pok\u00e9mon"
   },
   {
     "name": "ivysaur",
@@ -61,7 +74,20 @@
         "dex": 3,
         "name": "venusaur"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "overgrow",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "chlorophyll",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Seed Pok\u00e9mon"
   },
   {
     "name": "venusaur",
@@ -93,7 +119,20 @@
         "dex": 3,
         "name": "venusaur"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "overgrow",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "chlorophyll",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Seed Pok\u00e9mon"
   },
   {
     "name": "charmander",
@@ -124,7 +163,20 @@
         "dex": 6,
         "name": "charizard"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "blaze",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "solar-power",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Lizard Pok\u00e9mon"
   },
   {
     "name": "charmeleon",
@@ -155,7 +207,20 @@
         "dex": 6,
         "name": "charizard"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "blaze",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "solar-power",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flame Pok\u00e9mon"
   },
   {
     "name": "charizard",
@@ -187,7 +252,20 @@
         "dex": 6,
         "name": "charizard"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "blaze",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "solar-power",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flame Pok\u00e9mon"
   },
   {
     "name": "squirtle",
@@ -218,7 +296,20 @@
         "dex": 9,
         "name": "blastoise"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "torrent",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rain-dish",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Tiny Turtle Pok\u00e9mon"
   },
   {
     "name": "wartortle",
@@ -249,7 +340,20 @@
         "dex": 9,
         "name": "blastoise"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "torrent",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rain-dish",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Turtle Pok\u00e9mon"
   },
   {
     "name": "blastoise",
@@ -280,7 +384,20 @@
         "dex": 9,
         "name": "blastoise"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "torrent",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rain-dish",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Shellfish Pok\u00e9mon"
   },
   {
     "name": "caterpie",
@@ -311,7 +428,20 @@
         "dex": 12,
         "name": "butterfree"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shield-dust",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "run-away",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Worm Pok\u00e9mon"
   },
   {
     "name": "metapod",
@@ -342,7 +472,15 @@
         "dex": 12,
         "name": "butterfree"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shed-skin",
+        "is_hidden": false,
+        "slot": 1
+      }
+    ],
+    "genus": "Cocoon Pok\u00e9mon"
   },
   {
     "name": "butterfree",
@@ -374,7 +512,20 @@
         "dex": 12,
         "name": "butterfree"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "compound-eyes",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "tinted-lens",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Butterfly Pok\u00e9mon"
   },
   {
     "name": "weedle",
@@ -406,7 +557,20 @@
         "dex": 15,
         "name": "beedrill"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shield-dust",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "run-away",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Hairy Bug Pok\u00e9mon"
   },
   {
     "name": "kakuna",
@@ -438,7 +602,15 @@
         "dex": 15,
         "name": "beedrill"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shed-skin",
+        "is_hidden": false,
+        "slot": 1
+      }
+    ],
+    "genus": "Cocoon Pok\u00e9mon"
   },
   {
     "name": "beedrill",
@@ -470,7 +642,20 @@
         "dex": 15,
         "name": "beedrill"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swarm",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sniper",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Bee Pok\u00e9mon"
   },
   {
     "name": "pidgey",
@@ -502,7 +687,25 @@
         "dex": 18,
         "name": "pidgeot"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "tangled-feet",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "big-pecks",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Tiny Bird Pok\u00e9mon"
   },
   {
     "name": "pidgeotto",
@@ -534,7 +737,25 @@
         "dex": 18,
         "name": "pidgeot"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "tangled-feet",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "big-pecks",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bird Pok\u00e9mon"
   },
   {
     "name": "pidgeot",
@@ -566,7 +787,25 @@
         "dex": 18,
         "name": "pidgeot"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "tangled-feet",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "big-pecks",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bird Pok\u00e9mon"
   },
   {
     "name": "rattata",
@@ -593,7 +832,25 @@
         "dex": 20,
         "name": "raticate"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "guts",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hustle",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mouse Pok\u00e9mon"
   },
   {
     "name": "raticate",
@@ -620,7 +877,25 @@
         "dex": 20,
         "name": "raticate"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "guts",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hustle",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mouse Pok\u00e9mon"
   },
   {
     "name": "spearow",
@@ -648,7 +923,20 @@
         "dex": 22,
         "name": "fearow"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sniper",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Tiny Bird Pok\u00e9mon"
   },
   {
     "name": "fearow",
@@ -676,7 +964,20 @@
         "dex": 22,
         "name": "fearow"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sniper",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Beak Pok\u00e9mon"
   },
   {
     "name": "ekans",
@@ -703,7 +1004,25 @@
         "dex": 24,
         "name": "arbok"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "intimidate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shed-skin",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unnerve",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Snake Pok\u00e9mon"
   },
   {
     "name": "arbok",
@@ -730,7 +1049,25 @@
         "dex": 24,
         "name": "arbok"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "intimidate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shed-skin",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unnerve",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Cobra Pok\u00e9mon"
   },
   {
     "name": "pikachu",
@@ -761,7 +1098,20 @@
         "dex": 26,
         "name": "raichu"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "static",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "lightning-rod",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mouse Pok\u00e9mon"
   },
   {
     "name": "raichu",
@@ -792,7 +1142,20 @@
         "dex": 26,
         "name": "raichu"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "static",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "lightning-rod",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mouse Pok\u00e9mon"
   },
   {
     "name": "sandshrew",
@@ -819,7 +1182,20 @@
         "dex": 28,
         "name": "sandslash"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "sand-veil",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sand-rush",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mouse Pok\u00e9mon"
   },
   {
     "name": "sandslash",
@@ -846,7 +1222,20 @@
         "dex": 28,
         "name": "sandslash"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "sand-veil",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sand-rush",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mouse Pok\u00e9mon"
   },
   {
     "name": "nidoran_f",
@@ -877,7 +1266,25 @@
         "dex": 31,
         "name": "nidoqueen"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rivalry",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hustle",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Pin Pok\u00e9mon"
   },
   {
     "name": "nidorina",
@@ -908,7 +1315,25 @@
         "dex": 31,
         "name": "nidoqueen"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rivalry",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hustle",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Pin Pok\u00e9mon"
   },
   {
     "name": "nidoqueen",
@@ -940,7 +1365,25 @@
         "dex": 31,
         "name": "nidoqueen"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rivalry",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sheer-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Drill Pok\u00e9mon"
   },
   {
     "name": "nidoran_m",
@@ -971,7 +1414,25 @@
         "dex": 34,
         "name": "nidoking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rivalry",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hustle",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Pin Pok\u00e9mon"
   },
   {
     "name": "nidorino",
@@ -1002,7 +1463,25 @@
         "dex": 34,
         "name": "nidoking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rivalry",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hustle",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Pin Pok\u00e9mon"
   },
   {
     "name": "nidoking",
@@ -1034,7 +1513,25 @@
         "dex": 34,
         "name": "nidoking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rivalry",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sheer-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Drill Pok\u00e9mon"
   },
   {
     "name": "clefairy",
@@ -1065,7 +1562,25 @@
         "dex": 36,
         "name": "clefable"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "cute-charm",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "magic-guard",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "friend-guard",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fairy Pok\u00e9mon"
   },
   {
     "name": "clefable",
@@ -1096,7 +1611,25 @@
         "dex": 36,
         "name": "clefable"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "cute-charm",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "magic-guard",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unaware",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fairy Pok\u00e9mon"
   },
   {
     "name": "vulpix",
@@ -1123,7 +1656,20 @@
         "dex": 38,
         "name": "ninetales"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "drought",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fox Pok\u00e9mon"
   },
   {
     "name": "ninetales",
@@ -1150,7 +1696,20 @@
         "dex": 38,
         "name": "ninetales"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "drought",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fox Pok\u00e9mon"
   },
   {
     "name": "jigglypuff",
@@ -1182,7 +1741,25 @@
         "dex": 40,
         "name": "wigglytuff"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "cute-charm",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "competitive",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "friend-guard",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Balloon Pok\u00e9mon"
   },
   {
     "name": "wigglytuff",
@@ -1214,7 +1791,25 @@
         "dex": 40,
         "name": "wigglytuff"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "cute-charm",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "competitive",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "frisk",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Balloon Pok\u00e9mon"
   },
   {
     "name": "zubat",
@@ -1246,7 +1841,20 @@
         "dex": 169,
         "name": "crobat"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "infiltrator",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bat Pok\u00e9mon"
   },
   {
     "name": "golbat",
@@ -1278,7 +1886,20 @@
         "dex": 169,
         "name": "crobat"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "infiltrator",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bat Pok\u00e9mon"
   },
   {
     "name": "oddish",
@@ -1314,7 +1935,20 @@
         "dex": 182,
         "name": "bellossom"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "run-away",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Weed Pok\u00e9mon"
   },
   {
     "name": "gloom",
@@ -1350,7 +1984,20 @@
         "dex": 182,
         "name": "bellossom"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "stench",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Weed Pok\u00e9mon"
   },
   {
     "name": "vileplume",
@@ -1386,7 +2033,20 @@
         "dex": 182,
         "name": "bellossom"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "effect-spore",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flower Pok\u00e9mon"
   },
   {
     "name": "paras",
@@ -1414,7 +2074,25 @@
         "dex": 47,
         "name": "parasect"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "effect-spore",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "dry-skin",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "damp",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mushroom Pok\u00e9mon"
   },
   {
     "name": "parasect",
@@ -1442,7 +2120,25 @@
         "dex": 47,
         "name": "parasect"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "effect-spore",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "dry-skin",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "damp",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mushroom Pok\u00e9mon"
   },
   {
     "name": "venonat",
@@ -1470,7 +2166,25 @@
         "dex": 49,
         "name": "venomoth"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "compound-eyes",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "tinted-lens",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "run-away",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Insect Pok\u00e9mon"
   },
   {
     "name": "venomoth",
@@ -1498,7 +2212,25 @@
         "dex": 49,
         "name": "venomoth"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shield-dust",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "tinted-lens",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "wonder-skin",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Moth Pok\u00e9mon"
   },
   {
     "name": "diglett",
@@ -1525,7 +2257,25 @@
         "dex": 51,
         "name": "dugtrio"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "sand-veil",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "arena-trap",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sand-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mole Pok\u00e9mon"
   },
   {
     "name": "dugtrio",
@@ -1552,7 +2302,25 @@
         "dex": 51,
         "name": "dugtrio"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "sand-veil",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "arena-trap",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sand-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mole Pok\u00e9mon"
   },
   {
     "name": "meowth",
@@ -1583,7 +2351,25 @@
         "dex": 863,
         "name": "perrserker"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "pickup",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "technician",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unnerve",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Scratch Cat Pok\u00e9mon"
   },
   {
     "name": "persian",
@@ -1614,7 +2400,25 @@
         "dex": 863,
         "name": "perrserker"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "limber",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "technician",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unnerve",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Classy Cat Pok\u00e9mon"
   },
   {
     "name": "psyduck",
@@ -1641,7 +2445,25 @@
         "dex": 55,
         "name": "golduck"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "damp",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "cloud-nine",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "swift-swim",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Duck Pok\u00e9mon"
   },
   {
     "name": "golduck",
@@ -1668,7 +2490,25 @@
         "dex": 55,
         "name": "golduck"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "damp",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "cloud-nine",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "swift-swim",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Duck Pok\u00e9mon"
   },
   {
     "name": "mankey",
@@ -1699,7 +2539,25 @@
         "dex": 979,
         "name": "annihilape"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "vital-spirit",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "anger-point",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "defiant",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Pig Monkey Pok\u00e9mon"
   },
   {
     "name": "primeape",
@@ -1730,7 +2588,25 @@
         "dex": 979,
         "name": "annihilape"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "vital-spirit",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "anger-point",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "defiant",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Pig Monkey Pok\u00e9mon"
   },
   {
     "name": "growlithe",
@@ -1757,7 +2633,25 @@
         "dex": 59,
         "name": "arcanine"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "intimidate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "justified",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Puppy Pok\u00e9mon"
   },
   {
     "name": "arcanine",
@@ -1784,7 +2678,25 @@
         "dex": 59,
         "name": "arcanine"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "intimidate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "justified",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Legendary Pok\u00e9mon"
   },
   {
     "name": "poliwag",
@@ -1819,7 +2731,25 @@
         "dex": 186,
         "name": "politoed"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "water-absorb",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "damp",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "swift-swim",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Tadpole Pok\u00e9mon"
   },
   {
     "name": "poliwhirl",
@@ -1854,7 +2784,25 @@
         "dex": 186,
         "name": "politoed"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "water-absorb",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "damp",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "swift-swim",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Tadpole Pok\u00e9mon"
   },
   {
     "name": "poliwrath",
@@ -1890,7 +2838,25 @@
         "dex": 186,
         "name": "politoed"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "water-absorb",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "damp",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "swift-swim",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Tadpole Pok\u00e9mon"
   },
   {
     "name": "abra",
@@ -1921,7 +2887,25 @@
         "dex": 65,
         "name": "alakazam"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "synchronize",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "magic-guard",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Psi Pok\u00e9mon"
   },
   {
     "name": "kadabra",
@@ -1952,7 +2936,25 @@
         "dex": 65,
         "name": "alakazam"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "synchronize",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "magic-guard",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Psi Pok\u00e9mon"
   },
   {
     "name": "alakazam",
@@ -1983,7 +2985,25 @@
         "dex": 65,
         "name": "alakazam"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "synchronize",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "magic-guard",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Psi Pok\u00e9mon"
   },
   {
     "name": "machop",
@@ -2014,7 +3034,25 @@
         "dex": 68,
         "name": "machamp"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "guts",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "no-guard",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "steadfast",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Superpower Pok\u00e9mon"
   },
   {
     "name": "machoke",
@@ -2045,7 +3083,25 @@
         "dex": 68,
         "name": "machamp"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "guts",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "no-guard",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "steadfast",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Superpower Pok\u00e9mon"
   },
   {
     "name": "machamp",
@@ -2076,7 +3132,25 @@
         "dex": 68,
         "name": "machamp"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "guts",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "no-guard",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "steadfast",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Superpower Pok\u00e9mon"
   },
   {
     "name": "bellsprout",
@@ -2108,7 +3182,20 @@
         "dex": 71,
         "name": "victreebel"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "gluttony",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flower Pok\u00e9mon"
   },
   {
     "name": "weepinbell",
@@ -2140,7 +3227,20 @@
         "dex": 71,
         "name": "victreebel"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "gluttony",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flycatcher Pok\u00e9mon"
   },
   {
     "name": "victreebel",
@@ -2172,7 +3272,20 @@
         "dex": 71,
         "name": "victreebel"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "gluttony",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flycatcher Pok\u00e9mon"
   },
   {
     "name": "tentacool",
@@ -2200,7 +3313,25 @@
         "dex": 73,
         "name": "tentacruel"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "clear-body",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "liquid-ooze",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "rain-dish",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Jellyfish Pok\u00e9mon"
   },
   {
     "name": "tentacruel",
@@ -2228,7 +3359,25 @@
         "dex": 73,
         "name": "tentacruel"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "clear-body",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "liquid-ooze",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "rain-dish",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Jellyfish Pok\u00e9mon"
   },
   {
     "name": "geodude",
@@ -2260,7 +3409,25 @@
         "dex": 76,
         "name": "golem"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sturdy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sand-veil",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Rock Pok\u00e9mon"
   },
   {
     "name": "graveler",
@@ -2292,7 +3459,25 @@
         "dex": 76,
         "name": "golem"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sturdy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sand-veil",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Rock Pok\u00e9mon"
   },
   {
     "name": "golem",
@@ -2324,7 +3509,25 @@
         "dex": 76,
         "name": "golem"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sturdy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sand-veil",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Megaton Pok\u00e9mon"
   },
   {
     "name": "ponyta",
@@ -2351,7 +3554,25 @@
         "dex": 78,
         "name": "rapidash"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "flame-body",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fire Horse Pok\u00e9mon"
   },
   {
     "name": "rapidash",
@@ -2378,7 +3599,25 @@
         "dex": 78,
         "name": "rapidash"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "flame-body",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fire Horse Pok\u00e9mon"
   },
   {
     "name": "slowpoke",
@@ -2410,7 +3649,25 @@
         "dex": 199,
         "name": "slowking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "oblivious",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "own-tempo",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "regenerator",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Dopey Pok\u00e9mon"
   },
   {
     "name": "slowbro",
@@ -2442,7 +3699,25 @@
         "dex": 199,
         "name": "slowking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "oblivious",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "own-tempo",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "regenerator",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Hermit Crab Pok\u00e9mon"
   },
   {
     "name": "magnemite",
@@ -2474,7 +3749,25 @@
         "dex": 462,
         "name": "magnezone"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "magnet-pull",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sturdy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "analytic",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Magnet Pok\u00e9mon"
   },
   {
     "name": "magneton",
@@ -2506,7 +3799,25 @@
         "dex": 462,
         "name": "magnezone"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "magnet-pull",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sturdy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "analytic",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Magnet Pok\u00e9mon"
   },
   {
     "name": "farfetchd",
@@ -2534,7 +3845,25 @@
         "dex": 865,
         "name": "sirfetchd"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "defiant",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Wild Duck Pok\u00e9mon"
   },
   {
     "name": "doduo",
@@ -2562,7 +3891,25 @@
         "dex": 85,
         "name": "dodrio"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "early-bird",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "tangled-feet",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Twin Bird Pok\u00e9mon"
   },
   {
     "name": "dodrio",
@@ -2590,7 +3937,25 @@
         "dex": 85,
         "name": "dodrio"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "early-bird",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "tangled-feet",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Triple Bird Pok\u00e9mon"
   },
   {
     "name": "seel",
@@ -2617,7 +3982,25 @@
         "dex": 87,
         "name": "dewgong"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "thick-fat",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "hydration",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "ice-body",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Sea Lion Pok\u00e9mon"
   },
   {
     "name": "dewgong",
@@ -2645,7 +4028,25 @@
         "dex": 87,
         "name": "dewgong"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "thick-fat",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "hydration",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "ice-body",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Sea Lion Pok\u00e9mon"
   },
   {
     "name": "grimer",
@@ -2672,7 +4073,25 @@
         "dex": 89,
         "name": "muk"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "stench",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sticky-hold",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "poison-touch",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Sludge Pok\u00e9mon"
   },
   {
     "name": "muk",
@@ -2699,7 +4118,25 @@
         "dex": 89,
         "name": "muk"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "stench",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sticky-hold",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "poison-touch",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Sludge Pok\u00e9mon"
   },
   {
     "name": "shellder",
@@ -2726,7 +4163,25 @@
         "dex": 91,
         "name": "cloyster"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "skill-link",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "overcoat",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bivalve Pok\u00e9mon"
   },
   {
     "name": "cloyster",
@@ -2754,7 +4209,25 @@
         "dex": 91,
         "name": "cloyster"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "skill-link",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "overcoat",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bivalve Pok\u00e9mon"
   },
   {
     "name": "gastly",
@@ -2786,7 +4259,15 @@
         "dex": 94,
         "name": "gengar"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "levitate",
+        "is_hidden": false,
+        "slot": 1
+      }
+    ],
+    "genus": "Gas Pok\u00e9mon"
   },
   {
     "name": "haunter",
@@ -2818,7 +4299,15 @@
         "dex": 94,
         "name": "gengar"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "levitate",
+        "is_hidden": false,
+        "slot": 1
+      }
+    ],
+    "genus": "Gas Pok\u00e9mon"
   },
   {
     "name": "gengar",
@@ -2850,7 +4339,15 @@
         "dex": 94,
         "name": "gengar"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "cursed-body",
+        "is_hidden": false,
+        "slot": 1
+      }
+    ],
+    "genus": "Shadow Pok\u00e9mon"
   },
   {
     "name": "onix",
@@ -2878,7 +4375,25 @@
         "dex": 208,
         "name": "steelix"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sturdy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "weak-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Rock Snake Pok\u00e9mon"
   },
   {
     "name": "drowzee",
@@ -2905,7 +4420,25 @@
         "dex": 97,
         "name": "hypno"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "insomnia",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "forewarn",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Hypnosis Pok\u00e9mon"
   },
   {
     "name": "hypno",
@@ -2932,7 +4465,25 @@
         "dex": 97,
         "name": "hypno"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "insomnia",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "forewarn",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Hypnosis Pok\u00e9mon"
   },
   {
     "name": "krabby",
@@ -2959,7 +4510,25 @@
         "dex": 99,
         "name": "kingler"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "hyper-cutter",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sheer-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "River Crab Pok\u00e9mon"
   },
   {
     "name": "kingler",
@@ -2986,7 +4555,25 @@
         "dex": 99,
         "name": "kingler"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "hyper-cutter",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sheer-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Pincer Pok\u00e9mon"
   },
   {
     "name": "voltorb",
@@ -3013,7 +4600,25 @@
         "dex": 101,
         "name": "electrode"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "soundproof",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "static",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "aftermath",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Ball Pok\u00e9mon"
   },
   {
     "name": "electrode",
@@ -3040,7 +4645,25 @@
         "dex": 101,
         "name": "electrode"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "soundproof",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "static",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "aftermath",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Ball Pok\u00e9mon"
   },
   {
     "name": "exeggcute",
@@ -3068,7 +4691,20 @@
         "dex": 103,
         "name": "exeggutor"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "harvest",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Egg Pok\u00e9mon"
   },
   {
     "name": "exeggutor",
@@ -3096,7 +4732,20 @@
         "dex": 103,
         "name": "exeggutor"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "harvest",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Coconut Pok\u00e9mon"
   },
   {
     "name": "cubone",
@@ -3123,7 +4772,25 @@
         "dex": 105,
         "name": "marowak"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "lightning-rod",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "battle-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Lonely Pok\u00e9mon"
   },
   {
     "name": "marowak",
@@ -3150,7 +4817,25 @@
         "dex": 105,
         "name": "marowak"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "lightning-rod",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "battle-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bone Keeper Pok\u00e9mon"
   },
   {
     "name": "hitmonlee",
@@ -3185,7 +4870,25 @@
         "dex": 237,
         "name": "hitmontop"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "limber",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "reckless",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unburden",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Kicking Pok\u00e9mon"
   },
   {
     "name": "hitmonchan",
@@ -3220,7 +4923,25 @@
         "dex": 237,
         "name": "hitmontop"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "keen-eye",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "iron-fist",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Punching Pok\u00e9mon"
   },
   {
     "name": "lickitung",
@@ -3247,7 +4968,25 @@
         "dex": 463,
         "name": "lickilicky"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "own-tempo",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "oblivious",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "cloud-nine",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Licking Pok\u00e9mon"
   },
   {
     "name": "koffing",
@@ -3274,7 +5013,25 @@
         "dex": 110,
         "name": "weezing"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "levitate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "neutralizing-gas",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "stench",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Gas Pok\u00e9mon"
   },
   {
     "name": "weezing",
@@ -3301,7 +5058,25 @@
         "dex": 110,
         "name": "weezing"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "levitate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "neutralizing-gas",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "stench",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Poison Gas Pok\u00e9mon"
   },
   {
     "name": "rhyhorn",
@@ -3333,7 +5108,25 @@
         "dex": 464,
         "name": "rhyperior"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "lightning-rod",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "reckless",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Spikes Pok\u00e9mon"
   },
   {
     "name": "rhydon",
@@ -3365,7 +5158,25 @@
         "dex": 464,
         "name": "rhyperior"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "lightning-rod",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "reckless",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Drill Pok\u00e9mon"
   },
   {
     "name": "chansey",
@@ -3396,7 +5207,25 @@
         "dex": 242,
         "name": "blissey"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "natural-cure",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "serene-grace",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "healer",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Egg Pok\u00e9mon"
   },
   {
     "name": "tangela",
@@ -3423,7 +5252,25 @@
         "dex": 465,
         "name": "tangrowth"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "chlorophyll",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "leaf-guard",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "regenerator",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Vine Pok\u00e9mon"
   },
   {
     "name": "kangaskhan",
@@ -3446,7 +5293,25 @@
         "dex": 115,
         "name": "kangaskhan"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "early-bird",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "scrappy",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "inner-focus",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Parent Pok\u00e9mon"
   },
   {
     "name": "horsea",
@@ -3477,7 +5342,25 @@
         "dex": 230,
         "name": "kingdra"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sniper",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "damp",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Dragon Pok\u00e9mon"
   },
   {
     "name": "seadra",
@@ -3508,7 +5391,25 @@
         "dex": 230,
         "name": "kingdra"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "poison-point",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "sniper",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "damp",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Dragon Pok\u00e9mon"
   },
   {
     "name": "goldeen",
@@ -3535,7 +5436,25 @@
         "dex": 119,
         "name": "seaking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "water-veil",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "lightning-rod",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Goldfish Pok\u00e9mon"
   },
   {
     "name": "seaking",
@@ -3562,7 +5481,25 @@
         "dex": 119,
         "name": "seaking"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "water-veil",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "lightning-rod",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Goldfish Pok\u00e9mon"
   },
   {
     "name": "staryu",
@@ -3589,7 +5526,25 @@
         "dex": 121,
         "name": "starmie"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "illuminate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "natural-cure",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "analytic",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Star Shape Pok\u00e9mon"
   },
   {
     "name": "starmie",
@@ -3617,7 +5572,25 @@
         "dex": 121,
         "name": "starmie"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "illuminate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "natural-cure",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "analytic",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mysterious Pok\u00e9mon"
   },
   {
     "name": "mr-mime",
@@ -3649,7 +5622,25 @@
         "dex": 866,
         "name": "mr-rime"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "soundproof",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "filter",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "technician",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Barrier Pok\u00e9mon"
   },
   {
     "name": "scyther",
@@ -3681,7 +5672,25 @@
         "dex": 900,
         "name": "kleavor"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swarm",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "technician",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "steadfast",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Mantis Pok\u00e9mon"
   },
   {
     "name": "jynx",
@@ -3709,7 +5718,25 @@
         "dex": 124,
         "name": "jynx"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "oblivious",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "forewarn",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "dry-skin",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Human Shape Pok\u00e9mon"
   },
   {
     "name": "electabuzz",
@@ -3740,7 +5767,20 @@
         "dex": 466,
         "name": "electivire"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "static",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "vital-spirit",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Electric Pok\u00e9mon"
   },
   {
     "name": "magmar",
@@ -3771,7 +5811,20 @@
         "dex": 467,
         "name": "magmortar"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "flame-body",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "vital-spirit",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Spitfire Pok\u00e9mon"
   },
   {
     "name": "pinsir",
@@ -3794,7 +5847,25 @@
         "dex": 127,
         "name": "pinsir"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "hyper-cutter",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "mold-breaker",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "moxie",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Stag Beetle Pok\u00e9mon"
   },
   {
     "name": "tauros",
@@ -3817,7 +5888,25 @@
         "dex": 128,
         "name": "tauros"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "intimidate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "anger-point",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "sheer-force",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Wild Bull Pok\u00e9mon"
   },
   {
     "name": "magikarp",
@@ -3844,7 +5933,20 @@
         "dex": 130,
         "name": "gyarados"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "rattled",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fish Pok\u00e9mon"
   },
   {
     "name": "gyarados",
@@ -3872,7 +5974,20 @@
         "dex": 130,
         "name": "gyarados"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "intimidate",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "moxie",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Atrocious Pok\u00e9mon"
   },
   {
     "name": "lapras",
@@ -3896,7 +6011,25 @@
         "dex": 131,
         "name": "lapras"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "water-absorb",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "hydration",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Transport Pok\u00e9mon"
   },
   {
     "name": "ditto",
@@ -3919,7 +6052,20 @@
         "dex": 132,
         "name": "ditto"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "limber",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "imposter",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Transform Pok\u00e9mon"
   },
   {
     "name": "eevee",
@@ -3974,7 +6120,25 @@
         "dex": 700,
         "name": "sylveon"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "run-away",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "adaptability",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "anticipation",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Evolution Pok\u00e9mon"
   },
   {
     "name": "vaporeon",
@@ -4029,7 +6193,20 @@
         "dex": 700,
         "name": "sylveon"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "water-absorb",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "hydration",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Bubble Jet Pok\u00e9mon"
   },
   {
     "name": "jolteon",
@@ -4084,7 +6261,20 @@
         "dex": 700,
         "name": "sylveon"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "volt-absorb",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "quick-feet",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Lightning Pok\u00e9mon"
   },
   {
     "name": "flareon",
@@ -4139,7 +6329,20 @@
         "dex": 700,
         "name": "sylveon"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "flash-fire",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "guts",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flame Pok\u00e9mon"
   },
   {
     "name": "porygon",
@@ -4170,7 +6373,25 @@
         "dex": 474,
         "name": "porygon-z"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "trace",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "download",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "analytic",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Virtual Pok\u00e9mon"
   },
   {
     "name": "omanyte",
@@ -4198,7 +6419,25 @@
         "dex": 139,
         "name": "omastar"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "weak-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Spiral Pok\u00e9mon"
   },
   {
     "name": "omastar",
@@ -4226,7 +6465,25 @@
         "dex": 139,
         "name": "omastar"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "shell-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "weak-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Spiral Pok\u00e9mon"
   },
   {
     "name": "kabuto",
@@ -4254,7 +6511,25 @@
         "dex": 141,
         "name": "kabutops"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "battle-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "weak-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Shellfish Pok\u00e9mon"
   },
   {
     "name": "kabutops",
@@ -4282,7 +6557,25 @@
         "dex": 141,
         "name": "kabutops"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "swift-swim",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "battle-armor",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "weak-armor",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Shellfish Pok\u00e9mon"
   },
   {
     "name": "aerodactyl",
@@ -4306,7 +6599,25 @@
         "dex": 142,
         "name": "aerodactyl"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "rock-head",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "pressure",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "unnerve",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Fossil Pok\u00e9mon"
   },
   {
     "name": "snorlax",
@@ -4333,7 +6644,25 @@
         "dex": 143,
         "name": "snorlax"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "immunity",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "thick-fat",
+        "is_hidden": false,
+        "slot": 2
+      },
+      {
+        "name": "gluttony",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Sleeping Pok\u00e9mon"
   },
   {
     "name": "articuno",
@@ -4357,7 +6686,20 @@
         "dex": 144,
         "name": "articuno"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "pressure",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "snow-cloak",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Freeze Pok\u00e9mon"
   },
   {
     "name": "zapdos",
@@ -4381,7 +6723,20 @@
         "dex": 145,
         "name": "zapdos"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "pressure",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "static",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Electric Pok\u00e9mon"
   },
   {
     "name": "moltres",
@@ -4405,7 +6760,20 @@
         "dex": 146,
         "name": "moltres"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "pressure",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "flame-body",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Flame Pok\u00e9mon"
   },
   {
     "name": "dratini",
@@ -4436,7 +6804,20 @@
         "dex": 149,
         "name": "dragonite"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shed-skin",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "marvel-scale",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Dragon Pok\u00e9mon"
   },
   {
     "name": "dragonair",
@@ -4467,7 +6848,20 @@
         "dex": 149,
         "name": "dragonite"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "shed-skin",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "marvel-scale",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Dragon Pok\u00e9mon"
   },
   {
     "name": "dragonite",
@@ -4499,7 +6893,20 @@
         "dex": 149,
         "name": "dragonite"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "inner-focus",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "multiscale",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Dragon Pok\u00e9mon"
   },
   {
     "name": "mewtwo",
@@ -4522,7 +6929,20 @@
         "dex": 150,
         "name": "mewtwo"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "pressure",
+        "is_hidden": false,
+        "slot": 1
+      },
+      {
+        "name": "unnerve",
+        "is_hidden": true,
+        "slot": 3
+      }
+    ],
+    "genus": "Genetic Pok\u00e9mon"
   },
   {
     "name": "mew",
@@ -4545,6 +6965,14 @@
         "dex": 151,
         "name": "mew"
       }
-    ]
+    ],
+    "abilities": [
+      {
+        "name": "synchronize",
+        "is_hidden": false,
+        "slot": 1
+      }
+    ],
+    "genus": "New Species Pok\u00e9mon"
   }
 ]
