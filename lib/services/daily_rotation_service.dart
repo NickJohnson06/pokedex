@@ -8,24 +8,16 @@ class DailyRotationService {
   /// Get the ID of today's Pokémon. If the day changed, rolls a new one.
   /// Needs a maxId to know the range (e.g. repo count).
   static Future<int> getDailyId(int maxId) async {
-    final prefs = await SharedPreferences.getInstance();
+    if (maxId <= 0) return 1;
+
     final now = DateTime.now();
-    final todayStr = '${now.year}-${now.month}-${now.day}';
-
-    final savedDate = prefs.getString(_kDateKey);
-    final savedId = prefs.getInt(_kIdKey);
-
-    if (savedDate == todayStr && savedId != null && savedId <= maxId) {
-      return savedId;
-    }
-
-    // New day or first run: roll dice
-    // ID range 1..maxId
-    final newId = maxId > 0 ? Random().nextInt(maxId) + 1 : 1; 
+    // Create a seed from today's date (e.g., 20231027)
+    final seed = int.parse('${now.year}${now.month.toString().padLeft(2, '0')}${now.day.toString().padLeft(2, '0')}');
     
-    await prefs.setString(_kDateKey, todayStr);
-    await prefs.setInt(_kIdKey, newId);
+    // Use the seed to ensure deterministic "random" for the day
+    final random = Random(seed);
     
-    return newId;
+    // Return a number between 1 and maxId (inclusive)
+    return random.nextInt(maxId) + 1;
   }
 }

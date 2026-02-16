@@ -1,79 +1,4550 @@
-{
-  "bulbasaur": {
+[
+  {
+    "name": "bulbasaur",
     "dex": 1,
-    "types": ["Grass", "Poison"],
-    "base_stats": { "hp": 45, "atk": 49, "def": 49, "spa": 65, "spd": 65, "spe": 45 },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 45,
+      "atk": 49,
+      "def": 49,
+      "spa": 65,
+      "spd": 65,
+      "spe": 45
+    },
     "height_m": 0.7,
-    "weight_kg": 6.9
+    "weight_kg": 6.9,
+    "evolutions": [
+      {
+        "dex": 1,
+        "name": "bulbasaur"
+      },
+      {
+        "dex": 2,
+        "name": "ivysaur"
+      },
+      {
+        "dex": 3,
+        "name": "venusaur"
+      }
+    ]
   },
-  "ivysaur": {
+  {
+    "name": "ivysaur",
     "dex": 2,
-    "types": ["Grass", "Poison"],
-    "base_stats": { "hp": 60, "atk": 62, "def": 63, "spa": 80, "spd": 80, "spe": 60 },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 62,
+      "def": 63,
+      "spa": 80,
+      "spd": 80,
+      "spe": 60
+    },
     "height_m": 1.0,
-    "weight_kg": 13.0
+    "weight_kg": 13.0,
+    "evolutions": [
+      {
+        "dex": 1,
+        "name": "bulbasaur"
+      },
+      {
+        "dex": 2,
+        "name": "ivysaur"
+      },
+      {
+        "dex": 3,
+        "name": "venusaur"
+      }
+    ]
   },
-  "venusaur": {
+  {
+    "name": "venusaur",
     "dex": 3,
-    "types": ["Grass", "Poison"],
-    "base_stats": { "hp": 80, "atk": 82, "def": 83, "spa": 100, "spd": 100, "spe": 80 },
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 83,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
     "height_m": 2.0,
-    "weight_kg": 100.0
+    "weight_kg": 100.0,
+    "evolutions": [
+      {
+        "dex": 1,
+        "name": "bulbasaur"
+      },
+      {
+        "dex": 2,
+        "name": "ivysaur"
+      },
+      {
+        "dex": 3,
+        "name": "venusaur"
+      }
+    ]
   },
-  "charmander": {
+  {
+    "name": "charmander",
     "dex": 4,
-    "types": ["Fire"],
-    "base_stats": { "hp": 39, "atk": 52, "def": 43, "spa": 60, "spd": 50, "spe": 65 },
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 39,
+      "atk": 52,
+      "def": 43,
+      "spa": 60,
+      "spd": 50,
+      "spe": 65
+    },
     "height_m": 0.6,
-    "weight_kg": 8.5
+    "weight_kg": 8.5,
+    "evolutions": [
+      {
+        "dex": 4,
+        "name": "charmander"
+      },
+      {
+        "dex": 5,
+        "name": "charmeleon"
+      },
+      {
+        "dex": 6,
+        "name": "charizard"
+      }
+    ]
   },
-  "charmeleon": {
+  {
+    "name": "charmeleon",
     "dex": 5,
-    "types": ["Fire"],
-    "base_stats": { "hp": 58, "atk": 64, "def": 58, "spa": 80, "spd": 65, "spe": 80 },
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 58,
+      "atk": 64,
+      "def": 58,
+      "spa": 80,
+      "spd": 65,
+      "spe": 80
+    },
     "height_m": 1.1,
-    "weight_kg": 19.0
+    "weight_kg": 19.0,
+    "evolutions": [
+      {
+        "dex": 4,
+        "name": "charmander"
+      },
+      {
+        "dex": 5,
+        "name": "charmeleon"
+      },
+      {
+        "dex": 6,
+        "name": "charizard"
+      }
+    ]
   },
-  "charizard": {
+  {
+    "name": "charizard",
     "dex": 6,
-    "types": ["Fire", "Flying"],
-    "base_stats": { "hp": 78, "atk": 84, "def": 78, "spa": 109, "spd": 85, "spe": 100 },
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
     "height_m": 1.7,
-    "weight_kg": 90.5
+    "weight_kg": 90.5,
+    "evolutions": [
+      {
+        "dex": 4,
+        "name": "charmander"
+      },
+      {
+        "dex": 5,
+        "name": "charmeleon"
+      },
+      {
+        "dex": 6,
+        "name": "charizard"
+      }
+    ]
   },
-  "squirtle": {
+  {
+    "name": "squirtle",
     "dex": 7,
-    "types": ["Water"],
-    "base_stats": { "hp": 44, "atk": 48, "def": 65, "spa": 50, "spd": 64, "spe": 43 },
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 44,
+      "atk": 48,
+      "def": 65,
+      "spa": 50,
+      "spd": 64,
+      "spe": 43
+    },
     "height_m": 0.5,
-    "weight_kg": 9.0
+    "weight_kg": 9.0,
+    "evolutions": [
+      {
+        "dex": 7,
+        "name": "squirtle"
+      },
+      {
+        "dex": 8,
+        "name": "wartortle"
+      },
+      {
+        "dex": 9,
+        "name": "blastoise"
+      }
+    ]
   },
-  "wartortle": {
+  {
+    "name": "wartortle",
     "dex": 8,
-    "types": ["Water"],
-    "base_stats": { "hp": 59, "atk": 63, "def": 80, "spa": 65, "spd": 80, "spe": 58 },
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 59,
+      "atk": 63,
+      "def": 80,
+      "spa": 65,
+      "spd": 80,
+      "spe": 58
+    },
     "height_m": 1.0,
-    "weight_kg": 22.5
+    "weight_kg": 22.5,
+    "evolutions": [
+      {
+        "dex": 7,
+        "name": "squirtle"
+      },
+      {
+        "dex": 8,
+        "name": "wartortle"
+      },
+      {
+        "dex": 9,
+        "name": "blastoise"
+      }
+    ]
   },
-  "blastoise": {
+  {
+    "name": "blastoise",
     "dex": 9,
-    "types": ["Water"],
-    "base_stats": { "hp": 79, "atk": 83, "def": 100, "spa": 85, "spd": 105, "spe": 78 },
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 79,
+      "atk": 83,
+      "def": 100,
+      "spa": 85,
+      "spd": 105,
+      "spe": 78
+    },
     "height_m": 1.6,
-    "weight_kg": 85.5
+    "weight_kg": 85.5,
+    "evolutions": [
+      {
+        "dex": 7,
+        "name": "squirtle"
+      },
+      {
+        "dex": 8,
+        "name": "wartortle"
+      },
+      {
+        "dex": 9,
+        "name": "blastoise"
+      }
+    ]
   },
-  "pikachu": {
+  {
+    "name": "caterpie",
+    "dex": 10,
+    "types": [
+      "Bug"
+    ],
+    "base_stats": {
+      "hp": 45,
+      "atk": 30,
+      "def": 35,
+      "spa": 20,
+      "spd": 20,
+      "spe": 45
+    },
+    "height_m": 0.3,
+    "weight_kg": 2.9,
+    "evolutions": [
+      {
+        "dex": 10,
+        "name": "caterpie"
+      },
+      {
+        "dex": 11,
+        "name": "metapod"
+      },
+      {
+        "dex": 12,
+        "name": "butterfree"
+      }
+    ]
+  },
+  {
+    "name": "metapod",
+    "dex": 11,
+    "types": [
+      "Bug"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 20,
+      "def": 55,
+      "spa": 25,
+      "spd": 25,
+      "spe": 30
+    },
+    "height_m": 0.7,
+    "weight_kg": 9.9,
+    "evolutions": [
+      {
+        "dex": 10,
+        "name": "caterpie"
+      },
+      {
+        "dex": 11,
+        "name": "metapod"
+      },
+      {
+        "dex": 12,
+        "name": "butterfree"
+      }
+    ]
+  },
+  {
+    "name": "butterfree",
+    "dex": 12,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 45,
+      "def": 50,
+      "spa": 90,
+      "spd": 80,
+      "spe": 70
+    },
+    "height_m": 1.1,
+    "weight_kg": 32.0,
+    "evolutions": [
+      {
+        "dex": 10,
+        "name": "caterpie"
+      },
+      {
+        "dex": 11,
+        "name": "metapod"
+      },
+      {
+        "dex": 12,
+        "name": "butterfree"
+      }
+    ]
+  },
+  {
+    "name": "weedle",
+    "dex": 13,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 35,
+      "def": 30,
+      "spa": 20,
+      "spd": 20,
+      "spe": 50
+    },
+    "height_m": 0.3,
+    "weight_kg": 3.2,
+    "evolutions": [
+      {
+        "dex": 13,
+        "name": "weedle"
+      },
+      {
+        "dex": 14,
+        "name": "kakuna"
+      },
+      {
+        "dex": 15,
+        "name": "beedrill"
+      }
+    ]
+  },
+  {
+    "name": "kakuna",
+    "dex": 14,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 45,
+      "atk": 25,
+      "def": 50,
+      "spa": 25,
+      "spd": 25,
+      "spe": 35
+    },
+    "height_m": 0.6,
+    "weight_kg": 10.0,
+    "evolutions": [
+      {
+        "dex": 13,
+        "name": "weedle"
+      },
+      {
+        "dex": 14,
+        "name": "kakuna"
+      },
+      {
+        "dex": 15,
+        "name": "beedrill"
+      }
+    ]
+  },
+  {
+    "name": "beedrill",
+    "dex": 15,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 40,
+      "spa": 45,
+      "spd": 80,
+      "spe": 75
+    },
+    "height_m": 1.0,
+    "weight_kg": 29.5,
+    "evolutions": [
+      {
+        "dex": 13,
+        "name": "weedle"
+      },
+      {
+        "dex": 14,
+        "name": "kakuna"
+      },
+      {
+        "dex": 15,
+        "name": "beedrill"
+      }
+    ]
+  },
+  {
+    "name": "pidgey",
+    "dex": 16,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 45,
+      "def": 40,
+      "spa": 35,
+      "spd": 35,
+      "spe": 56
+    },
+    "height_m": 0.3,
+    "weight_kg": 1.8,
+    "evolutions": [
+      {
+        "dex": 16,
+        "name": "pidgey"
+      },
+      {
+        "dex": 17,
+        "name": "pidgeotto"
+      },
+      {
+        "dex": 18,
+        "name": "pidgeot"
+      }
+    ]
+  },
+  {
+    "name": "pidgeotto",
+    "dex": 17,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 63,
+      "atk": 60,
+      "def": 55,
+      "spa": 50,
+      "spd": 50,
+      "spe": 71
+    },
+    "height_m": 1.1,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 16,
+        "name": "pidgey"
+      },
+      {
+        "dex": 17,
+        "name": "pidgeotto"
+      },
+      {
+        "dex": 18,
+        "name": "pidgeot"
+      }
+    ]
+  },
+  {
+    "name": "pidgeot",
+    "dex": 18,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 83,
+      "atk": 80,
+      "def": 75,
+      "spa": 70,
+      "spd": 70,
+      "spe": 101
+    },
+    "height_m": 1.5,
+    "weight_kg": 39.5,
+    "evolutions": [
+      {
+        "dex": 16,
+        "name": "pidgey"
+      },
+      {
+        "dex": 17,
+        "name": "pidgeotto"
+      },
+      {
+        "dex": 18,
+        "name": "pidgeot"
+      }
+    ]
+  },
+  {
+    "name": "rattata",
+    "dex": 19,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 56,
+      "def": 35,
+      "spa": 25,
+      "spd": 35,
+      "spe": 72
+    },
+    "height_m": 0.3,
+    "weight_kg": 3.5,
+    "evolutions": [
+      {
+        "dex": 19,
+        "name": "rattata"
+      },
+      {
+        "dex": 20,
+        "name": "raticate"
+      }
+    ]
+  },
+  {
+    "name": "raticate",
+    "dex": 20,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 81,
+      "def": 60,
+      "spa": 50,
+      "spd": 70,
+      "spe": 97
+    },
+    "height_m": 0.7,
+    "weight_kg": 18.5,
+    "evolutions": [
+      {
+        "dex": 19,
+        "name": "rattata"
+      },
+      {
+        "dex": 20,
+        "name": "raticate"
+      }
+    ]
+  },
+  {
+    "name": "spearow",
+    "dex": 21,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 60,
+      "def": 30,
+      "spa": 31,
+      "spd": 31,
+      "spe": 70
+    },
+    "height_m": 0.3,
+    "weight_kg": 2.0,
+    "evolutions": [
+      {
+        "dex": 21,
+        "name": "spearow"
+      },
+      {
+        "dex": 22,
+        "name": "fearow"
+      }
+    ]
+  },
+  {
+    "name": "fearow",
+    "dex": 22,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 65,
+      "spa": 61,
+      "spd": 61,
+      "spe": 100
+    },
+    "height_m": 1.2,
+    "weight_kg": 38.0,
+    "evolutions": [
+      {
+        "dex": 21,
+        "name": "spearow"
+      },
+      {
+        "dex": 22,
+        "name": "fearow"
+      }
+    ]
+  },
+  {
+    "name": "ekans",
+    "dex": 23,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 60,
+      "def": 44,
+      "spa": 40,
+      "spd": 54,
+      "spe": 55
+    },
+    "height_m": 2.0,
+    "weight_kg": 6.9,
+    "evolutions": [
+      {
+        "dex": 23,
+        "name": "ekans"
+      },
+      {
+        "dex": 24,
+        "name": "arbok"
+      }
+    ]
+  },
+  {
+    "name": "arbok",
+    "dex": 24,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 95,
+      "def": 69,
+      "spa": 65,
+      "spd": 79,
+      "spe": 80
+    },
+    "height_m": 3.5,
+    "weight_kg": 65.0,
+    "evolutions": [
+      {
+        "dex": 23,
+        "name": "ekans"
+      },
+      {
+        "dex": 24,
+        "name": "arbok"
+      }
+    ]
+  },
+  {
+    "name": "pikachu",
     "dex": 25,
-    "types": ["Electric"],
-    "base_stats": { "hp": 35, "atk": 55, "def": 40, "spa": 50, "spd": 50, "spe": 90 },
+    "types": [
+      "Electric"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 55,
+      "def": 40,
+      "spa": 50,
+      "spd": 50,
+      "spe": 90
+    },
     "height_m": 0.4,
-    "weight_kg": 6.0
+    "weight_kg": 6.0,
+    "evolutions": [
+      {
+        "dex": 172,
+        "name": "pichu"
+      },
+      {
+        "dex": 25,
+        "name": "pikachu"
+      },
+      {
+        "dex": 26,
+        "name": "raichu"
+      }
+    ]
   },
-  "zapdos": {
-    "dex": 145,
-    "types": ["Electric", "Flying"],
-    "base_stats": { "hp": 90, "atk": 90, "def": 85, "spa": 125, "spd": 90, "spe": 100 },
+  {
+    "name": "raichu",
+    "dex": 26,
+    "types": [
+      "Electric"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 90,
+      "def": 55,
+      "spa": 90,
+      "spd": 80,
+      "spe": 110
+    },
+    "height_m": 0.8,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 172,
+        "name": "pichu"
+      },
+      {
+        "dex": 25,
+        "name": "pikachu"
+      },
+      {
+        "dex": 26,
+        "name": "raichu"
+      }
+    ]
+  },
+  {
+    "name": "sandshrew",
+    "dex": 27,
+    "types": [
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 75,
+      "def": 85,
+      "spa": 20,
+      "spd": 30,
+      "spe": 40
+    },
+    "height_m": 0.6,
+    "weight_kg": 12.0,
+    "evolutions": [
+      {
+        "dex": 27,
+        "name": "sandshrew"
+      },
+      {
+        "dex": 28,
+        "name": "sandslash"
+      }
+    ]
+  },
+  {
+    "name": "sandslash",
+    "dex": 28,
+    "types": [
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 75,
+      "atk": 100,
+      "def": 110,
+      "spa": 45,
+      "spd": 55,
+      "spe": 65
+    },
+    "height_m": 1.0,
+    "weight_kg": 29.5,
+    "evolutions": [
+      {
+        "dex": 27,
+        "name": "sandshrew"
+      },
+      {
+        "dex": 28,
+        "name": "sandslash"
+      }
+    ]
+  },
+  {
+    "name": "nidoran_f",
+    "dex": 29,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 47,
+      "def": 52,
+      "spa": 40,
+      "spd": 40,
+      "spe": 41
+    },
+    "height_m": 0.4,
+    "weight_kg": 7.0,
+    "evolutions": [
+      {
+        "dex": 29,
+        "name": "nidoran-f"
+      },
+      {
+        "dex": 30,
+        "name": "nidorina"
+      },
+      {
+        "dex": 31,
+        "name": "nidoqueen"
+      }
+    ]
+  },
+  {
+    "name": "nidorina",
+    "dex": 30,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 70,
+      "atk": 62,
+      "def": 67,
+      "spa": 55,
+      "spd": 55,
+      "spe": 56
+    },
+    "height_m": 0.8,
+    "weight_kg": 20.0,
+    "evolutions": [
+      {
+        "dex": 29,
+        "name": "nidoran-f"
+      },
+      {
+        "dex": 30,
+        "name": "nidorina"
+      },
+      {
+        "dex": 31,
+        "name": "nidoqueen"
+      }
+    ]
+  },
+  {
+    "name": "nidoqueen",
+    "dex": 31,
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 92,
+      "def": 87,
+      "spa": 75,
+      "spd": 85,
+      "spe": 76
+    },
+    "height_m": 1.3,
+    "weight_kg": 60.0,
+    "evolutions": [
+      {
+        "dex": 29,
+        "name": "nidoran-f"
+      },
+      {
+        "dex": 30,
+        "name": "nidorina"
+      },
+      {
+        "dex": 31,
+        "name": "nidoqueen"
+      }
+    ]
+  },
+  {
+    "name": "nidoran_m",
+    "dex": 32,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 46,
+      "atk": 57,
+      "def": 40,
+      "spa": 40,
+      "spd": 40,
+      "spe": 50
+    },
+    "height_m": 0.5,
+    "weight_kg": 9.0,
+    "evolutions": [
+      {
+        "dex": 32,
+        "name": "nidoran-m"
+      },
+      {
+        "dex": 33,
+        "name": "nidorino"
+      },
+      {
+        "dex": 34,
+        "name": "nidoking"
+      }
+    ]
+  },
+  {
+    "name": "nidorino",
+    "dex": 33,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 61,
+      "atk": 72,
+      "def": 57,
+      "spa": 55,
+      "spd": 55,
+      "spe": 65
+    },
+    "height_m": 0.9,
+    "weight_kg": 19.5,
+    "evolutions": [
+      {
+        "dex": 32,
+        "name": "nidoran-m"
+      },
+      {
+        "dex": 33,
+        "name": "nidorino"
+      },
+      {
+        "dex": 34,
+        "name": "nidoking"
+      }
+    ]
+  },
+  {
+    "name": "nidoking",
+    "dex": 34,
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 81,
+      "atk": 102,
+      "def": 77,
+      "spa": 85,
+      "spd": 75,
+      "spe": 85
+    },
+    "height_m": 1.4,
+    "weight_kg": 62.0,
+    "evolutions": [
+      {
+        "dex": 32,
+        "name": "nidoran-m"
+      },
+      {
+        "dex": 33,
+        "name": "nidorino"
+      },
+      {
+        "dex": 34,
+        "name": "nidoking"
+      }
+    ]
+  },
+  {
+    "name": "clefairy",
+    "dex": 35,
+    "types": [
+      "Fairy"
+    ],
+    "base_stats": {
+      "hp": 70,
+      "atk": 45,
+      "def": 48,
+      "spa": 60,
+      "spd": 65,
+      "spe": 35
+    },
+    "height_m": 0.6,
+    "weight_kg": 7.5,
+    "evolutions": [
+      {
+        "dex": 173,
+        "name": "cleffa"
+      },
+      {
+        "dex": 35,
+        "name": "clefairy"
+      },
+      {
+        "dex": 36,
+        "name": "clefable"
+      }
+    ]
+  },
+  {
+    "name": "clefable",
+    "dex": 36,
+    "types": [
+      "Fairy"
+    ],
+    "base_stats": {
+      "hp": 95,
+      "atk": 70,
+      "def": 73,
+      "spa": 95,
+      "spd": 90,
+      "spe": 60
+    },
+    "height_m": 1.3,
+    "weight_kg": 40.0,
+    "evolutions": [
+      {
+        "dex": 173,
+        "name": "cleffa"
+      },
+      {
+        "dex": 35,
+        "name": "clefairy"
+      },
+      {
+        "dex": 36,
+        "name": "clefable"
+      }
+    ]
+  },
+  {
+    "name": "vulpix",
+    "dex": 37,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 38,
+      "atk": 41,
+      "def": 40,
+      "spa": 50,
+      "spd": 65,
+      "spe": 65
+    },
+    "height_m": 0.6,
+    "weight_kg": 9.9,
+    "evolutions": [
+      {
+        "dex": 37,
+        "name": "vulpix"
+      },
+      {
+        "dex": 38,
+        "name": "ninetales"
+      }
+    ]
+  },
+  {
+    "name": "ninetales",
+    "dex": 38,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 73,
+      "atk": 76,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 100
+    },
+    "height_m": 1.1,
+    "weight_kg": 19.9,
+    "evolutions": [
+      {
+        "dex": 37,
+        "name": "vulpix"
+      },
+      {
+        "dex": 38,
+        "name": "ninetales"
+      }
+    ]
+  },
+  {
+    "name": "jigglypuff",
+    "dex": 39,
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "base_stats": {
+      "hp": 115,
+      "atk": 45,
+      "def": 20,
+      "spa": 45,
+      "spd": 25,
+      "spe": 20
+    },
+    "height_m": 0.5,
+    "weight_kg": 5.5,
+    "evolutions": [
+      {
+        "dex": 174,
+        "name": "igglybuff"
+      },
+      {
+        "dex": 39,
+        "name": "jigglypuff"
+      },
+      {
+        "dex": 40,
+        "name": "wigglytuff"
+      }
+    ]
+  },
+  {
+    "name": "wigglytuff",
+    "dex": 40,
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "base_stats": {
+      "hp": 140,
+      "atk": 70,
+      "def": 45,
+      "spa": 85,
+      "spd": 50,
+      "spe": 45
+    },
+    "height_m": 1.0,
+    "weight_kg": 12.0,
+    "evolutions": [
+      {
+        "dex": 174,
+        "name": "igglybuff"
+      },
+      {
+        "dex": 39,
+        "name": "jigglypuff"
+      },
+      {
+        "dex": 40,
+        "name": "wigglytuff"
+      }
+    ]
+  },
+  {
+    "name": "zubat",
+    "dex": 41,
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 45,
+      "def": 35,
+      "spa": 30,
+      "spd": 40,
+      "spe": 55
+    },
+    "height_m": 0.8,
+    "weight_kg": 7.5,
+    "evolutions": [
+      {
+        "dex": 41,
+        "name": "zubat"
+      },
+      {
+        "dex": 42,
+        "name": "golbat"
+      },
+      {
+        "dex": 169,
+        "name": "crobat"
+      }
+    ]
+  },
+  {
+    "name": "golbat",
+    "dex": 42,
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 70,
+      "spa": 65,
+      "spd": 75,
+      "spe": 90
+    },
     "height_m": 1.6,
-    "weight_kg": 52.6
+    "weight_kg": 55.0,
+    "evolutions": [
+      {
+        "dex": 41,
+        "name": "zubat"
+      },
+      {
+        "dex": 42,
+        "name": "golbat"
+      },
+      {
+        "dex": 169,
+        "name": "crobat"
+      }
+    ]
+  },
+  {
+    "name": "oddish",
+    "dex": 43,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 45,
+      "atk": 50,
+      "def": 55,
+      "spa": 75,
+      "spd": 65,
+      "spe": 30
+    },
+    "height_m": 0.5,
+    "weight_kg": 5.4,
+    "evolutions": [
+      {
+        "dex": 43,
+        "name": "oddish"
+      },
+      {
+        "dex": 44,
+        "name": "gloom"
+      },
+      {
+        "dex": 45,
+        "name": "vileplume"
+      },
+      {
+        "dex": 182,
+        "name": "bellossom"
+      }
+    ]
+  },
+  {
+    "name": "gloom",
+    "dex": 44,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 70,
+      "spa": 85,
+      "spd": 75,
+      "spe": 40
+    },
+    "height_m": 0.8,
+    "weight_kg": 8.6,
+    "evolutions": [
+      {
+        "dex": 43,
+        "name": "oddish"
+      },
+      {
+        "dex": 44,
+        "name": "gloom"
+      },
+      {
+        "dex": 45,
+        "name": "vileplume"
+      },
+      {
+        "dex": 182,
+        "name": "bellossom"
+      }
+    ]
+  },
+  {
+    "name": "vileplume",
+    "dex": 45,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 85,
+      "spa": 110,
+      "spd": 90,
+      "spe": 50
+    },
+    "height_m": 1.2,
+    "weight_kg": 18.6,
+    "evolutions": [
+      {
+        "dex": 43,
+        "name": "oddish"
+      },
+      {
+        "dex": 44,
+        "name": "gloom"
+      },
+      {
+        "dex": 45,
+        "name": "vileplume"
+      },
+      {
+        "dex": 182,
+        "name": "bellossom"
+      }
+    ]
+  },
+  {
+    "name": "paras",
+    "dex": 46,
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 70,
+      "def": 55,
+      "spa": 45,
+      "spd": 55,
+      "spe": 25
+    },
+    "height_m": 0.3,
+    "weight_kg": 5.4,
+    "evolutions": [
+      {
+        "dex": 46,
+        "name": "paras"
+      },
+      {
+        "dex": 47,
+        "name": "parasect"
+      }
+    ]
+  },
+  {
+    "name": "parasect",
+    "dex": 47,
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 95,
+      "def": 80,
+      "spa": 60,
+      "spd": 80,
+      "spe": 30
+    },
+    "height_m": 1.0,
+    "weight_kg": 29.5,
+    "evolutions": [
+      {
+        "dex": 46,
+        "name": "paras"
+      },
+      {
+        "dex": 47,
+        "name": "parasect"
+      }
+    ]
+  },
+  {
+    "name": "venonat",
+    "dex": 48,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 50,
+      "spa": 40,
+      "spd": 55,
+      "spe": 45
+    },
+    "height_m": 1.0,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 48,
+        "name": "venonat"
+      },
+      {
+        "dex": 49,
+        "name": "venomoth"
+      }
+    ]
+  },
+  {
+    "name": "venomoth",
+    "dex": 49,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 70,
+      "atk": 65,
+      "def": 60,
+      "spa": 90,
+      "spd": 75,
+      "spe": 90
+    },
+    "height_m": 1.5,
+    "weight_kg": 12.5,
+    "evolutions": [
+      {
+        "dex": 48,
+        "name": "venonat"
+      },
+      {
+        "dex": 49,
+        "name": "venomoth"
+      }
+    ]
+  },
+  {
+    "name": "diglett",
+    "dex": 50,
+    "types": [
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 10,
+      "atk": 55,
+      "def": 25,
+      "spa": 35,
+      "spd": 45,
+      "spe": 95
+    },
+    "height_m": 0.2,
+    "weight_kg": 0.8,
+    "evolutions": [
+      {
+        "dex": 50,
+        "name": "diglett"
+      },
+      {
+        "dex": 51,
+        "name": "dugtrio"
+      }
+    ]
+  },
+  {
+    "name": "dugtrio",
+    "dex": 51,
+    "types": [
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 100,
+      "def": 50,
+      "spa": 50,
+      "spd": 70,
+      "spe": 120
+    },
+    "height_m": 0.7,
+    "weight_kg": 33.3,
+    "evolutions": [
+      {
+        "dex": 50,
+        "name": "diglett"
+      },
+      {
+        "dex": 51,
+        "name": "dugtrio"
+      }
+    ]
+  },
+  {
+    "name": "meowth",
+    "dex": 52,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 45,
+      "def": 35,
+      "spa": 40,
+      "spd": 40,
+      "spe": 90
+    },
+    "height_m": 0.4,
+    "weight_kg": 4.2,
+    "evolutions": [
+      {
+        "dex": 52,
+        "name": "meowth"
+      },
+      {
+        "dex": 53,
+        "name": "persian"
+      },
+      {
+        "dex": 863,
+        "name": "perrserker"
+      }
+    ]
+  },
+  {
+    "name": "persian",
+    "dex": 53,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 70,
+      "def": 60,
+      "spa": 65,
+      "spd": 65,
+      "spe": 115
+    },
+    "height_m": 1.0,
+    "weight_kg": 32.0,
+    "evolutions": [
+      {
+        "dex": 52,
+        "name": "meowth"
+      },
+      {
+        "dex": 53,
+        "name": "persian"
+      },
+      {
+        "dex": 863,
+        "name": "perrserker"
+      }
+    ]
+  },
+  {
+    "name": "psyduck",
+    "dex": 54,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 52,
+      "def": 48,
+      "spa": 65,
+      "spd": 50,
+      "spe": 55
+    },
+    "height_m": 0.8,
+    "weight_kg": 19.6,
+    "evolutions": [
+      {
+        "dex": 54,
+        "name": "psyduck"
+      },
+      {
+        "dex": 55,
+        "name": "golduck"
+      }
+    ]
+  },
+  {
+    "name": "golduck",
+    "dex": 55,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 78,
+      "spa": 95,
+      "spd": 80,
+      "spe": 85
+    },
+    "height_m": 1.7,
+    "weight_kg": 76.6,
+    "evolutions": [
+      {
+        "dex": 54,
+        "name": "psyduck"
+      },
+      {
+        "dex": 55,
+        "name": "golduck"
+      }
+    ]
+  },
+  {
+    "name": "mankey",
+    "dex": 56,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 80,
+      "def": 35,
+      "spa": 35,
+      "spd": 45,
+      "spe": 70
+    },
+    "height_m": 0.5,
+    "weight_kg": 28.0,
+    "evolutions": [
+      {
+        "dex": 56,
+        "name": "mankey"
+      },
+      {
+        "dex": 57,
+        "name": "primeape"
+      },
+      {
+        "dex": 979,
+        "name": "annihilape"
+      }
+    ]
+  },
+  {
+    "name": "primeape",
+    "dex": 57,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 105,
+      "def": 60,
+      "spa": 60,
+      "spd": 70,
+      "spe": 95
+    },
+    "height_m": 1.0,
+    "weight_kg": 32.0,
+    "evolutions": [
+      {
+        "dex": 56,
+        "name": "mankey"
+      },
+      {
+        "dex": 57,
+        "name": "primeape"
+      },
+      {
+        "dex": 979,
+        "name": "annihilape"
+      }
+    ]
+  },
+  {
+    "name": "growlithe",
+    "dex": 58,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 70,
+      "def": 45,
+      "spa": 70,
+      "spd": 50,
+      "spe": 60
+    },
+    "height_m": 0.7,
+    "weight_kg": 19.0,
+    "evolutions": [
+      {
+        "dex": 58,
+        "name": "growlithe"
+      },
+      {
+        "dex": 59,
+        "name": "arcanine"
+      }
+    ]
+  },
+  {
+    "name": "arcanine",
+    "dex": 59,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 110,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 95
+    },
+    "height_m": 1.9,
+    "weight_kg": 155.0,
+    "evolutions": [
+      {
+        "dex": 58,
+        "name": "growlithe"
+      },
+      {
+        "dex": 59,
+        "name": "arcanine"
+      }
+    ]
+  },
+  {
+    "name": "poliwag",
+    "dex": 60,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 50,
+      "def": 40,
+      "spa": 40,
+      "spd": 40,
+      "spe": 90
+    },
+    "height_m": 0.6,
+    "weight_kg": 12.4,
+    "evolutions": [
+      {
+        "dex": 60,
+        "name": "poliwag"
+      },
+      {
+        "dex": 61,
+        "name": "poliwhirl"
+      },
+      {
+        "dex": 62,
+        "name": "poliwrath"
+      },
+      {
+        "dex": 186,
+        "name": "politoed"
+      }
+    ]
+  },
+  {
+    "name": "poliwhirl",
+    "dex": 61,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 65,
+      "spa": 50,
+      "spd": 50,
+      "spe": 90
+    },
+    "height_m": 1.0,
+    "weight_kg": 20.0,
+    "evolutions": [
+      {
+        "dex": 60,
+        "name": "poliwag"
+      },
+      {
+        "dex": 61,
+        "name": "poliwhirl"
+      },
+      {
+        "dex": 62,
+        "name": "poliwrath"
+      },
+      {
+        "dex": 186,
+        "name": "politoed"
+      }
+    ]
+  },
+  {
+    "name": "poliwrath",
+    "dex": 62,
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 95,
+      "def": 95,
+      "spa": 70,
+      "spd": 90,
+      "spe": 70
+    },
+    "height_m": 1.3,
+    "weight_kg": 54.0,
+    "evolutions": [
+      {
+        "dex": 60,
+        "name": "poliwag"
+      },
+      {
+        "dex": 61,
+        "name": "poliwhirl"
+      },
+      {
+        "dex": 62,
+        "name": "poliwrath"
+      },
+      {
+        "dex": 186,
+        "name": "politoed"
+      }
+    ]
+  },
+  {
+    "name": "abra",
+    "dex": 63,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 25,
+      "atk": 20,
+      "def": 15,
+      "spa": 105,
+      "spd": 55,
+      "spe": 90
+    },
+    "height_m": 0.9,
+    "weight_kg": 19.5,
+    "evolutions": [
+      {
+        "dex": 63,
+        "name": "abra"
+      },
+      {
+        "dex": 64,
+        "name": "kadabra"
+      },
+      {
+        "dex": 65,
+        "name": "alakazam"
+      }
+    ]
+  },
+  {
+    "name": "kadabra",
+    "dex": 64,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 35,
+      "def": 30,
+      "spa": 120,
+      "spd": 70,
+      "spe": 105
+    },
+    "height_m": 1.3,
+    "weight_kg": 56.5,
+    "evolutions": [
+      {
+        "dex": 63,
+        "name": "abra"
+      },
+      {
+        "dex": 64,
+        "name": "kadabra"
+      },
+      {
+        "dex": 65,
+        "name": "alakazam"
+      }
+    ]
+  },
+  {
+    "name": "alakazam",
+    "dex": 65,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 50,
+      "def": 45,
+      "spa": 135,
+      "spd": 95,
+      "spe": 120
+    },
+    "height_m": 1.5,
+    "weight_kg": 48.0,
+    "evolutions": [
+      {
+        "dex": 63,
+        "name": "abra"
+      },
+      {
+        "dex": 64,
+        "name": "kadabra"
+      },
+      {
+        "dex": 65,
+        "name": "alakazam"
+      }
+    ]
+  },
+  {
+    "name": "machop",
+    "dex": 66,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 50,
+      "spa": 35,
+      "spd": 35,
+      "spe": 35
+    },
+    "height_m": 0.8,
+    "weight_kg": 19.5,
+    "evolutions": [
+      {
+        "dex": 66,
+        "name": "machop"
+      },
+      {
+        "dex": 67,
+        "name": "machoke"
+      },
+      {
+        "dex": 68,
+        "name": "machamp"
+      }
+    ]
+  },
+  {
+    "name": "machoke",
+    "dex": 67,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 70,
+      "spa": 50,
+      "spd": 60,
+      "spe": 45
+    },
+    "height_m": 1.5,
+    "weight_kg": 70.5,
+    "evolutions": [
+      {
+        "dex": 66,
+        "name": "machop"
+      },
+      {
+        "dex": 67,
+        "name": "machoke"
+      },
+      {
+        "dex": 68,
+        "name": "machamp"
+      }
+    ]
+  },
+  {
+    "name": "machamp",
+    "dex": 68,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 130,
+      "def": 80,
+      "spa": 65,
+      "spd": 85,
+      "spe": 55
+    },
+    "height_m": 1.6,
+    "weight_kg": 130.0,
+    "evolutions": [
+      {
+        "dex": 66,
+        "name": "machop"
+      },
+      {
+        "dex": 67,
+        "name": "machoke"
+      },
+      {
+        "dex": 68,
+        "name": "machamp"
+      }
+    ]
+  },
+  {
+    "name": "bellsprout",
+    "dex": 69,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 75,
+      "def": 35,
+      "spa": 70,
+      "spd": 30,
+      "spe": 40
+    },
+    "height_m": 0.7,
+    "weight_kg": 4.0,
+    "evolutions": [
+      {
+        "dex": 69,
+        "name": "bellsprout"
+      },
+      {
+        "dex": 70,
+        "name": "weepinbell"
+      },
+      {
+        "dex": 71,
+        "name": "victreebel"
+      }
+    ]
+  },
+  {
+    "name": "weepinbell",
+    "dex": 70,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 50,
+      "spa": 85,
+      "spd": 45,
+      "spe": 55
+    },
+    "height_m": 1.0,
+    "weight_kg": 6.4,
+    "evolutions": [
+      {
+        "dex": 69,
+        "name": "bellsprout"
+      },
+      {
+        "dex": 70,
+        "name": "weepinbell"
+      },
+      {
+        "dex": 71,
+        "name": "victreebel"
+      }
+    ]
+  },
+  {
+    "name": "victreebel",
+    "dex": 71,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 100,
+      "spd": 70,
+      "spe": 70
+    },
+    "height_m": 1.7,
+    "weight_kg": 15.5,
+    "evolutions": [
+      {
+        "dex": 69,
+        "name": "bellsprout"
+      },
+      {
+        "dex": 70,
+        "name": "weepinbell"
+      },
+      {
+        "dex": 71,
+        "name": "victreebel"
+      }
+    ]
+  },
+  {
+    "name": "tentacool",
+    "dex": 72,
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 40,
+      "def": 35,
+      "spa": 50,
+      "spd": 100,
+      "spe": 70
+    },
+    "height_m": 0.9,
+    "weight_kg": 45.5,
+    "evolutions": [
+      {
+        "dex": 72,
+        "name": "tentacool"
+      },
+      {
+        "dex": 73,
+        "name": "tentacruel"
+      }
+    ]
+  },
+  {
+    "name": "tentacruel",
+    "dex": 73,
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 70,
+      "def": 65,
+      "spa": 80,
+      "spd": 120,
+      "spe": 100
+    },
+    "height_m": 1.6,
+    "weight_kg": 55.0,
+    "evolutions": [
+      {
+        "dex": 72,
+        "name": "tentacool"
+      },
+      {
+        "dex": 73,
+        "name": "tentacruel"
+      }
+    ]
+  },
+  {
+    "name": "geodude",
+    "dex": 74,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 80,
+      "def": 100,
+      "spa": 30,
+      "spd": 30,
+      "spe": 20
+    },
+    "height_m": 0.4,
+    "weight_kg": 20.0,
+    "evolutions": [
+      {
+        "dex": 74,
+        "name": "geodude"
+      },
+      {
+        "dex": 75,
+        "name": "graveler"
+      },
+      {
+        "dex": 76,
+        "name": "golem"
+      }
+    ]
+  },
+  {
+    "name": "graveler",
+    "dex": 75,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 95,
+      "def": 115,
+      "spa": 45,
+      "spd": 45,
+      "spe": 35
+    },
+    "height_m": 1.0,
+    "weight_kg": 105.0,
+    "evolutions": [
+      {
+        "dex": 74,
+        "name": "geodude"
+      },
+      {
+        "dex": 75,
+        "name": "graveler"
+      },
+      {
+        "dex": 76,
+        "name": "golem"
+      }
+    ]
+  },
+  {
+    "name": "golem",
+    "dex": 76,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 130,
+      "spa": 55,
+      "spd": 65,
+      "spe": 45
+    },
+    "height_m": 1.4,
+    "weight_kg": 300.0,
+    "evolutions": [
+      {
+        "dex": 74,
+        "name": "geodude"
+      },
+      {
+        "dex": 75,
+        "name": "graveler"
+      },
+      {
+        "dex": 76,
+        "name": "golem"
+      }
+    ]
+  },
+  {
+    "name": "ponyta",
+    "dex": 77,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 85,
+      "def": 55,
+      "spa": 65,
+      "spd": 65,
+      "spe": 90
+    },
+    "height_m": 1.0,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 77,
+        "name": "ponyta"
+      },
+      {
+        "dex": 78,
+        "name": "rapidash"
+      }
+    ]
+  },
+  {
+    "name": "rapidash",
+    "dex": 78,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 100,
+      "def": 70,
+      "spa": 80,
+      "spd": 80,
+      "spe": 105
+    },
+    "height_m": 1.7,
+    "weight_kg": 95.0,
+    "evolutions": [
+      {
+        "dex": 77,
+        "name": "ponyta"
+      },
+      {
+        "dex": 78,
+        "name": "rapidash"
+      }
+    ]
+  },
+  {
+    "name": "slowpoke",
+    "dex": 79,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 65,
+      "def": 65,
+      "spa": 40,
+      "spd": 40,
+      "spe": 15
+    },
+    "height_m": 1.2,
+    "weight_kg": 36.0,
+    "evolutions": [
+      {
+        "dex": 79,
+        "name": "slowpoke"
+      },
+      {
+        "dex": 80,
+        "name": "slowbro"
+      },
+      {
+        "dex": 199,
+        "name": "slowking"
+      }
+    ]
+  },
+  {
+    "name": "slowbro",
+    "dex": 80,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 110,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "height_m": 1.6,
+    "weight_kg": 78.5,
+    "evolutions": [
+      {
+        "dex": 79,
+        "name": "slowpoke"
+      },
+      {
+        "dex": 80,
+        "name": "slowbro"
+      },
+      {
+        "dex": 199,
+        "name": "slowking"
+      }
+    ]
+  },
+  {
+    "name": "magnemite",
+    "dex": 81,
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "base_stats": {
+      "hp": 25,
+      "atk": 35,
+      "def": 70,
+      "spa": 95,
+      "spd": 55,
+      "spe": 45
+    },
+    "height_m": 0.3,
+    "weight_kg": 6.0,
+    "evolutions": [
+      {
+        "dex": 81,
+        "name": "magnemite"
+      },
+      {
+        "dex": 82,
+        "name": "magneton"
+      },
+      {
+        "dex": 462,
+        "name": "magnezone"
+      }
+    ]
+  },
+  {
+    "name": "magneton",
+    "dex": 82,
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 60,
+      "def": 95,
+      "spa": 120,
+      "spd": 70,
+      "spe": 70
+    },
+    "height_m": 1.0,
+    "weight_kg": 60.0,
+    "evolutions": [
+      {
+        "dex": 81,
+        "name": "magnemite"
+      },
+      {
+        "dex": 82,
+        "name": "magneton"
+      },
+      {
+        "dex": 462,
+        "name": "magnezone"
+      }
+    ]
+  },
+  {
+    "name": "farfetchd",
+    "dex": 83,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 52,
+      "atk": 90,
+      "def": 55,
+      "spa": 58,
+      "spd": 62,
+      "spe": 60
+    },
+    "height_m": 0.8,
+    "weight_kg": 15.0,
+    "evolutions": [
+      {
+        "dex": 83,
+        "name": "farfetchd"
+      },
+      {
+        "dex": 865,
+        "name": "sirfetchd"
+      }
+    ]
+  },
+  {
+    "name": "doduo",
+    "dex": 84,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 85,
+      "def": 45,
+      "spa": 35,
+      "spd": 35,
+      "spe": 75
+    },
+    "height_m": 1.4,
+    "weight_kg": 39.2,
+    "evolutions": [
+      {
+        "dex": 84,
+        "name": "doduo"
+      },
+      {
+        "dex": 85,
+        "name": "dodrio"
+      }
+    ]
+  },
+  {
+    "name": "dodrio",
+    "dex": 85,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 110,
+      "def": 70,
+      "spa": 60,
+      "spd": 60,
+      "spe": 110
+    },
+    "height_m": 1.8,
+    "weight_kg": 85.2,
+    "evolutions": [
+      {
+        "dex": 84,
+        "name": "doduo"
+      },
+      {
+        "dex": 85,
+        "name": "dodrio"
+      }
+    ]
+  },
+  {
+    "name": "seel",
+    "dex": 86,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 45,
+      "def": 55,
+      "spa": 45,
+      "spd": 70,
+      "spe": 45
+    },
+    "height_m": 1.1,
+    "weight_kg": 90.0,
+    "evolutions": [
+      {
+        "dex": 86,
+        "name": "seel"
+      },
+      {
+        "dex": 87,
+        "name": "dewgong"
+      }
+    ]
+  },
+  {
+    "name": "dewgong",
+    "dex": 87,
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 70,
+      "def": 80,
+      "spa": 70,
+      "spd": 95,
+      "spe": 70
+    },
+    "height_m": 1.7,
+    "weight_kg": 120.0,
+    "evolutions": [
+      {
+        "dex": 86,
+        "name": "seel"
+      },
+      {
+        "dex": 87,
+        "name": "dewgong"
+      }
+    ]
+  },
+  {
+    "name": "grimer",
+    "dex": 88,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 80,
+      "def": 50,
+      "spa": 40,
+      "spd": 50,
+      "spe": 25
+    },
+    "height_m": 0.9,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 88,
+        "name": "grimer"
+      },
+      {
+        "dex": 89,
+        "name": "muk"
+      }
+    ]
+  },
+  {
+    "name": "muk",
+    "dex": 89,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 105,
+      "atk": 105,
+      "def": 75,
+      "spa": 65,
+      "spd": 100,
+      "spe": 50
+    },
+    "height_m": 1.2,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 88,
+        "name": "grimer"
+      },
+      {
+        "dex": 89,
+        "name": "muk"
+      }
+    ]
+  },
+  {
+    "name": "shellder",
+    "dex": 90,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 65,
+      "def": 100,
+      "spa": 45,
+      "spd": 25,
+      "spe": 40
+    },
+    "height_m": 0.3,
+    "weight_kg": 4.0,
+    "evolutions": [
+      {
+        "dex": 90,
+        "name": "shellder"
+      },
+      {
+        "dex": 91,
+        "name": "cloyster"
+      }
+    ]
+  },
+  {
+    "name": "cloyster",
+    "dex": 91,
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 95,
+      "def": 180,
+      "spa": 85,
+      "spd": 45,
+      "spe": 70
+    },
+    "height_m": 1.5,
+    "weight_kg": 132.5,
+    "evolutions": [
+      {
+        "dex": 90,
+        "name": "shellder"
+      },
+      {
+        "dex": 91,
+        "name": "cloyster"
+      }
+    ]
+  },
+  {
+    "name": "gastly",
+    "dex": 92,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 35,
+      "def": 30,
+      "spa": 100,
+      "spd": 35,
+      "spe": 80
+    },
+    "height_m": 1.3,
+    "weight_kg": 0.1,
+    "evolutions": [
+      {
+        "dex": 92,
+        "name": "gastly"
+      },
+      {
+        "dex": 93,
+        "name": "haunter"
+      },
+      {
+        "dex": 94,
+        "name": "gengar"
+      }
+    ]
+  },
+  {
+    "name": "haunter",
+    "dex": 93,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 45,
+      "atk": 50,
+      "def": 45,
+      "spa": 115,
+      "spd": 55,
+      "spe": 95
+    },
+    "height_m": 1.6,
+    "weight_kg": 0.1,
+    "evolutions": [
+      {
+        "dex": 92,
+        "name": "gastly"
+      },
+      {
+        "dex": 93,
+        "name": "haunter"
+      },
+      {
+        "dex": 94,
+        "name": "gengar"
+      }
+    ]
+  },
+  {
+    "name": "gengar",
+    "dex": 94,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 75,
+      "spe": 110
+    },
+    "height_m": 1.5,
+    "weight_kg": 40.5,
+    "evolutions": [
+      {
+        "dex": 92,
+        "name": "gastly"
+      },
+      {
+        "dex": 93,
+        "name": "haunter"
+      },
+      {
+        "dex": 94,
+        "name": "gengar"
+      }
+    ]
+  },
+  {
+    "name": "onix",
+    "dex": 95,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 45,
+      "def": 160,
+      "spa": 30,
+      "spd": 45,
+      "spe": 70
+    },
+    "height_m": 8.8,
+    "weight_kg": 210.0,
+    "evolutions": [
+      {
+        "dex": 95,
+        "name": "onix"
+      },
+      {
+        "dex": 208,
+        "name": "steelix"
+      }
+    ]
+  },
+  {
+    "name": "drowzee",
+    "dex": 96,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 48,
+      "def": 45,
+      "spa": 43,
+      "spd": 90,
+      "spe": 42
+    },
+    "height_m": 1.0,
+    "weight_kg": 32.4,
+    "evolutions": [
+      {
+        "dex": 96,
+        "name": "drowzee"
+      },
+      {
+        "dex": 97,
+        "name": "hypno"
+      }
+    ]
+  },
+  {
+    "name": "hypno",
+    "dex": 97,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 85,
+      "atk": 73,
+      "def": 70,
+      "spa": 73,
+      "spd": 115,
+      "spe": 67
+    },
+    "height_m": 1.6,
+    "weight_kg": 75.6,
+    "evolutions": [
+      {
+        "dex": 96,
+        "name": "drowzee"
+      },
+      {
+        "dex": 97,
+        "name": "hypno"
+      }
+    ]
+  },
+  {
+    "name": "krabby",
+    "dex": 98,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 105,
+      "def": 90,
+      "spa": 25,
+      "spd": 25,
+      "spe": 50
+    },
+    "height_m": 0.4,
+    "weight_kg": 6.5,
+    "evolutions": [
+      {
+        "dex": 98,
+        "name": "krabby"
+      },
+      {
+        "dex": 99,
+        "name": "kingler"
+      }
+    ]
+  },
+  {
+    "name": "kingler",
+    "dex": 99,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 130,
+      "def": 115,
+      "spa": 50,
+      "spd": 50,
+      "spe": 75
+    },
+    "height_m": 1.3,
+    "weight_kg": 60.0,
+    "evolutions": [
+      {
+        "dex": 98,
+        "name": "krabby"
+      },
+      {
+        "dex": 99,
+        "name": "kingler"
+      }
+    ]
+  },
+  {
+    "name": "voltorb",
+    "dex": 100,
+    "types": [
+      "Electric"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 30,
+      "def": 50,
+      "spa": 55,
+      "spd": 55,
+      "spe": 100
+    },
+    "height_m": 0.5,
+    "weight_kg": 10.4,
+    "evolutions": [
+      {
+        "dex": 100,
+        "name": "voltorb"
+      },
+      {
+        "dex": 101,
+        "name": "electrode"
+      }
+    ]
+  },
+  {
+    "name": "electrode",
+    "dex": 101,
+    "types": [
+      "Electric"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 70,
+      "spa": 80,
+      "spd": 80,
+      "spe": 150
+    },
+    "height_m": 1.2,
+    "weight_kg": 66.6,
+    "evolutions": [
+      {
+        "dex": 100,
+        "name": "voltorb"
+      },
+      {
+        "dex": 101,
+        "name": "electrode"
+      }
+    ]
+  },
+  {
+    "name": "exeggcute",
+    "dex": 102,
+    "types": [
+      "Grass",
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 40,
+      "def": 80,
+      "spa": 60,
+      "spd": 45,
+      "spe": 40
+    },
+    "height_m": 0.4,
+    "weight_kg": 2.5,
+    "evolutions": [
+      {
+        "dex": 102,
+        "name": "exeggcute"
+      },
+      {
+        "dex": 103,
+        "name": "exeggutor"
+      }
+    ]
+  },
+  {
+    "name": "exeggutor",
+    "dex": 103,
+    "types": [
+      "Grass",
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 95,
+      "atk": 95,
+      "def": 85,
+      "spa": 125,
+      "spd": 75,
+      "spe": 55
+    },
+    "height_m": 2.0,
+    "weight_kg": 120.0,
+    "evolutions": [
+      {
+        "dex": 102,
+        "name": "exeggcute"
+      },
+      {
+        "dex": 103,
+        "name": "exeggutor"
+      }
+    ]
+  },
+  {
+    "name": "cubone",
+    "dex": 104,
+    "types": [
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 50,
+      "def": 95,
+      "spa": 40,
+      "spd": 50,
+      "spe": 35
+    },
+    "height_m": 0.4,
+    "weight_kg": 6.5,
+    "evolutions": [
+      {
+        "dex": 104,
+        "name": "cubone"
+      },
+      {
+        "dex": 105,
+        "name": "marowak"
+      }
+    ]
+  },
+  {
+    "name": "marowak",
+    "dex": 105,
+    "types": [
+      "Ground"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 80,
+      "def": 110,
+      "spa": 50,
+      "spd": 80,
+      "spe": 45
+    },
+    "height_m": 1.0,
+    "weight_kg": 45.0,
+    "evolutions": [
+      {
+        "dex": 104,
+        "name": "cubone"
+      },
+      {
+        "dex": 105,
+        "name": "marowak"
+      }
+    ]
+  },
+  {
+    "name": "hitmonlee",
+    "dex": 106,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 120,
+      "def": 53,
+      "spa": 35,
+      "spd": 110,
+      "spe": 87
+    },
+    "height_m": 1.5,
+    "weight_kg": 49.8,
+    "evolutions": [
+      {
+        "dex": 236,
+        "name": "tyrogue"
+      },
+      {
+        "dex": 106,
+        "name": "hitmonlee"
+      },
+      {
+        "dex": 107,
+        "name": "hitmonchan"
+      },
+      {
+        "dex": 237,
+        "name": "hitmontop"
+      }
+    ]
+  },
+  {
+    "name": "hitmonchan",
+    "dex": 107,
+    "types": [
+      "Fighting"
+    ],
+    "base_stats": {
+      "hp": 50,
+      "atk": 105,
+      "def": 79,
+      "spa": 35,
+      "spd": 110,
+      "spe": 76
+    },
+    "height_m": 1.4,
+    "weight_kg": 50.2,
+    "evolutions": [
+      {
+        "dex": 236,
+        "name": "tyrogue"
+      },
+      {
+        "dex": 106,
+        "name": "hitmonlee"
+      },
+      {
+        "dex": 107,
+        "name": "hitmonchan"
+      },
+      {
+        "dex": 237,
+        "name": "hitmontop"
+      }
+    ]
+  },
+  {
+    "name": "lickitung",
+    "dex": 108,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 55,
+      "def": 75,
+      "spa": 60,
+      "spd": 75,
+      "spe": 30
+    },
+    "height_m": 1.2,
+    "weight_kg": 65.5,
+    "evolutions": [
+      {
+        "dex": 108,
+        "name": "lickitung"
+      },
+      {
+        "dex": 463,
+        "name": "lickilicky"
+      }
+    ]
+  },
+  {
+    "name": "koffing",
+    "dex": 109,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 65,
+      "def": 95,
+      "spa": 60,
+      "spd": 45,
+      "spe": 35
+    },
+    "height_m": 0.6,
+    "weight_kg": 1.0,
+    "evolutions": [
+      {
+        "dex": 109,
+        "name": "koffing"
+      },
+      {
+        "dex": 110,
+        "name": "weezing"
+      }
+    ]
+  },
+  {
+    "name": "weezing",
+    "dex": 110,
+    "types": [
+      "Poison"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 120,
+      "spa": 85,
+      "spd": 70,
+      "spe": 60
+    },
+    "height_m": 1.2,
+    "weight_kg": 9.5,
+    "evolutions": [
+      {
+        "dex": 109,
+        "name": "koffing"
+      },
+      {
+        "dex": 110,
+        "name": "weezing"
+      }
+    ]
+  },
+  {
+    "name": "rhyhorn",
+    "dex": 111,
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 85,
+      "def": 95,
+      "spa": 30,
+      "spd": 30,
+      "spe": 25
+    },
+    "height_m": 1.0,
+    "weight_kg": 115.0,
+    "evolutions": [
+      {
+        "dex": 111,
+        "name": "rhyhorn"
+      },
+      {
+        "dex": 112,
+        "name": "rhydon"
+      },
+      {
+        "dex": 464,
+        "name": "rhyperior"
+      }
+    ]
+  },
+  {
+    "name": "rhydon",
+    "dex": 112,
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "base_stats": {
+      "hp": 105,
+      "atk": 130,
+      "def": 120,
+      "spa": 45,
+      "spd": 45,
+      "spe": 40
+    },
+    "height_m": 1.9,
+    "weight_kg": 120.0,
+    "evolutions": [
+      {
+        "dex": 111,
+        "name": "rhyhorn"
+      },
+      {
+        "dex": 112,
+        "name": "rhydon"
+      },
+      {
+        "dex": 464,
+        "name": "rhyperior"
+      }
+    ]
+  },
+  {
+    "name": "chansey",
+    "dex": 113,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 250,
+      "atk": 5,
+      "def": 5,
+      "spa": 35,
+      "spd": 105,
+      "spe": 50
+    },
+    "height_m": 1.1,
+    "weight_kg": 34.6,
+    "evolutions": [
+      {
+        "dex": 440,
+        "name": "happiny"
+      },
+      {
+        "dex": 113,
+        "name": "chansey"
+      },
+      {
+        "dex": 242,
+        "name": "blissey"
+      }
+    ]
+  },
+  {
+    "name": "tangela",
+    "dex": 114,
+    "types": [
+      "Grass"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 55,
+      "def": 115,
+      "spa": 100,
+      "spd": 40,
+      "spe": 60
+    },
+    "height_m": 1.0,
+    "weight_kg": 35.0,
+    "evolutions": [
+      {
+        "dex": 114,
+        "name": "tangela"
+      },
+      {
+        "dex": 465,
+        "name": "tangrowth"
+      }
+    ]
+  },
+  {
+    "name": "kangaskhan",
+    "dex": 115,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 105,
+      "atk": 95,
+      "def": 80,
+      "spa": 40,
+      "spd": 80,
+      "spe": 90
+    },
+    "height_m": 2.2,
+    "weight_kg": 80.0,
+    "evolutions": [
+      {
+        "dex": 115,
+        "name": "kangaskhan"
+      }
+    ]
+  },
+  {
+    "name": "horsea",
+    "dex": 116,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 40,
+      "def": 70,
+      "spa": 70,
+      "spd": 25,
+      "spe": 60
+    },
+    "height_m": 0.4,
+    "weight_kg": 8.0,
+    "evolutions": [
+      {
+        "dex": 116,
+        "name": "horsea"
+      },
+      {
+        "dex": 117,
+        "name": "seadra"
+      },
+      {
+        "dex": 230,
+        "name": "kingdra"
+      }
+    ]
+  },
+  {
+    "name": "seadra",
+    "dex": 117,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 65,
+      "def": 95,
+      "spa": 95,
+      "spd": 45,
+      "spe": 85
+    },
+    "height_m": 1.2,
+    "weight_kg": 25.0,
+    "evolutions": [
+      {
+        "dex": 116,
+        "name": "horsea"
+      },
+      {
+        "dex": 117,
+        "name": "seadra"
+      },
+      {
+        "dex": 230,
+        "name": "kingdra"
+      }
+    ]
+  },
+  {
+    "name": "goldeen",
+    "dex": 118,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 45,
+      "atk": 67,
+      "def": 60,
+      "spa": 35,
+      "spd": 50,
+      "spe": 63
+    },
+    "height_m": 0.6,
+    "weight_kg": 15.0,
+    "evolutions": [
+      {
+        "dex": 118,
+        "name": "goldeen"
+      },
+      {
+        "dex": 119,
+        "name": "seaking"
+      }
+    ]
+  },
+  {
+    "name": "seaking",
+    "dex": 119,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 92,
+      "def": 65,
+      "spa": 65,
+      "spd": 80,
+      "spe": 68
+    },
+    "height_m": 1.3,
+    "weight_kg": 39.0,
+    "evolutions": [
+      {
+        "dex": 118,
+        "name": "goldeen"
+      },
+      {
+        "dex": 119,
+        "name": "seaking"
+      }
+    ]
+  },
+  {
+    "name": "staryu",
+    "dex": 120,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 45,
+      "def": 55,
+      "spa": 70,
+      "spd": 55,
+      "spe": 85
+    },
+    "height_m": 0.8,
+    "weight_kg": 34.5,
+    "evolutions": [
+      {
+        "dex": 120,
+        "name": "staryu"
+      },
+      {
+        "dex": 121,
+        "name": "starmie"
+      }
+    ]
+  },
+  {
+    "name": "starmie",
+    "dex": 121,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 75,
+      "def": 85,
+      "spa": 100,
+      "spd": 85,
+      "spe": 115
+    },
+    "height_m": 1.1,
+    "weight_kg": 80.0,
+    "evolutions": [
+      {
+        "dex": 120,
+        "name": "staryu"
+      },
+      {
+        "dex": 121,
+        "name": "starmie"
+      }
+    ]
+  },
+  {
+    "name": "mr-mime",
+    "dex": 122,
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "base_stats": {
+      "hp": 40,
+      "atk": 45,
+      "def": 65,
+      "spa": 100,
+      "spd": 120,
+      "spe": 90
+    },
+    "height_m": 1.3,
+    "weight_kg": 54.5,
+    "evolutions": [
+      {
+        "dex": 439,
+        "name": "mime-jr"
+      },
+      {
+        "dex": 122,
+        "name": "mr-mime"
+      },
+      {
+        "dex": 866,
+        "name": "mr-rime"
+      }
+    ]
+  },
+  {
+    "name": "scyther",
+    "dex": 123,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 80,
+      "spa": 55,
+      "spd": 80,
+      "spe": 105
+    },
+    "height_m": 1.5,
+    "weight_kg": 56.0,
+    "evolutions": [
+      {
+        "dex": 123,
+        "name": "scyther"
+      },
+      {
+        "dex": 212,
+        "name": "scizor"
+      },
+      {
+        "dex": 900,
+        "name": "kleavor"
+      }
+    ]
+  },
+  {
+    "name": "jynx",
+    "dex": 124,
+    "types": [
+      "Ice",
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 50,
+      "def": 35,
+      "spa": 115,
+      "spd": 95,
+      "spe": 95
+    },
+    "height_m": 1.4,
+    "weight_kg": 40.6,
+    "evolutions": [
+      {
+        "dex": 238,
+        "name": "smoochum"
+      },
+      {
+        "dex": 124,
+        "name": "jynx"
+      }
+    ]
+  },
+  {
+    "name": "electabuzz",
+    "dex": 125,
+    "types": [
+      "Electric"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 83,
+      "def": 57,
+      "spa": 95,
+      "spd": 85,
+      "spe": 105
+    },
+    "height_m": 1.1,
+    "weight_kg": 30.0,
+    "evolutions": [
+      {
+        "dex": 239,
+        "name": "elekid"
+      },
+      {
+        "dex": 125,
+        "name": "electabuzz"
+      },
+      {
+        "dex": 466,
+        "name": "electivire"
+      }
+    ]
+  },
+  {
+    "name": "magmar",
+    "dex": 126,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 95,
+      "def": 57,
+      "spa": 100,
+      "spd": 85,
+      "spe": 93
+    },
+    "height_m": 1.3,
+    "weight_kg": 44.5,
+    "evolutions": [
+      {
+        "dex": 240,
+        "name": "magby"
+      },
+      {
+        "dex": 126,
+        "name": "magmar"
+      },
+      {
+        "dex": 467,
+        "name": "magmortar"
+      }
+    ]
+  },
+  {
+    "name": "pinsir",
+    "dex": 127,
+    "types": [
+      "Bug"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 125,
+      "def": 100,
+      "spa": 55,
+      "spd": 70,
+      "spe": 85
+    },
+    "height_m": 1.5,
+    "weight_kg": 55.0,
+    "evolutions": [
+      {
+        "dex": 127,
+        "name": "pinsir"
+      }
+    ]
+  },
+  {
+    "name": "tauros",
+    "dex": 128,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 75,
+      "atk": 100,
+      "def": 95,
+      "spa": 40,
+      "spd": 70,
+      "spe": 110
+    },
+    "height_m": 1.4,
+    "weight_kg": 88.4,
+    "evolutions": [
+      {
+        "dex": 128,
+        "name": "tauros"
+      }
+    ]
+  },
+  {
+    "name": "magikarp",
+    "dex": 129,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 20,
+      "atk": 10,
+      "def": 55,
+      "spa": 15,
+      "spd": 20,
+      "spe": 80
+    },
+    "height_m": 0.9,
+    "weight_kg": 10.0,
+    "evolutions": [
+      {
+        "dex": 129,
+        "name": "magikarp"
+      },
+      {
+        "dex": 130,
+        "name": "gyarados"
+      }
+    ]
+  },
+  {
+    "name": "gyarados",
+    "dex": 130,
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 95,
+      "atk": 125,
+      "def": 79,
+      "spa": 60,
+      "spd": 100,
+      "spe": 81
+    },
+    "height_m": 6.5,
+    "weight_kg": 235.0,
+    "evolutions": [
+      {
+        "dex": 129,
+        "name": "magikarp"
+      },
+      {
+        "dex": 130,
+        "name": "gyarados"
+      }
+    ]
+  },
+  {
+    "name": "lapras",
+    "dex": 131,
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "base_stats": {
+      "hp": 130,
+      "atk": 85,
+      "def": 80,
+      "spa": 85,
+      "spd": 95,
+      "spe": 60
+    },
+    "height_m": 2.5,
+    "weight_kg": 220.0,
+    "evolutions": [
+      {
+        "dex": 131,
+        "name": "lapras"
+      }
+    ]
+  },
+  {
+    "name": "ditto",
+    "dex": 132,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 48,
+      "atk": 48,
+      "def": 48,
+      "spa": 48,
+      "spd": 48,
+      "spe": 48
+    },
+    "height_m": 0.3,
+    "weight_kg": 4.0,
+    "evolutions": [
+      {
+        "dex": 132,
+        "name": "ditto"
+      }
+    ]
+  },
+  {
+    "name": "eevee",
+    "dex": 133,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 55,
+      "atk": 55,
+      "def": 50,
+      "spa": 45,
+      "spd": 65,
+      "spe": 55
+    },
+    "height_m": 0.3,
+    "weight_kg": 6.5,
+    "evolutions": [
+      {
+        "dex": 133,
+        "name": "eevee"
+      },
+      {
+        "dex": 134,
+        "name": "vaporeon"
+      },
+      {
+        "dex": 135,
+        "name": "jolteon"
+      },
+      {
+        "dex": 136,
+        "name": "flareon"
+      },
+      {
+        "dex": 196,
+        "name": "espeon"
+      },
+      {
+        "dex": 197,
+        "name": "umbreon"
+      },
+      {
+        "dex": 470,
+        "name": "leafeon"
+      },
+      {
+        "dex": 471,
+        "name": "glaceon"
+      },
+      {
+        "dex": 700,
+        "name": "sylveon"
+      }
+    ]
+  },
+  {
+    "name": "vaporeon",
+    "dex": 134,
+    "types": [
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 130,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 65
+    },
+    "height_m": 1.0,
+    "weight_kg": 29.0,
+    "evolutions": [
+      {
+        "dex": 133,
+        "name": "eevee"
+      },
+      {
+        "dex": 134,
+        "name": "vaporeon"
+      },
+      {
+        "dex": 135,
+        "name": "jolteon"
+      },
+      {
+        "dex": 136,
+        "name": "flareon"
+      },
+      {
+        "dex": 196,
+        "name": "espeon"
+      },
+      {
+        "dex": 197,
+        "name": "umbreon"
+      },
+      {
+        "dex": 470,
+        "name": "leafeon"
+      },
+      {
+        "dex": 471,
+        "name": "glaceon"
+      },
+      {
+        "dex": 700,
+        "name": "sylveon"
+      }
+    ]
+  },
+  {
+    "name": "jolteon",
+    "dex": 135,
+    "types": [
+      "Electric"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 130
+    },
+    "height_m": 0.8,
+    "weight_kg": 24.5,
+    "evolutions": [
+      {
+        "dex": 133,
+        "name": "eevee"
+      },
+      {
+        "dex": 134,
+        "name": "vaporeon"
+      },
+      {
+        "dex": 135,
+        "name": "jolteon"
+      },
+      {
+        "dex": 136,
+        "name": "flareon"
+      },
+      {
+        "dex": 196,
+        "name": "espeon"
+      },
+      {
+        "dex": 197,
+        "name": "umbreon"
+      },
+      {
+        "dex": 470,
+        "name": "leafeon"
+      },
+      {
+        "dex": 471,
+        "name": "glaceon"
+      },
+      {
+        "dex": 700,
+        "name": "sylveon"
+      }
+    ]
+  },
+  {
+    "name": "flareon",
+    "dex": 136,
+    "types": [
+      "Fire"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 95,
+      "spd": 110,
+      "spe": 65
+    },
+    "height_m": 0.9,
+    "weight_kg": 25.0,
+    "evolutions": [
+      {
+        "dex": 133,
+        "name": "eevee"
+      },
+      {
+        "dex": 134,
+        "name": "vaporeon"
+      },
+      {
+        "dex": 135,
+        "name": "jolteon"
+      },
+      {
+        "dex": 136,
+        "name": "flareon"
+      },
+      {
+        "dex": 196,
+        "name": "espeon"
+      },
+      {
+        "dex": 197,
+        "name": "umbreon"
+      },
+      {
+        "dex": 470,
+        "name": "leafeon"
+      },
+      {
+        "dex": 471,
+        "name": "glaceon"
+      },
+      {
+        "dex": 700,
+        "name": "sylveon"
+      }
+    ]
+  },
+  {
+    "name": "porygon",
+    "dex": 137,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 70,
+      "spa": 85,
+      "spd": 75,
+      "spe": 40
+    },
+    "height_m": 0.8,
+    "weight_kg": 36.5,
+    "evolutions": [
+      {
+        "dex": 137,
+        "name": "porygon"
+      },
+      {
+        "dex": 233,
+        "name": "porygon2"
+      },
+      {
+        "dex": 474,
+        "name": "porygon-z"
+      }
+    ]
+  },
+  {
+    "name": "omanyte",
+    "dex": 138,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 35,
+      "atk": 40,
+      "def": 100,
+      "spa": 90,
+      "spd": 55,
+      "spe": 35
+    },
+    "height_m": 0.4,
+    "weight_kg": 7.5,
+    "evolutions": [
+      {
+        "dex": 138,
+        "name": "omanyte"
+      },
+      {
+        "dex": 139,
+        "name": "omastar"
+      }
+    ]
+  },
+  {
+    "name": "omastar",
+    "dex": 139,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 70,
+      "atk": 60,
+      "def": 125,
+      "spa": 115,
+      "spd": 70,
+      "spe": 55
+    },
+    "height_m": 1.0,
+    "weight_kg": 35.0,
+    "evolutions": [
+      {
+        "dex": 138,
+        "name": "omanyte"
+      },
+      {
+        "dex": 139,
+        "name": "omastar"
+      }
+    ]
+  },
+  {
+    "name": "kabuto",
+    "dex": 140,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 30,
+      "atk": 80,
+      "def": 90,
+      "spa": 55,
+      "spd": 45,
+      "spe": 55
+    },
+    "height_m": 0.5,
+    "weight_kg": 11.5,
+    "evolutions": [
+      {
+        "dex": 140,
+        "name": "kabuto"
+      },
+      {
+        "dex": 141,
+        "name": "kabutops"
+      }
+    ]
+  },
+  {
+    "name": "kabutops",
+    "dex": 141,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "base_stats": {
+      "hp": 60,
+      "atk": 115,
+      "def": 105,
+      "spa": 65,
+      "spd": 70,
+      "spe": 80
+    },
+    "height_m": 1.3,
+    "weight_kg": 40.5,
+    "evolutions": [
+      {
+        "dex": 140,
+        "name": "kabuto"
+      },
+      {
+        "dex": 141,
+        "name": "kabutops"
+      }
+    ]
+  },
+  {
+    "name": "aerodactyl",
+    "dex": 142,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 60,
+      "spd": 75,
+      "spe": 130
+    },
+    "height_m": 1.8,
+    "weight_kg": 59.0,
+    "evolutions": [
+      {
+        "dex": 142,
+        "name": "aerodactyl"
+      }
+    ]
+  },
+  {
+    "name": "snorlax",
+    "dex": 143,
+    "types": [
+      "Normal"
+    ],
+    "base_stats": {
+      "hp": 160,
+      "atk": 110,
+      "def": 65,
+      "spa": 65,
+      "spd": 110,
+      "spe": 30
+    },
+    "height_m": 2.1,
+    "weight_kg": 460.0,
+    "evolutions": [
+      {
+        "dex": 446,
+        "name": "munchlax"
+      },
+      {
+        "dex": 143,
+        "name": "snorlax"
+      }
+    ]
+  },
+  {
+    "name": "articuno",
+    "dex": 144,
+    "types": [
+      "Ice",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 85,
+      "def": 100,
+      "spa": 95,
+      "spd": 125,
+      "spe": 85
+    },
+    "height_m": 1.7,
+    "weight_kg": 55.4,
+    "evolutions": [
+      {
+        "dex": 144,
+        "name": "articuno"
+      }
+    ]
+  },
+  {
+    "name": "zapdos",
+    "dex": 145,
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 90,
+      "def": 85,
+      "spa": 125,
+      "spd": 90,
+      "spe": 100
+    },
+    "height_m": 1.6,
+    "weight_kg": 52.6,
+    "evolutions": [
+      {
+        "dex": 145,
+        "name": "zapdos"
+      }
+    ]
+  },
+  {
+    "name": "moltres",
+    "dex": 146,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 90,
+      "spa": 125,
+      "spd": 85,
+      "spe": 90
+    },
+    "height_m": 2.0,
+    "weight_kg": 60.0,
+    "evolutions": [
+      {
+        "dex": 146,
+        "name": "moltres"
+      }
+    ]
+  },
+  {
+    "name": "dratini",
+    "dex": 147,
+    "types": [
+      "Dragon"
+    ],
+    "base_stats": {
+      "hp": 41,
+      "atk": 64,
+      "def": 45,
+      "spa": 50,
+      "spd": 50,
+      "spe": 50
+    },
+    "height_m": 1.8,
+    "weight_kg": 3.3,
+    "evolutions": [
+      {
+        "dex": 147,
+        "name": "dratini"
+      },
+      {
+        "dex": 148,
+        "name": "dragonair"
+      },
+      {
+        "dex": 149,
+        "name": "dragonite"
+      }
+    ]
+  },
+  {
+    "name": "dragonair",
+    "dex": 148,
+    "types": [
+      "Dragon"
+    ],
+    "base_stats": {
+      "hp": 61,
+      "atk": 84,
+      "def": 65,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "height_m": 4.0,
+    "weight_kg": 16.5,
+    "evolutions": [
+      {
+        "dex": 147,
+        "name": "dratini"
+      },
+      {
+        "dex": 148,
+        "name": "dragonair"
+      },
+      {
+        "dex": 149,
+        "name": "dragonite"
+      }
+    ]
+  },
+  {
+    "name": "dragonite",
+    "dex": 149,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "base_stats": {
+      "hp": 91,
+      "atk": 134,
+      "def": 95,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "height_m": 2.2,
+    "weight_kg": 210.0,
+    "evolutions": [
+      {
+        "dex": 147,
+        "name": "dratini"
+      },
+      {
+        "dex": 148,
+        "name": "dragonair"
+      },
+      {
+        "dex": 149,
+        "name": "dragonite"
+      }
+    ]
+  },
+  {
+    "name": "mewtwo",
+    "dex": 150,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 106,
+      "atk": 110,
+      "def": 90,
+      "spa": 154,
+      "spd": 90,
+      "spe": 130
+    },
+    "height_m": 2.0,
+    "weight_kg": 122.0,
+    "evolutions": [
+      {
+        "dex": 150,
+        "name": "mewtwo"
+      }
+    ]
+  },
+  {
+    "name": "mew",
+    "dex": 151,
+    "types": [
+      "Psychic"
+    ],
+    "base_stats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 100,
+      "spa": 100,
+      "spd": 100,
+      "spe": 100
+    },
+    "height_m": 0.4,
+    "weight_kg": 4.0,
+    "evolutions": [
+      {
+        "dex": 151,
+        "name": "mew"
+      }
+    ]
   }
-}
+]

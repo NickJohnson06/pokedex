@@ -2,12 +2,24 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import '../models/poke_stats.dart';
 
+class EvolutionSpecies {
+  final int dex;
+  final String name;
+  const EvolutionSpecies({required this.dex, required this.name});
+  
+  factory EvolutionSpecies.fromMap(Map<String, dynamic> map) => EvolutionSpecies(
+    dex: map['dex'] as int,
+    name: map['name'] as String,
+  );
+}
+
 class PokedexEntry {
   final int dex;
   final List<String> types;
   final PokeStats baseStats;
   final double? heightM;
   final double? weightKg;
+  final List<EvolutionSpecies> evolutions;
 
   PokedexEntry({
     required this.dex,
@@ -15,6 +27,7 @@ class PokedexEntry {
     required this.baseStats,
     this.heightM,
     this.weightKg,
+    this.evolutions = const [],
   });
 
   factory PokedexEntry.fromMap(Map<String, dynamic> m) => PokedexEntry(
@@ -23,6 +36,9 @@ class PokedexEntry {
         baseStats: PokeStats.fromMap(m['base_stats'] as Map<String, dynamic>),
         heightM: (m['height_m'] as num?)?.toDouble(),
         weightKg: (m['weight_kg'] as num?)?.toDouble(),
+        evolutions: (m['evolutions'] as List?)
+            ?.map((e) => EvolutionSpecies.fromMap(e as Map<String, dynamic>))
+            .toList() ?? [],
       );
 }
 
@@ -36,14 +52,16 @@ class PokedexCatalog {
   Future<void> _ensureLoaded() async {
     if (_byName != null) return;
     final jsonStr = await rootBundle.loadString('assets/data/pokedex_catalog.json');
-    final Map<String, dynamic> raw = json.decode(jsonStr);
+    final List<dynamic> raw = json.decode(jsonStr);
     final byName = <String, PokedexEntry>{};
     final byDex = <int, PokedexEntry>{};
-    raw.forEach((name, value) {
-      final entry = PokedexEntry.fromMap(value as Map<String, dynamic>);
+    for (var item in raw) {
+      final map = item as Map<String, dynamic>;
+      final name = map['name'] as String;
+      final entry = PokedexEntry.fromMap(map);
       byName[name.toLowerCase()] = entry;
       byDex[entry.dex] = entry;
-    });
+    }
     _byName = byName;
     _byDex = byDex;
   }

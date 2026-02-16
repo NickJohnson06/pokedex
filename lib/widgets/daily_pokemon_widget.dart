@@ -6,6 +6,8 @@ import '../utils/poke_assets.dart';
 import '../utils/type_theme.dart';
 import '../screens/detail_screen.dart';
 
+import '../utils/dex_format.dart';
+
 class DailyPokemonWidget extends StatefulWidget {
   const DailyPokemonWidget({super.key});
 
@@ -106,7 +108,7 @@ class _DailyPokemonWidgetState extends State<DailyPokemonWidget> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '#${p.dex ?? '???'}',
+                      formatDex(p.dex),
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black.withOpacity(0.6),

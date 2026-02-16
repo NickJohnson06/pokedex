@@ -17,6 +17,7 @@ class _DetailData {
   final List<String>? types;
   final int? hp, atk, def, spa, spd, spe;
   final double? heightM, weightKg;
+  final List<EvolutionSpecies>? evolutions;
   final String source; // 'catalog' | 'cache' | 'api'
 
   const _DetailData({
@@ -30,6 +31,7 @@ class _DetailData {
     this.spe,
     this.heightM,
     this.weightKg,
+    this.evolutions,
     required this.source,
   });
 
@@ -80,6 +82,7 @@ class DetailScreen extends StatelessWidget {
         spe: s.spe,
         heightM: entry.heightM,
         weightKg: entry.weightKg,
+        evolutions: entry.evolutions,
         source: 'catalog',
       );
     }
@@ -142,7 +145,97 @@ class DetailScreen extends StatelessWidget {
       spe: api.stats['spe'],
       heightM: api.heightM,
       weightKg: api.weightKg,
+      evolutions: null, // API entry doesn't have evolutions yet
       source: 'api',
+    );
+  }
+
+  Widget _buildEvolutions(BuildContext context, List<EvolutionSpecies> evos) {
+    if (evos.isEmpty) return const SizedBox.shrink();
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 24),
+        Text(
+          'Evolution Chain',
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 12),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: evos.map((e) {
+              final isCurrent = e.name.toLowerCase() == pokemon.name.toLowerCase();
+              final path = assetPathFromName(e.name);
+              
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Column(
+                  children: [
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        if (isCurrent)
+                          Container(
+                            width: 60, height: 60,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black.withOpacity(0.1),
+                            ),
+                          ),
+                        GestureDetector(
+                          onTap: isCurrent ? null : () async {
+                            // Navigate to that pokemon
+                            // We can use PokedexCatalog to quickly get the entry and build a Pokemon obj
+                            final catalog = PokedexCatalog.instance;
+                            final entry = await catalog.byDex(e.dex);
+                            if (entry != null && context.mounted) {
+                               final p = Pokemon(
+                                 name: entry.types.isNotEmpty ? e.name : e.name, // name
+                                 type: entry.types.first,
+                                 type2: entry.types.length > 1 ? entry.types[1] : null,
+                                 dex: entry.dex,
+                                 favorite: false, // cant know easily without repo check, assume false
+                               );
+                               Navigator.push(
+                                 context, 
+                                 MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p))
+                               );
+                            }
+                          },
+                          child: Opacity(
+                            opacity: isCurrent ? 1.0 : 0.7,
+                            child: Image.asset(
+                              path,
+                              width: 50, height: 50,
+                              errorBuilder: (_,__,___) => CircleAvatar(child: Text(e.name[0])),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      e.name[0].toUpperCase() + e.name.substring(1), 
+                      style: TextStyle(
+                        fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal,
+                        fontSize: 12,
+                      )
+                    ),
+                    Text(
+                      formatDex(e.dex), 
+                      style: const TextStyle(fontSize: 10, color: Colors.grey)
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
     );
   }
 
@@ -156,7 +249,7 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(pokemon.name),
+        title: Text(pokemon.name[0].toUpperCase() + pokemon.name.substring(1)),
         actions: [
           ValueListenableBuilder<bool>(
             valueListenable: favVN,
@@ -194,7 +287,7 @@ class DetailScreen extends StatelessWidget {
                 HeroText( // animate name in page body too
                   tag: 'name-${pokemon.id}',
                   child: Text(
-                    pokemon.name,
+                    pokemon.name[0].toUpperCase() + pokemon.name.substring(1),
                     style: Theme.of(context).textTheme.headlineSmall,
                     textAlign: TextAlign.center,
                   ),
@@ -257,6 +350,7 @@ class DetailScreen extends StatelessWidget {
                         if (statsSection is! SizedBox) statsSection,
                         if (statsSection is! SizedBox) const SizedBox(height: 12),
                         sizeLine,
+                        if (data.evolutions != null) _buildEvolutions(context, data.evolutions!),
                       ],
                     );
                   },
