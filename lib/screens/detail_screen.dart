@@ -172,7 +172,7 @@ class DetailScreen extends StatelessWidget {
           children: abilities.map((a) {
             return Chip(
               label: Text(
-                a.name + (a.isHidden ? ' (H)' : ''),
+                a.name[0].toUpperCase() + a.name.substring(1) + (a.isHidden ? ' (H)' : ''),
                 style: TextStyle(
                   fontStyle: a.isHidden ? FontStyle.italic : FontStyle.normal,
                   fontSize: 12,
@@ -187,8 +187,164 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
+  List<Widget> _buildEvolutionChainWithArrows(BuildContext context, List<EvolutionSpecies> displayList) {
+    final widgets = <Widget>[];
+    
+    for (int i = 0; i < displayList.length; i++) {
+      final e = displayList[i];
+      final isCurrent = e.dex == pokemon.dex;
+      final path = assetPathFromName(e.name);
+      
+      // Add the Pokemon widget
+      widgets.add(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Column(
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  if (isCurrent)
+                    Container(
+                      width: 60, height: 60,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black.withOpacity(0.1),
+                      ),
+                    ),
+                  GestureDetector(
+                    onTap: isCurrent ? null : () async {
+                      final catalog = PokedexCatalog.instance;
+                      final entry = await catalog.byDex(e.dex);
+                      if (entry != null && context.mounted) {
+                        final p = Pokemon(
+                          name: e.name,
+                          type: entry.types.first,
+                          type2: entry.types.length > 1 ? entry.types[1] : null,
+                          dex: entry.dex,
+                          favorite: false,
+                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p))
+                        );
+                      }
+                    },
+                    child: Opacity(
+                      opacity: isCurrent ? 1.0 : 0.7,
+                      child: Image.asset(
+                        path,
+                        width: 50, height: 50,
+                        errorBuilder: (_, __, ___) => CircleAvatar(child: Text(e.name[0])),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(
+                e.name[0].toUpperCase() + e.name.substring(1),
+                style: TextStyle(
+                  fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal,
+                  fontSize: 12,
+                )
+              ),
+              Text(
+                formatDex(e.dex),
+                style: const TextStyle(fontSize: 10, color: Colors.grey)
+              ),
+            ],
+          ),
+        ),
+      );
+      
+      // Add arrow with trigger text if not the last item
+      if (i < displayList.length - 1) {
+        final nextEvolution = displayList[i + 1];
+        final triggerText = nextEvolution.trigger ?? '';
+        
+        widgets.add(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.arrow_forward, size: 20, color: Colors.grey),
+                if (triggerText.isNotEmpty) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    triggerText,
+                    style: const TextStyle(fontSize: 9, color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ],
+            ),
+          ),
+        );
+      }
+    }
+    
+    return widgets;
+  }
+
   Widget _buildEvolutions(BuildContext context, List<EvolutionSpecies> evos) {
     if (evos.isEmpty) return const SizedBox.shrink();
+
+    // Filter to show only relevant lineage: Ancestors + Current + Direct Descendants
+    // 1. Find current
+    final currentDex = pokemon.dex;
+    if (currentDex == null) return const SizedBox.shrink();
+
+    EvolutionSpecies? currentNode;
+    try {
+      currentNode = evos.firstWhere((e) => e.dex == currentDex);
+    } catch (_) {
+      return const SizedBox.shrink(); 
+    }
+
+    // 2. Find ancestors (walk up)
+    final ancestors = <EvolutionSpecies>[];
+    var parentDex = currentNode.evolvesFromDex;
+    while (parentDex != null) {
+      try {
+        final parent = evos.firstWhere((e) => e.dex == parentDex);
+        ancestors.add(parent);
+        parentDex = parent.evolvesFromDex;
+      } catch (_) {
+        break; // parent not found in list (shouldn't happen with full chain)
+      }
+    }
+    
+    // 3. Find all descendants recursively (walk down)
+    final descendants = <EvolutionSpecies>[];
+    final queue = [...evos.where((e) => e.evolvesFromDex == currentDex)];
+    
+    while (queue.isNotEmpty) {
+      final child = queue.removeAt(0);
+      descendants.add(child);
+      // Add this child's children to queue
+      queue.addAll(evos.where((e) => e.evolvesFromDex == child.dex));
+    }
+
+    // Combine: Root -> ... -> Parent -> Current -> Children -> ... -> Grandchildren
+    final displayList = [...ancestors.reversed, currentNode, ...descendants];
+
+    // If only 1 member (itself) in the *filtered* list, it means no visible evolution chain
+    // (e.g. Zapdos, or a Pokemon with no ancestors/descendants in this view)
+    if (displayList.length <= 1) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 24),
+        child: Text(
+          '${pokemon.name[0].toUpperCase()}${pokemon.name.substring(1)} does not evolve.',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            fontStyle: FontStyle.italic,
+            color: Colors.white70,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -200,76 +356,13 @@ class DetailScreen extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 12),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: evos.map((e) {
-              final isCurrent = e.name.toLowerCase() == pokemon.name.toLowerCase();
-              final path = assetPathFromName(e.name);
-              
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Column(
-                  children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        if (isCurrent)
-                          Container(
-                            width: 60, height: 60,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.black.withOpacity(0.1),
-                            ),
-                          ),
-                        GestureDetector(
-                          onTap: isCurrent ? null : () async {
-                            // Navigate to that pokemon
-                            // We can use PokedexCatalog to quickly get the entry and build a Pokemon obj
-                            final catalog = PokedexCatalog.instance;
-                            final entry = await catalog.byDex(e.dex);
-                            if (entry != null && context.mounted) {
-                               final p = Pokemon(
-                                 name: entry.types.isNotEmpty ? e.name : e.name, // name
-                                 type: entry.types.first,
-                                 type2: entry.types.length > 1 ? entry.types[1] : null,
-                                 dex: entry.dex,
-                                 favorite: false, // cant know easily without repo check, assume false
-                               );
-                               Navigator.push(
-                                 context, 
-                                 MaterialPageRoute(builder: (_) => DetailScreen(pokemon: p))
-                               );
-                            }
-                          },
-                          child: Opacity(
-                            opacity: isCurrent ? 1.0 : 0.7,
-                            child: Image.asset(
-                              path,
-                              width: 50, height: 50,
-                              errorBuilder: (_,__,___) => CircleAvatar(child: Text(e.name[0])),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      e.name[0].toUpperCase() + e.name.substring(1), 
-                      style: TextStyle(
-                        fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal,
-                        fontSize: 12,
-                      )
-                    ),
-                    Text(
-                      formatDex(e.dex), 
-                      style: const TextStyle(fontSize: 10, color: Colors.grey)
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
+        Center(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: _buildEvolutionChainWithArrows(context, displayList),
+            ),
           ),
         ),
       ],
@@ -288,6 +381,13 @@ class DetailScreen extends StatelessWidget {
         elevation: 0,
         title: Text(pokemon.name[0].toUpperCase() + pokemon.name.substring(1)),
         actions: [
+          IconButton(
+            tooltip: 'Back to List',
+            icon: const Icon(Icons.grid_view_rounded),
+            onPressed: () {
+              Navigator.popUntil(context, (route) => route.isFirst);
+            },
+          ),
           ValueListenableBuilder<bool>(
             valueListenable: favVN,
             builder: (context, fav, _) {

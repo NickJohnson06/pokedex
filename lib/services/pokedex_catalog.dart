@@ -5,11 +5,21 @@ import '../models/poke_stats.dart';
 class EvolutionSpecies {
   final int dex;
   final String name;
-  const EvolutionSpecies({required this.dex, required this.name});
+  final int? evolvesFromDex;
+  final String? trigger;
+
+  EvolutionSpecies({
+    required this.dex, 
+    required this.name, 
+    this.evolvesFromDex,
+    this.trigger,
+  });
   
-  factory EvolutionSpecies.fromMap(Map<String, dynamic> map) => EvolutionSpecies(
-    dex: map['dex'] as int,
-    name: map['name'] as String,
+  factory EvolutionSpecies.fromMap(Map<String, dynamic> m) => EvolutionSpecies(
+    dex: m['dex'] as int,
+    name: m['name'] as String,
+    evolvesFromDex: m['evolves_from_dex'] as int?,
+    trigger: m['trigger'] as String?,
   );
 }
 

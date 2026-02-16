@@ -19,15 +19,21 @@
     "evolutions": [
       {
         "dex": 1,
-        "name": "bulbasaur"
+        "name": "bulbasaur",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 2,
-        "name": "ivysaur"
+        "name": "ivysaur",
+        "evolves_from_dex": 1,
+        "trigger": "Level 16"
       },
       {
         "dex": 3,
-        "name": "venusaur"
+        "name": "venusaur",
+        "evolves_from_dex": 2,
+        "trigger": "Level 32"
       }
     ],
     "abilities": [
@@ -64,15 +70,21 @@
     "evolutions": [
       {
         "dex": 1,
-        "name": "bulbasaur"
+        "name": "bulbasaur",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 2,
-        "name": "ivysaur"
+        "name": "ivysaur",
+        "evolves_from_dex": 1,
+        "trigger": "Level 16"
       },
       {
         "dex": 3,
-        "name": "venusaur"
+        "name": "venusaur",
+        "evolves_from_dex": 2,
+        "trigger": "Level 32"
       }
     ],
     "abilities": [
@@ -109,15 +121,21 @@
     "evolutions": [
       {
         "dex": 1,
-        "name": "bulbasaur"
+        "name": "bulbasaur",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 2,
-        "name": "ivysaur"
+        "name": "ivysaur",
+        "evolves_from_dex": 1,
+        "trigger": "Level 16"
       },
       {
         "dex": 3,
-        "name": "venusaur"
+        "name": "venusaur",
+        "evolves_from_dex": 2,
+        "trigger": "Level 32"
       }
     ],
     "abilities": [
@@ -153,15 +171,21 @@
     "evolutions": [
       {
         "dex": 4,
-        "name": "charmander"
+        "name": "charmander",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 5,
-        "name": "charmeleon"
+        "name": "charmeleon",
+        "evolves_from_dex": 4,
+        "trigger": "Level 16"
       },
       {
         "dex": 6,
-        "name": "charizard"
+        "name": "charizard",
+        "evolves_from_dex": 5,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -197,15 +221,21 @@
     "evolutions": [
       {
         "dex": 4,
-        "name": "charmander"
+        "name": "charmander",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 5,
-        "name": "charmeleon"
+        "name": "charmeleon",
+        "evolves_from_dex": 4,
+        "trigger": "Level 16"
       },
       {
         "dex": 6,
-        "name": "charizard"
+        "name": "charizard",
+        "evolves_from_dex": 5,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -242,15 +272,21 @@
     "evolutions": [
       {
         "dex": 4,
-        "name": "charmander"
+        "name": "charmander",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 5,
-        "name": "charmeleon"
+        "name": "charmeleon",
+        "evolves_from_dex": 4,
+        "trigger": "Level 16"
       },
       {
         "dex": 6,
-        "name": "charizard"
+        "name": "charizard",
+        "evolves_from_dex": 5,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -286,15 +322,21 @@
     "evolutions": [
       {
         "dex": 7,
-        "name": "squirtle"
+        "name": "squirtle",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 8,
-        "name": "wartortle"
+        "name": "wartortle",
+        "evolves_from_dex": 7,
+        "trigger": "Level 16"
       },
       {
         "dex": 9,
-        "name": "blastoise"
+        "name": "blastoise",
+        "evolves_from_dex": 8,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -330,15 +372,21 @@
     "evolutions": [
       {
         "dex": 7,
-        "name": "squirtle"
+        "name": "squirtle",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 8,
-        "name": "wartortle"
+        "name": "wartortle",
+        "evolves_from_dex": 7,
+        "trigger": "Level 16"
       },
       {
         "dex": 9,
-        "name": "blastoise"
+        "name": "blastoise",
+        "evolves_from_dex": 8,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -374,15 +422,21 @@
     "evolutions": [
       {
         "dex": 7,
-        "name": "squirtle"
+        "name": "squirtle",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 8,
-        "name": "wartortle"
+        "name": "wartortle",
+        "evolves_from_dex": 7,
+        "trigger": "Level 16"
       },
       {
         "dex": 9,
-        "name": "blastoise"
+        "name": "blastoise",
+        "evolves_from_dex": 8,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -418,15 +472,21 @@
     "evolutions": [
       {
         "dex": 10,
-        "name": "caterpie"
+        "name": "caterpie",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 11,
-        "name": "metapod"
+        "name": "metapod",
+        "evolves_from_dex": 10,
+        "trigger": "Level 7"
       },
       {
         "dex": 12,
-        "name": "butterfree"
+        "name": "butterfree",
+        "evolves_from_dex": 11,
+        "trigger": "Level 10"
       }
     ],
     "abilities": [
@@ -462,15 +522,21 @@
     "evolutions": [
       {
         "dex": 10,
-        "name": "caterpie"
+        "name": "caterpie",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 11,
-        "name": "metapod"
+        "name": "metapod",
+        "evolves_from_dex": 10,
+        "trigger": "Level 7"
       },
       {
         "dex": 12,
-        "name": "butterfree"
+        "name": "butterfree",
+        "evolves_from_dex": 11,
+        "trigger": "Level 10"
       }
     ],
     "abilities": [
@@ -502,15 +568,21 @@
     "evolutions": [
       {
         "dex": 10,
-        "name": "caterpie"
+        "name": "caterpie",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 11,
-        "name": "metapod"
+        "name": "metapod",
+        "evolves_from_dex": 10,
+        "trigger": "Level 7"
       },
       {
         "dex": 12,
-        "name": "butterfree"
+        "name": "butterfree",
+        "evolves_from_dex": 11,
+        "trigger": "Level 10"
       }
     ],
     "abilities": [
@@ -547,15 +619,21 @@
     "evolutions": [
       {
         "dex": 13,
-        "name": "weedle"
+        "name": "weedle",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 14,
-        "name": "kakuna"
+        "name": "kakuna",
+        "evolves_from_dex": 13,
+        "trigger": "Level 7"
       },
       {
         "dex": 15,
-        "name": "beedrill"
+        "name": "beedrill",
+        "evolves_from_dex": 14,
+        "trigger": "Level 10"
       }
     ],
     "abilities": [
@@ -592,15 +670,21 @@
     "evolutions": [
       {
         "dex": 13,
-        "name": "weedle"
+        "name": "weedle",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 14,
-        "name": "kakuna"
+        "name": "kakuna",
+        "evolves_from_dex": 13,
+        "trigger": "Level 7"
       },
       {
         "dex": 15,
-        "name": "beedrill"
+        "name": "beedrill",
+        "evolves_from_dex": 14,
+        "trigger": "Level 10"
       }
     ],
     "abilities": [
@@ -632,15 +716,21 @@
     "evolutions": [
       {
         "dex": 13,
-        "name": "weedle"
+        "name": "weedle",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 14,
-        "name": "kakuna"
+        "name": "kakuna",
+        "evolves_from_dex": 13,
+        "trigger": "Level 7"
       },
       {
         "dex": 15,
-        "name": "beedrill"
+        "name": "beedrill",
+        "evolves_from_dex": 14,
+        "trigger": "Level 10"
       }
     ],
     "abilities": [
@@ -677,15 +767,21 @@
     "evolutions": [
       {
         "dex": 16,
-        "name": "pidgey"
+        "name": "pidgey",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 17,
-        "name": "pidgeotto"
+        "name": "pidgeotto",
+        "evolves_from_dex": 16,
+        "trigger": "Level 18"
       },
       {
         "dex": 18,
-        "name": "pidgeot"
+        "name": "pidgeot",
+        "evolves_from_dex": 17,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -727,15 +823,21 @@
     "evolutions": [
       {
         "dex": 16,
-        "name": "pidgey"
+        "name": "pidgey",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 17,
-        "name": "pidgeotto"
+        "name": "pidgeotto",
+        "evolves_from_dex": 16,
+        "trigger": "Level 18"
       },
       {
         "dex": 18,
-        "name": "pidgeot"
+        "name": "pidgeot",
+        "evolves_from_dex": 17,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -777,15 +879,21 @@
     "evolutions": [
       {
         "dex": 16,
-        "name": "pidgey"
+        "name": "pidgey",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 17,
-        "name": "pidgeotto"
+        "name": "pidgeotto",
+        "evolves_from_dex": 16,
+        "trigger": "Level 18"
       },
       {
         "dex": 18,
-        "name": "pidgeot"
+        "name": "pidgeot",
+        "evolves_from_dex": 17,
+        "trigger": "Level 36"
       }
     ],
     "abilities": [
@@ -826,11 +934,15 @@
     "evolutions": [
       {
         "dex": 19,
-        "name": "rattata"
+        "name": "rattata",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 20,
-        "name": "raticate"
+        "name": "raticate",
+        "evolves_from_dex": 19,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -871,11 +983,15 @@
     "evolutions": [
       {
         "dex": 19,
-        "name": "rattata"
+        "name": "rattata",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 20,
-        "name": "raticate"
+        "name": "raticate",
+        "evolves_from_dex": 19,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -917,11 +1033,15 @@
     "evolutions": [
       {
         "dex": 21,
-        "name": "spearow"
+        "name": "spearow",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 22,
-        "name": "fearow"
+        "name": "fearow",
+        "evolves_from_dex": 21,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -958,11 +1078,15 @@
     "evolutions": [
       {
         "dex": 21,
-        "name": "spearow"
+        "name": "spearow",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 22,
-        "name": "fearow"
+        "name": "fearow",
+        "evolves_from_dex": 21,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -998,11 +1122,15 @@
     "evolutions": [
       {
         "dex": 23,
-        "name": "ekans"
+        "name": "ekans",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 24,
-        "name": "arbok"
+        "name": "arbok",
+        "evolves_from_dex": 23,
+        "trigger": "Level 22"
       }
     ],
     "abilities": [
@@ -1043,11 +1171,15 @@
     "evolutions": [
       {
         "dex": 23,
-        "name": "ekans"
+        "name": "ekans",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 24,
-        "name": "arbok"
+        "name": "arbok",
+        "evolves_from_dex": 23,
+        "trigger": "Level 22"
       }
     ],
     "abilities": [
@@ -1087,16 +1219,22 @@
     "weight_kg": 6.0,
     "evolutions": [
       {
-        "dex": 172,
-        "name": "pichu"
-      },
-      {
         "dex": 25,
-        "name": "pikachu"
+        "name": "pikachu",
+        "evolves_from_dex": 172,
+        "trigger": "Friendship"
       },
       {
         "dex": 26,
-        "name": "raichu"
+        "name": "raichu",
+        "evolves_from_dex": 25,
+        "trigger": "Thunder Stone"
+      },
+      {
+        "dex": 172,
+        "name": "pichu",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -1131,16 +1269,22 @@
     "weight_kg": 30.0,
     "evolutions": [
       {
-        "dex": 172,
-        "name": "pichu"
-      },
-      {
         "dex": 25,
-        "name": "pikachu"
+        "name": "pikachu",
+        "evolves_from_dex": 172,
+        "trigger": "Friendship"
       },
       {
         "dex": 26,
-        "name": "raichu"
+        "name": "raichu",
+        "evolves_from_dex": 25,
+        "trigger": "Thunder Stone"
+      },
+      {
+        "dex": 172,
+        "name": "pichu",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -1176,11 +1320,15 @@
     "evolutions": [
       {
         "dex": 27,
-        "name": "sandshrew"
+        "name": "sandshrew",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 28,
-        "name": "sandslash"
+        "name": "sandslash",
+        "evolves_from_dex": 27,
+        "trigger": "Level 22"
       }
     ],
     "abilities": [
@@ -1216,11 +1364,15 @@
     "evolutions": [
       {
         "dex": 27,
-        "name": "sandshrew"
+        "name": "sandshrew",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 28,
-        "name": "sandslash"
+        "name": "sandslash",
+        "evolves_from_dex": 27,
+        "trigger": "Level 22"
       }
     ],
     "abilities": [
@@ -1256,15 +1408,21 @@
     "evolutions": [
       {
         "dex": 29,
-        "name": "nidoran-f"
+        "name": "nidoran-f",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 30,
-        "name": "nidorina"
+        "name": "nidorina",
+        "evolves_from_dex": 29,
+        "trigger": "Level 16"
       },
       {
         "dex": 31,
-        "name": "nidoqueen"
+        "name": "nidoqueen",
+        "evolves_from_dex": 30,
+        "trigger": "Moon Stone"
       }
     ],
     "abilities": [
@@ -1305,15 +1463,21 @@
     "evolutions": [
       {
         "dex": 29,
-        "name": "nidoran-f"
+        "name": "nidoran-f",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 30,
-        "name": "nidorina"
+        "name": "nidorina",
+        "evolves_from_dex": 29,
+        "trigger": "Level 16"
       },
       {
         "dex": 31,
-        "name": "nidoqueen"
+        "name": "nidoqueen",
+        "evolves_from_dex": 30,
+        "trigger": "Moon Stone"
       }
     ],
     "abilities": [
@@ -1355,15 +1519,21 @@
     "evolutions": [
       {
         "dex": 29,
-        "name": "nidoran-f"
+        "name": "nidoran-f",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 30,
-        "name": "nidorina"
+        "name": "nidorina",
+        "evolves_from_dex": 29,
+        "trigger": "Level 16"
       },
       {
         "dex": 31,
-        "name": "nidoqueen"
+        "name": "nidoqueen",
+        "evolves_from_dex": 30,
+        "trigger": "Moon Stone"
       }
     ],
     "abilities": [
@@ -1404,15 +1574,21 @@
     "evolutions": [
       {
         "dex": 32,
-        "name": "nidoran-m"
+        "name": "nidoran-m",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 33,
-        "name": "nidorino"
+        "name": "nidorino",
+        "evolves_from_dex": 32,
+        "trigger": "Level 16"
       },
       {
         "dex": 34,
-        "name": "nidoking"
+        "name": "nidoking",
+        "evolves_from_dex": 33,
+        "trigger": "Moon Stone"
       }
     ],
     "abilities": [
@@ -1453,15 +1629,21 @@
     "evolutions": [
       {
         "dex": 32,
-        "name": "nidoran-m"
+        "name": "nidoran-m",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 33,
-        "name": "nidorino"
+        "name": "nidorino",
+        "evolves_from_dex": 32,
+        "trigger": "Level 16"
       },
       {
         "dex": 34,
-        "name": "nidoking"
+        "name": "nidoking",
+        "evolves_from_dex": 33,
+        "trigger": "Moon Stone"
       }
     ],
     "abilities": [
@@ -1503,15 +1685,21 @@
     "evolutions": [
       {
         "dex": 32,
-        "name": "nidoran-m"
+        "name": "nidoran-m",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 33,
-        "name": "nidorino"
+        "name": "nidorino",
+        "evolves_from_dex": 32,
+        "trigger": "Level 16"
       },
       {
         "dex": 34,
-        "name": "nidoking"
+        "name": "nidoking",
+        "evolves_from_dex": 33,
+        "trigger": "Moon Stone"
       }
     ],
     "abilities": [
@@ -1551,16 +1739,22 @@
     "weight_kg": 7.5,
     "evolutions": [
       {
-        "dex": 173,
-        "name": "cleffa"
-      },
-      {
         "dex": 35,
-        "name": "clefairy"
+        "name": "clefairy",
+        "evolves_from_dex": 173,
+        "trigger": "Friendship"
       },
       {
         "dex": 36,
-        "name": "clefable"
+        "name": "clefable",
+        "evolves_from_dex": 35,
+        "trigger": "Moon Stone"
+      },
+      {
+        "dex": 173,
+        "name": "cleffa",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -1600,16 +1794,22 @@
     "weight_kg": 40.0,
     "evolutions": [
       {
-        "dex": 173,
-        "name": "cleffa"
-      },
-      {
         "dex": 35,
-        "name": "clefairy"
+        "name": "clefairy",
+        "evolves_from_dex": 173,
+        "trigger": "Friendship"
       },
       {
         "dex": 36,
-        "name": "clefable"
+        "name": "clefable",
+        "evolves_from_dex": 35,
+        "trigger": "Moon Stone"
+      },
+      {
+        "dex": 173,
+        "name": "cleffa",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -1650,11 +1850,15 @@
     "evolutions": [
       {
         "dex": 37,
-        "name": "vulpix"
+        "name": "vulpix",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 38,
-        "name": "ninetales"
+        "name": "ninetales",
+        "evolves_from_dex": 37,
+        "trigger": "Fire Stone"
       }
     ],
     "abilities": [
@@ -1690,11 +1894,15 @@
     "evolutions": [
       {
         "dex": 37,
-        "name": "vulpix"
+        "name": "vulpix",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 38,
-        "name": "ninetales"
+        "name": "ninetales",
+        "evolves_from_dex": 37,
+        "trigger": "Fire Stone"
       }
     ],
     "abilities": [
@@ -1730,16 +1938,22 @@
     "weight_kg": 5.5,
     "evolutions": [
       {
-        "dex": 174,
-        "name": "igglybuff"
-      },
-      {
         "dex": 39,
-        "name": "jigglypuff"
+        "name": "jigglypuff",
+        "evolves_from_dex": 174,
+        "trigger": "Friendship"
       },
       {
         "dex": 40,
-        "name": "wigglytuff"
+        "name": "wigglytuff",
+        "evolves_from_dex": 39,
+        "trigger": "Moon Stone"
+      },
+      {
+        "dex": 174,
+        "name": "igglybuff",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -1780,16 +1994,22 @@
     "weight_kg": 12.0,
     "evolutions": [
       {
-        "dex": 174,
-        "name": "igglybuff"
-      },
-      {
         "dex": 39,
-        "name": "jigglypuff"
+        "name": "jigglypuff",
+        "evolves_from_dex": 174,
+        "trigger": "Friendship"
       },
       {
         "dex": 40,
-        "name": "wigglytuff"
+        "name": "wigglytuff",
+        "evolves_from_dex": 39,
+        "trigger": "Moon Stone"
+      },
+      {
+        "dex": 174,
+        "name": "igglybuff",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -1831,15 +2051,21 @@
     "evolutions": [
       {
         "dex": 41,
-        "name": "zubat"
+        "name": "zubat",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 42,
-        "name": "golbat"
+        "name": "golbat",
+        "evolves_from_dex": 41,
+        "trigger": "Level 22"
       },
       {
         "dex": 169,
-        "name": "crobat"
+        "name": "crobat",
+        "evolves_from_dex": 42,
+        "trigger": "Friendship"
       }
     ],
     "abilities": [
@@ -1876,15 +2102,21 @@
     "evolutions": [
       {
         "dex": 41,
-        "name": "zubat"
+        "name": "zubat",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 42,
-        "name": "golbat"
+        "name": "golbat",
+        "evolves_from_dex": 41,
+        "trigger": "Level 22"
       },
       {
         "dex": 169,
-        "name": "crobat"
+        "name": "crobat",
+        "evolves_from_dex": 42,
+        "trigger": "Friendship"
       }
     ],
     "abilities": [
@@ -1921,19 +2153,27 @@
     "evolutions": [
       {
         "dex": 43,
-        "name": "oddish"
+        "name": "oddish",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 44,
-        "name": "gloom"
+        "name": "gloom",
+        "evolves_from_dex": 43,
+        "trigger": "Level 21"
       },
       {
         "dex": 45,
-        "name": "vileplume"
+        "name": "vileplume",
+        "evolves_from_dex": 44,
+        "trigger": "Leaf Stone"
       },
       {
         "dex": 182,
-        "name": "bellossom"
+        "name": "bellossom",
+        "evolves_from_dex": 44,
+        "trigger": "Sun Stone"
       }
     ],
     "abilities": [
@@ -1970,19 +2210,27 @@
     "evolutions": [
       {
         "dex": 43,
-        "name": "oddish"
+        "name": "oddish",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 44,
-        "name": "gloom"
+        "name": "gloom",
+        "evolves_from_dex": 43,
+        "trigger": "Level 21"
       },
       {
         "dex": 45,
-        "name": "vileplume"
+        "name": "vileplume",
+        "evolves_from_dex": 44,
+        "trigger": "Leaf Stone"
       },
       {
         "dex": 182,
-        "name": "bellossom"
+        "name": "bellossom",
+        "evolves_from_dex": 44,
+        "trigger": "Sun Stone"
       }
     ],
     "abilities": [
@@ -2019,19 +2267,27 @@
     "evolutions": [
       {
         "dex": 43,
-        "name": "oddish"
+        "name": "oddish",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 44,
-        "name": "gloom"
+        "name": "gloom",
+        "evolves_from_dex": 43,
+        "trigger": "Level 21"
       },
       {
         "dex": 45,
-        "name": "vileplume"
+        "name": "vileplume",
+        "evolves_from_dex": 44,
+        "trigger": "Leaf Stone"
       },
       {
         "dex": 182,
-        "name": "bellossom"
+        "name": "bellossom",
+        "evolves_from_dex": 44,
+        "trigger": "Sun Stone"
       }
     ],
     "abilities": [
@@ -2068,11 +2324,15 @@
     "evolutions": [
       {
         "dex": 46,
-        "name": "paras"
+        "name": "paras",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 47,
-        "name": "parasect"
+        "name": "parasect",
+        "evolves_from_dex": 46,
+        "trigger": "Level 24"
       }
     ],
     "abilities": [
@@ -2114,11 +2374,15 @@
     "evolutions": [
       {
         "dex": 46,
-        "name": "paras"
+        "name": "paras",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 47,
-        "name": "parasect"
+        "name": "parasect",
+        "evolves_from_dex": 46,
+        "trigger": "Level 24"
       }
     ],
     "abilities": [
@@ -2160,11 +2424,15 @@
     "evolutions": [
       {
         "dex": 48,
-        "name": "venonat"
+        "name": "venonat",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 49,
-        "name": "venomoth"
+        "name": "venomoth",
+        "evolves_from_dex": 48,
+        "trigger": "Level 31"
       }
     ],
     "abilities": [
@@ -2206,11 +2474,15 @@
     "evolutions": [
       {
         "dex": 48,
-        "name": "venonat"
+        "name": "venonat",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 49,
-        "name": "venomoth"
+        "name": "venomoth",
+        "evolves_from_dex": 48,
+        "trigger": "Level 31"
       }
     ],
     "abilities": [
@@ -2251,11 +2523,15 @@
     "evolutions": [
       {
         "dex": 50,
-        "name": "diglett"
+        "name": "diglett",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 51,
-        "name": "dugtrio"
+        "name": "dugtrio",
+        "evolves_from_dex": 50,
+        "trigger": "Level 26"
       }
     ],
     "abilities": [
@@ -2296,11 +2572,15 @@
     "evolutions": [
       {
         "dex": 50,
-        "name": "diglett"
+        "name": "diglett",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 51,
-        "name": "dugtrio"
+        "name": "dugtrio",
+        "evolves_from_dex": 50,
+        "trigger": "Level 26"
       }
     ],
     "abilities": [
@@ -2341,15 +2621,21 @@
     "evolutions": [
       {
         "dex": 52,
-        "name": "meowth"
+        "name": "meowth",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 53,
-        "name": "persian"
+        "name": "persian",
+        "evolves_from_dex": 52,
+        "trigger": "Level 28"
       },
       {
         "dex": 863,
-        "name": "perrserker"
+        "name": "perrserker",
+        "evolves_from_dex": 52,
+        "trigger": "Level 28"
       }
     ],
     "abilities": [
@@ -2390,15 +2676,21 @@
     "evolutions": [
       {
         "dex": 52,
-        "name": "meowth"
+        "name": "meowth",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 53,
-        "name": "persian"
+        "name": "persian",
+        "evolves_from_dex": 52,
+        "trigger": "Level 28"
       },
       {
         "dex": 863,
-        "name": "perrserker"
+        "name": "perrserker",
+        "evolves_from_dex": 52,
+        "trigger": "Level 28"
       }
     ],
     "abilities": [
@@ -2439,11 +2731,15 @@
     "evolutions": [
       {
         "dex": 54,
-        "name": "psyduck"
+        "name": "psyduck",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 55,
-        "name": "golduck"
+        "name": "golduck",
+        "evolves_from_dex": 54,
+        "trigger": "Level 33"
       }
     ],
     "abilities": [
@@ -2484,11 +2780,15 @@
     "evolutions": [
       {
         "dex": 54,
-        "name": "psyduck"
+        "name": "psyduck",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 55,
-        "name": "golduck"
+        "name": "golduck",
+        "evolves_from_dex": 54,
+        "trigger": "Level 33"
       }
     ],
     "abilities": [
@@ -2529,15 +2829,21 @@
     "evolutions": [
       {
         "dex": 56,
-        "name": "mankey"
+        "name": "mankey",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 57,
-        "name": "primeape"
+        "name": "primeape",
+        "evolves_from_dex": 56,
+        "trigger": "Level 28"
       },
       {
         "dex": 979,
-        "name": "annihilape"
+        "name": "annihilape",
+        "evolves_from_dex": 57,
+        "trigger": "Use Move"
       }
     ],
     "abilities": [
@@ -2578,15 +2884,21 @@
     "evolutions": [
       {
         "dex": 56,
-        "name": "mankey"
+        "name": "mankey",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 57,
-        "name": "primeape"
+        "name": "primeape",
+        "evolves_from_dex": 56,
+        "trigger": "Level 28"
       },
       {
         "dex": 979,
-        "name": "annihilape"
+        "name": "annihilape",
+        "evolves_from_dex": 57,
+        "trigger": "Use Move"
       }
     ],
     "abilities": [
@@ -2627,11 +2939,15 @@
     "evolutions": [
       {
         "dex": 58,
-        "name": "growlithe"
+        "name": "growlithe",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 59,
-        "name": "arcanine"
+        "name": "arcanine",
+        "evolves_from_dex": 58,
+        "trigger": "Fire Stone"
       }
     ],
     "abilities": [
@@ -2672,11 +2988,15 @@
     "evolutions": [
       {
         "dex": 58,
-        "name": "growlithe"
+        "name": "growlithe",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 59,
-        "name": "arcanine"
+        "name": "arcanine",
+        "evolves_from_dex": 58,
+        "trigger": "Fire Stone"
       }
     ],
     "abilities": [
@@ -2717,19 +3037,27 @@
     "evolutions": [
       {
         "dex": 60,
-        "name": "poliwag"
+        "name": "poliwag",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 61,
-        "name": "poliwhirl"
+        "name": "poliwhirl",
+        "evolves_from_dex": 60,
+        "trigger": "Level 25"
       },
       {
         "dex": 62,
-        "name": "poliwrath"
+        "name": "poliwrath",
+        "evolves_from_dex": 61,
+        "trigger": "Water Stone"
       },
       {
         "dex": 186,
-        "name": "politoed"
+        "name": "politoed",
+        "evolves_from_dex": 61,
+        "trigger": "Trade, holding Kings Rock"
       }
     ],
     "abilities": [
@@ -2770,19 +3098,27 @@
     "evolutions": [
       {
         "dex": 60,
-        "name": "poliwag"
+        "name": "poliwag",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 61,
-        "name": "poliwhirl"
+        "name": "poliwhirl",
+        "evolves_from_dex": 60,
+        "trigger": "Level 25"
       },
       {
         "dex": 62,
-        "name": "poliwrath"
+        "name": "poliwrath",
+        "evolves_from_dex": 61,
+        "trigger": "Water Stone"
       },
       {
         "dex": 186,
-        "name": "politoed"
+        "name": "politoed",
+        "evolves_from_dex": 61,
+        "trigger": "Trade, holding Kings Rock"
       }
     ],
     "abilities": [
@@ -2824,19 +3160,27 @@
     "evolutions": [
       {
         "dex": 60,
-        "name": "poliwag"
+        "name": "poliwag",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 61,
-        "name": "poliwhirl"
+        "name": "poliwhirl",
+        "evolves_from_dex": 60,
+        "trigger": "Level 25"
       },
       {
         "dex": 62,
-        "name": "poliwrath"
+        "name": "poliwrath",
+        "evolves_from_dex": 61,
+        "trigger": "Water Stone"
       },
       {
         "dex": 186,
-        "name": "politoed"
+        "name": "politoed",
+        "evolves_from_dex": 61,
+        "trigger": "Trade, holding Kings Rock"
       }
     ],
     "abilities": [
@@ -2877,15 +3221,21 @@
     "evolutions": [
       {
         "dex": 63,
-        "name": "abra"
+        "name": "abra",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 64,
-        "name": "kadabra"
+        "name": "kadabra",
+        "evolves_from_dex": 63,
+        "trigger": "Level 16"
       },
       {
         "dex": 65,
-        "name": "alakazam"
+        "name": "alakazam",
+        "evolves_from_dex": 64,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -2926,15 +3276,21 @@
     "evolutions": [
       {
         "dex": 63,
-        "name": "abra"
+        "name": "abra",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 64,
-        "name": "kadabra"
+        "name": "kadabra",
+        "evolves_from_dex": 63,
+        "trigger": "Level 16"
       },
       {
         "dex": 65,
-        "name": "alakazam"
+        "name": "alakazam",
+        "evolves_from_dex": 64,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -2975,15 +3331,21 @@
     "evolutions": [
       {
         "dex": 63,
-        "name": "abra"
+        "name": "abra",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 64,
-        "name": "kadabra"
+        "name": "kadabra",
+        "evolves_from_dex": 63,
+        "trigger": "Level 16"
       },
       {
         "dex": 65,
-        "name": "alakazam"
+        "name": "alakazam",
+        "evolves_from_dex": 64,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3024,15 +3386,21 @@
     "evolutions": [
       {
         "dex": 66,
-        "name": "machop"
+        "name": "machop",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 67,
-        "name": "machoke"
+        "name": "machoke",
+        "evolves_from_dex": 66,
+        "trigger": "Level 28"
       },
       {
         "dex": 68,
-        "name": "machamp"
+        "name": "machamp",
+        "evolves_from_dex": 67,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3073,15 +3441,21 @@
     "evolutions": [
       {
         "dex": 66,
-        "name": "machop"
+        "name": "machop",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 67,
-        "name": "machoke"
+        "name": "machoke",
+        "evolves_from_dex": 66,
+        "trigger": "Level 28"
       },
       {
         "dex": 68,
-        "name": "machamp"
+        "name": "machamp",
+        "evolves_from_dex": 67,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3122,15 +3496,21 @@
     "evolutions": [
       {
         "dex": 66,
-        "name": "machop"
+        "name": "machop",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 67,
-        "name": "machoke"
+        "name": "machoke",
+        "evolves_from_dex": 66,
+        "trigger": "Level 28"
       },
       {
         "dex": 68,
-        "name": "machamp"
+        "name": "machamp",
+        "evolves_from_dex": 67,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3172,15 +3552,21 @@
     "evolutions": [
       {
         "dex": 69,
-        "name": "bellsprout"
+        "name": "bellsprout",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 70,
-        "name": "weepinbell"
+        "name": "weepinbell",
+        "evolves_from_dex": 69,
+        "trigger": "Level 21"
       },
       {
         "dex": 71,
-        "name": "victreebel"
+        "name": "victreebel",
+        "evolves_from_dex": 70,
+        "trigger": "Leaf Stone"
       }
     ],
     "abilities": [
@@ -3217,15 +3603,21 @@
     "evolutions": [
       {
         "dex": 69,
-        "name": "bellsprout"
+        "name": "bellsprout",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 70,
-        "name": "weepinbell"
+        "name": "weepinbell",
+        "evolves_from_dex": 69,
+        "trigger": "Level 21"
       },
       {
         "dex": 71,
-        "name": "victreebel"
+        "name": "victreebel",
+        "evolves_from_dex": 70,
+        "trigger": "Leaf Stone"
       }
     ],
     "abilities": [
@@ -3262,15 +3654,21 @@
     "evolutions": [
       {
         "dex": 69,
-        "name": "bellsprout"
+        "name": "bellsprout",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 70,
-        "name": "weepinbell"
+        "name": "weepinbell",
+        "evolves_from_dex": 69,
+        "trigger": "Level 21"
       },
       {
         "dex": 71,
-        "name": "victreebel"
+        "name": "victreebel",
+        "evolves_from_dex": 70,
+        "trigger": "Leaf Stone"
       }
     ],
     "abilities": [
@@ -3307,11 +3705,15 @@
     "evolutions": [
       {
         "dex": 72,
-        "name": "tentacool"
+        "name": "tentacool",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 73,
-        "name": "tentacruel"
+        "name": "tentacruel",
+        "evolves_from_dex": 72,
+        "trigger": "Level 30"
       }
     ],
     "abilities": [
@@ -3353,11 +3755,15 @@
     "evolutions": [
       {
         "dex": 72,
-        "name": "tentacool"
+        "name": "tentacool",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 73,
-        "name": "tentacruel"
+        "name": "tentacruel",
+        "evolves_from_dex": 72,
+        "trigger": "Level 30"
       }
     ],
     "abilities": [
@@ -3399,15 +3805,21 @@
     "evolutions": [
       {
         "dex": 74,
-        "name": "geodude"
+        "name": "geodude",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 75,
-        "name": "graveler"
+        "name": "graveler",
+        "evolves_from_dex": 74,
+        "trigger": "Level 25"
       },
       {
         "dex": 76,
-        "name": "golem"
+        "name": "golem",
+        "evolves_from_dex": 75,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3449,15 +3861,21 @@
     "evolutions": [
       {
         "dex": 74,
-        "name": "geodude"
+        "name": "geodude",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 75,
-        "name": "graveler"
+        "name": "graveler",
+        "evolves_from_dex": 74,
+        "trigger": "Level 25"
       },
       {
         "dex": 76,
-        "name": "golem"
+        "name": "golem",
+        "evolves_from_dex": 75,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3499,15 +3917,21 @@
     "evolutions": [
       {
         "dex": 74,
-        "name": "geodude"
+        "name": "geodude",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 75,
-        "name": "graveler"
+        "name": "graveler",
+        "evolves_from_dex": 74,
+        "trigger": "Level 25"
       },
       {
         "dex": 76,
-        "name": "golem"
+        "name": "golem",
+        "evolves_from_dex": 75,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -3548,11 +3972,15 @@
     "evolutions": [
       {
         "dex": 77,
-        "name": "ponyta"
+        "name": "ponyta",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 78,
-        "name": "rapidash"
+        "name": "rapidash",
+        "evolves_from_dex": 77,
+        "trigger": "Level 40"
       }
     ],
     "abilities": [
@@ -3593,11 +4021,15 @@
     "evolutions": [
       {
         "dex": 77,
-        "name": "ponyta"
+        "name": "ponyta",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 78,
-        "name": "rapidash"
+        "name": "rapidash",
+        "evolves_from_dex": 77,
+        "trigger": "Level 40"
       }
     ],
     "abilities": [
@@ -3639,15 +4071,21 @@
     "evolutions": [
       {
         "dex": 79,
-        "name": "slowpoke"
+        "name": "slowpoke",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 80,
-        "name": "slowbro"
+        "name": "slowbro",
+        "evolves_from_dex": 79,
+        "trigger": "Level 37"
       },
       {
         "dex": 199,
-        "name": "slowking"
+        "name": "slowking",
+        "evolves_from_dex": 79,
+        "trigger": "Trade, holding Kings Rock"
       }
     ],
     "abilities": [
@@ -3689,15 +4127,21 @@
     "evolutions": [
       {
         "dex": 79,
-        "name": "slowpoke"
+        "name": "slowpoke",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 80,
-        "name": "slowbro"
+        "name": "slowbro",
+        "evolves_from_dex": 79,
+        "trigger": "Level 37"
       },
       {
         "dex": 199,
-        "name": "slowking"
+        "name": "slowking",
+        "evolves_from_dex": 79,
+        "trigger": "Trade, holding Kings Rock"
       }
     ],
     "abilities": [
@@ -3739,15 +4183,21 @@
     "evolutions": [
       {
         "dex": 81,
-        "name": "magnemite"
+        "name": "magnemite",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 82,
-        "name": "magneton"
+        "name": "magneton",
+        "evolves_from_dex": 81,
+        "trigger": "Level 30"
       },
       {
         "dex": 462,
-        "name": "magnezone"
+        "name": "magnezone",
+        "evolves_from_dex": 82,
+        "trigger": "Level Up"
       }
     ],
     "abilities": [
@@ -3789,15 +4239,21 @@
     "evolutions": [
       {
         "dex": 81,
-        "name": "magnemite"
+        "name": "magnemite",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 82,
-        "name": "magneton"
+        "name": "magneton",
+        "evolves_from_dex": 81,
+        "trigger": "Level 30"
       },
       {
         "dex": 462,
-        "name": "magnezone"
+        "name": "magnezone",
+        "evolves_from_dex": 82,
+        "trigger": "Level Up"
       }
     ],
     "abilities": [
@@ -3839,11 +4295,15 @@
     "evolutions": [
       {
         "dex": 83,
-        "name": "farfetchd"
+        "name": "farfetchd",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 865,
-        "name": "sirfetchd"
+        "name": "sirfetchd",
+        "evolves_from_dex": 83,
+        "trigger": "Three Critical Hits"
       }
     ],
     "abilities": [
@@ -3885,11 +4345,15 @@
     "evolutions": [
       {
         "dex": 84,
-        "name": "doduo"
+        "name": "doduo",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 85,
-        "name": "dodrio"
+        "name": "dodrio",
+        "evolves_from_dex": 84,
+        "trigger": "Level 31"
       }
     ],
     "abilities": [
@@ -3931,11 +4395,15 @@
     "evolutions": [
       {
         "dex": 84,
-        "name": "doduo"
+        "name": "doduo",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 85,
-        "name": "dodrio"
+        "name": "dodrio",
+        "evolves_from_dex": 84,
+        "trigger": "Level 31"
       }
     ],
     "abilities": [
@@ -3976,11 +4444,15 @@
     "evolutions": [
       {
         "dex": 86,
-        "name": "seel"
+        "name": "seel",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 87,
-        "name": "dewgong"
+        "name": "dewgong",
+        "evolves_from_dex": 86,
+        "trigger": "Level 34"
       }
     ],
     "abilities": [
@@ -4022,11 +4494,15 @@
     "evolutions": [
       {
         "dex": 86,
-        "name": "seel"
+        "name": "seel",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 87,
-        "name": "dewgong"
+        "name": "dewgong",
+        "evolves_from_dex": 86,
+        "trigger": "Level 34"
       }
     ],
     "abilities": [
@@ -4067,11 +4543,15 @@
     "evolutions": [
       {
         "dex": 88,
-        "name": "grimer"
+        "name": "grimer",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 89,
-        "name": "muk"
+        "name": "muk",
+        "evolves_from_dex": 88,
+        "trigger": "Level 38"
       }
     ],
     "abilities": [
@@ -4112,11 +4592,15 @@
     "evolutions": [
       {
         "dex": 88,
-        "name": "grimer"
+        "name": "grimer",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 89,
-        "name": "muk"
+        "name": "muk",
+        "evolves_from_dex": 88,
+        "trigger": "Level 38"
       }
     ],
     "abilities": [
@@ -4157,11 +4641,15 @@
     "evolutions": [
       {
         "dex": 90,
-        "name": "shellder"
+        "name": "shellder",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 91,
-        "name": "cloyster"
+        "name": "cloyster",
+        "evolves_from_dex": 90,
+        "trigger": "Water Stone"
       }
     ],
     "abilities": [
@@ -4203,11 +4691,15 @@
     "evolutions": [
       {
         "dex": 90,
-        "name": "shellder"
+        "name": "shellder",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 91,
-        "name": "cloyster"
+        "name": "cloyster",
+        "evolves_from_dex": 90,
+        "trigger": "Water Stone"
       }
     ],
     "abilities": [
@@ -4249,15 +4741,21 @@
     "evolutions": [
       {
         "dex": 92,
-        "name": "gastly"
+        "name": "gastly",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 93,
-        "name": "haunter"
+        "name": "haunter",
+        "evolves_from_dex": 92,
+        "trigger": "Level 25"
       },
       {
         "dex": 94,
-        "name": "gengar"
+        "name": "gengar",
+        "evolves_from_dex": 93,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -4289,15 +4787,21 @@
     "evolutions": [
       {
         "dex": 92,
-        "name": "gastly"
+        "name": "gastly",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 93,
-        "name": "haunter"
+        "name": "haunter",
+        "evolves_from_dex": 92,
+        "trigger": "Level 25"
       },
       {
         "dex": 94,
-        "name": "gengar"
+        "name": "gengar",
+        "evolves_from_dex": 93,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -4329,15 +4833,21 @@
     "evolutions": [
       {
         "dex": 92,
-        "name": "gastly"
+        "name": "gastly",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 93,
-        "name": "haunter"
+        "name": "haunter",
+        "evolves_from_dex": 92,
+        "trigger": "Level 25"
       },
       {
         "dex": 94,
-        "name": "gengar"
+        "name": "gengar",
+        "evolves_from_dex": 93,
+        "trigger": "Trade"
       }
     ],
     "abilities": [
@@ -4369,11 +4879,15 @@
     "evolutions": [
       {
         "dex": 95,
-        "name": "onix"
+        "name": "onix",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 208,
-        "name": "steelix"
+        "name": "steelix",
+        "evolves_from_dex": 95,
+        "trigger": "Trade, holding Metal Coat"
       }
     ],
     "abilities": [
@@ -4414,11 +4928,15 @@
     "evolutions": [
       {
         "dex": 96,
-        "name": "drowzee"
+        "name": "drowzee",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 97,
-        "name": "hypno"
+        "name": "hypno",
+        "evolves_from_dex": 96,
+        "trigger": "Level 26"
       }
     ],
     "abilities": [
@@ -4459,11 +4977,15 @@
     "evolutions": [
       {
         "dex": 96,
-        "name": "drowzee"
+        "name": "drowzee",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 97,
-        "name": "hypno"
+        "name": "hypno",
+        "evolves_from_dex": 96,
+        "trigger": "Level 26"
       }
     ],
     "abilities": [
@@ -4504,11 +5026,15 @@
     "evolutions": [
       {
         "dex": 98,
-        "name": "krabby"
+        "name": "krabby",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 99,
-        "name": "kingler"
+        "name": "kingler",
+        "evolves_from_dex": 98,
+        "trigger": "Level 28"
       }
     ],
     "abilities": [
@@ -4549,11 +5075,15 @@
     "evolutions": [
       {
         "dex": 98,
-        "name": "krabby"
+        "name": "krabby",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 99,
-        "name": "kingler"
+        "name": "kingler",
+        "evolves_from_dex": 98,
+        "trigger": "Level 28"
       }
     ],
     "abilities": [
@@ -4594,11 +5124,15 @@
     "evolutions": [
       {
         "dex": 100,
-        "name": "voltorb"
+        "name": "voltorb",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 101,
-        "name": "electrode"
+        "name": "electrode",
+        "evolves_from_dex": 100,
+        "trigger": "Level 30"
       }
     ],
     "abilities": [
@@ -4639,11 +5173,15 @@
     "evolutions": [
       {
         "dex": 100,
-        "name": "voltorb"
+        "name": "voltorb",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 101,
-        "name": "electrode"
+        "name": "electrode",
+        "evolves_from_dex": 100,
+        "trigger": "Level 30"
       }
     ],
     "abilities": [
@@ -4685,11 +5223,15 @@
     "evolutions": [
       {
         "dex": 102,
-        "name": "exeggcute"
+        "name": "exeggcute",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 103,
-        "name": "exeggutor"
+        "name": "exeggutor",
+        "evolves_from_dex": 102,
+        "trigger": "Leaf Stone"
       }
     ],
     "abilities": [
@@ -4726,11 +5268,15 @@
     "evolutions": [
       {
         "dex": 102,
-        "name": "exeggcute"
+        "name": "exeggcute",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 103,
-        "name": "exeggutor"
+        "name": "exeggutor",
+        "evolves_from_dex": 102,
+        "trigger": "Leaf Stone"
       }
     ],
     "abilities": [
@@ -4766,11 +5312,15 @@
     "evolutions": [
       {
         "dex": 104,
-        "name": "cubone"
+        "name": "cubone",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 105,
-        "name": "marowak"
+        "name": "marowak",
+        "evolves_from_dex": 104,
+        "trigger": "Level 28"
       }
     ],
     "abilities": [
@@ -4811,11 +5361,15 @@
     "evolutions": [
       {
         "dex": 104,
-        "name": "cubone"
+        "name": "cubone",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 105,
-        "name": "marowak"
+        "name": "marowak",
+        "evolves_from_dex": 104,
+        "trigger": "Level 28"
       }
     ],
     "abilities": [
@@ -4855,20 +5409,28 @@
     "weight_kg": 49.8,
     "evolutions": [
       {
-        "dex": 236,
-        "name": "tyrogue"
-      },
-      {
         "dex": 106,
-        "name": "hitmonlee"
+        "name": "hitmonlee",
+        "evolves_from_dex": 236,
+        "trigger": "Level 20"
       },
       {
         "dex": 107,
-        "name": "hitmonchan"
+        "name": "hitmonchan",
+        "evolves_from_dex": 236,
+        "trigger": "Level 20"
+      },
+      {
+        "dex": 236,
+        "name": "tyrogue",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 237,
-        "name": "hitmontop"
+        "name": "hitmontop",
+        "evolves_from_dex": 236,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -4908,20 +5470,28 @@
     "weight_kg": 50.2,
     "evolutions": [
       {
-        "dex": 236,
-        "name": "tyrogue"
-      },
-      {
         "dex": 106,
-        "name": "hitmonlee"
+        "name": "hitmonlee",
+        "evolves_from_dex": 236,
+        "trigger": "Level 20"
       },
       {
         "dex": 107,
-        "name": "hitmonchan"
+        "name": "hitmonchan",
+        "evolves_from_dex": 236,
+        "trigger": "Level 20"
+      },
+      {
+        "dex": 236,
+        "name": "tyrogue",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 237,
-        "name": "hitmontop"
+        "name": "hitmontop",
+        "evolves_from_dex": 236,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -4962,11 +5532,15 @@
     "evolutions": [
       {
         "dex": 108,
-        "name": "lickitung"
+        "name": "lickitung",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 463,
-        "name": "lickilicky"
+        "name": "lickilicky",
+        "evolves_from_dex": 108,
+        "trigger": "Knows Rollout"
       }
     ],
     "abilities": [
@@ -5007,11 +5581,15 @@
     "evolutions": [
       {
         "dex": 109,
-        "name": "koffing"
+        "name": "koffing",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 110,
-        "name": "weezing"
+        "name": "weezing",
+        "evolves_from_dex": 109,
+        "trigger": "Level 35"
       }
     ],
     "abilities": [
@@ -5052,11 +5630,15 @@
     "evolutions": [
       {
         "dex": 109,
-        "name": "koffing"
+        "name": "koffing",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 110,
-        "name": "weezing"
+        "name": "weezing",
+        "evolves_from_dex": 109,
+        "trigger": "Level 35"
       }
     ],
     "abilities": [
@@ -5098,15 +5680,21 @@
     "evolutions": [
       {
         "dex": 111,
-        "name": "rhyhorn"
+        "name": "rhyhorn",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 112,
-        "name": "rhydon"
+        "name": "rhydon",
+        "evolves_from_dex": 111,
+        "trigger": "Level 42"
       },
       {
         "dex": 464,
-        "name": "rhyperior"
+        "name": "rhyperior",
+        "evolves_from_dex": 112,
+        "trigger": "Trade, holding Protector"
       }
     ],
     "abilities": [
@@ -5148,15 +5736,21 @@
     "evolutions": [
       {
         "dex": 111,
-        "name": "rhyhorn"
+        "name": "rhyhorn",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 112,
-        "name": "rhydon"
+        "name": "rhydon",
+        "evolves_from_dex": 111,
+        "trigger": "Level 42"
       },
       {
         "dex": 464,
-        "name": "rhyperior"
+        "name": "rhyperior",
+        "evolves_from_dex": 112,
+        "trigger": "Trade, holding Protector"
       }
     ],
     "abilities": [
@@ -5196,16 +5790,22 @@
     "weight_kg": 34.6,
     "evolutions": [
       {
-        "dex": 440,
-        "name": "happiny"
-      },
-      {
         "dex": 113,
-        "name": "chansey"
+        "name": "chansey",
+        "evolves_from_dex": 440,
+        "trigger": "Day"
       },
       {
         "dex": 242,
-        "name": "blissey"
+        "name": "blissey",
+        "evolves_from_dex": 113,
+        "trigger": "Friendship"
+      },
+      {
+        "dex": 440,
+        "name": "happiny",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -5246,11 +5846,15 @@
     "evolutions": [
       {
         "dex": 114,
-        "name": "tangela"
+        "name": "tangela",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 465,
-        "name": "tangrowth"
+        "name": "tangrowth",
+        "evolves_from_dex": 114,
+        "trigger": "Knows Ancient Power"
       }
     ],
     "abilities": [
@@ -5291,7 +5895,9 @@
     "evolutions": [
       {
         "dex": 115,
-        "name": "kangaskhan"
+        "name": "kangaskhan",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -5332,15 +5938,21 @@
     "evolutions": [
       {
         "dex": 116,
-        "name": "horsea"
+        "name": "horsea",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 117,
-        "name": "seadra"
+        "name": "seadra",
+        "evolves_from_dex": 116,
+        "trigger": "Level 32"
       },
       {
         "dex": 230,
-        "name": "kingdra"
+        "name": "kingdra",
+        "evolves_from_dex": 117,
+        "trigger": "Trade, holding Dragon Scale"
       }
     ],
     "abilities": [
@@ -5381,15 +5993,21 @@
     "evolutions": [
       {
         "dex": 116,
-        "name": "horsea"
+        "name": "horsea",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 117,
-        "name": "seadra"
+        "name": "seadra",
+        "evolves_from_dex": 116,
+        "trigger": "Level 32"
       },
       {
         "dex": 230,
-        "name": "kingdra"
+        "name": "kingdra",
+        "evolves_from_dex": 117,
+        "trigger": "Trade, holding Dragon Scale"
       }
     ],
     "abilities": [
@@ -5430,11 +6048,15 @@
     "evolutions": [
       {
         "dex": 118,
-        "name": "goldeen"
+        "name": "goldeen",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 119,
-        "name": "seaking"
+        "name": "seaking",
+        "evolves_from_dex": 118,
+        "trigger": "Level 33"
       }
     ],
     "abilities": [
@@ -5475,11 +6097,15 @@
     "evolutions": [
       {
         "dex": 118,
-        "name": "goldeen"
+        "name": "goldeen",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 119,
-        "name": "seaking"
+        "name": "seaking",
+        "evolves_from_dex": 118,
+        "trigger": "Level 33"
       }
     ],
     "abilities": [
@@ -5520,11 +6146,15 @@
     "evolutions": [
       {
         "dex": 120,
-        "name": "staryu"
+        "name": "staryu",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 121,
-        "name": "starmie"
+        "name": "starmie",
+        "evolves_from_dex": 120,
+        "trigger": "Water Stone"
       }
     ],
     "abilities": [
@@ -5566,11 +6196,15 @@
     "evolutions": [
       {
         "dex": 120,
-        "name": "staryu"
+        "name": "staryu",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 121,
-        "name": "starmie"
+        "name": "starmie",
+        "evolves_from_dex": 120,
+        "trigger": "Water Stone"
       }
     ],
     "abilities": [
@@ -5611,16 +6245,22 @@
     "weight_kg": 54.5,
     "evolutions": [
       {
-        "dex": 439,
-        "name": "mime-jr"
+        "dex": 122,
+        "name": "mr-mime",
+        "evolves_from_dex": 439,
+        "trigger": "Knows Mimic"
       },
       {
-        "dex": 122,
-        "name": "mr-mime"
+        "dex": 439,
+        "name": "mime-jr",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 866,
-        "name": "mr-rime"
+        "name": "mr-rime",
+        "evolves_from_dex": 122,
+        "trigger": "Level 42"
       }
     ],
     "abilities": [
@@ -5662,15 +6302,21 @@
     "evolutions": [
       {
         "dex": 123,
-        "name": "scyther"
+        "name": "scyther",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 212,
-        "name": "scizor"
+        "name": "scizor",
+        "evolves_from_dex": 123,
+        "trigger": "Trade, holding Metal Coat"
       },
       {
         "dex": 900,
-        "name": "kleavor"
+        "name": "kleavor",
+        "evolves_from_dex": 123,
+        "trigger": "Black Augurite"
       }
     ],
     "abilities": [
@@ -5711,12 +6357,16 @@
     "weight_kg": 40.6,
     "evolutions": [
       {
-        "dex": 238,
-        "name": "smoochum"
+        "dex": 124,
+        "name": "jynx",
+        "evolves_from_dex": 238,
+        "trigger": "Level 30"
       },
       {
-        "dex": 124,
-        "name": "jynx"
+        "dex": 238,
+        "name": "smoochum",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -5756,16 +6406,22 @@
     "weight_kg": 30.0,
     "evolutions": [
       {
-        "dex": 239,
-        "name": "elekid"
+        "dex": 125,
+        "name": "electabuzz",
+        "evolves_from_dex": 239,
+        "trigger": "Level 30"
       },
       {
-        "dex": 125,
-        "name": "electabuzz"
+        "dex": 239,
+        "name": "elekid",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 466,
-        "name": "electivire"
+        "name": "electivire",
+        "evolves_from_dex": 125,
+        "trigger": "Trade, holding Electirizer"
       }
     ],
     "abilities": [
@@ -5800,16 +6456,22 @@
     "weight_kg": 44.5,
     "evolutions": [
       {
-        "dex": 240,
-        "name": "magby"
+        "dex": 126,
+        "name": "magmar",
+        "evolves_from_dex": 240,
+        "trigger": "Level 30"
       },
       {
-        "dex": 126,
-        "name": "magmar"
+        "dex": 240,
+        "name": "magby",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 467,
-        "name": "magmortar"
+        "name": "magmortar",
+        "evolves_from_dex": 126,
+        "trigger": "Trade, holding Magmarizer"
       }
     ],
     "abilities": [
@@ -5845,7 +6507,9 @@
     "evolutions": [
       {
         "dex": 127,
-        "name": "pinsir"
+        "name": "pinsir",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -5886,7 +6550,9 @@
     "evolutions": [
       {
         "dex": 128,
-        "name": "tauros"
+        "name": "tauros",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -5927,11 +6593,15 @@
     "evolutions": [
       {
         "dex": 129,
-        "name": "magikarp"
+        "name": "magikarp",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 130,
-        "name": "gyarados"
+        "name": "gyarados",
+        "evolves_from_dex": 129,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -5968,11 +6638,15 @@
     "evolutions": [
       {
         "dex": 129,
-        "name": "magikarp"
+        "name": "magikarp",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 130,
-        "name": "gyarados"
+        "name": "gyarados",
+        "evolves_from_dex": 129,
+        "trigger": "Level 20"
       }
     ],
     "abilities": [
@@ -6009,7 +6683,9 @@
     "evolutions": [
       {
         "dex": 131,
-        "name": "lapras"
+        "name": "lapras",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6050,7 +6726,9 @@
     "evolutions": [
       {
         "dex": 132,
-        "name": "ditto"
+        "name": "ditto",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6086,39 +6764,57 @@
     "evolutions": [
       {
         "dex": 133,
-        "name": "eevee"
+        "name": "eevee",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 134,
-        "name": "vaporeon"
+        "name": "vaporeon",
+        "evolves_from_dex": 133,
+        "trigger": "Water Stone"
       },
       {
         "dex": 135,
-        "name": "jolteon"
+        "name": "jolteon",
+        "evolves_from_dex": 133,
+        "trigger": "Thunder Stone"
       },
       {
         "dex": 136,
-        "name": "flareon"
+        "name": "flareon",
+        "evolves_from_dex": 133,
+        "trigger": "Fire Stone"
       },
       {
         "dex": 196,
-        "name": "espeon"
+        "name": "espeon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Day"
       },
       {
         "dex": 197,
-        "name": "umbreon"
+        "name": "umbreon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Night"
       },
       {
         "dex": 470,
-        "name": "leafeon"
+        "name": "leafeon",
+        "evolves_from_dex": 133,
+        "trigger": "Leaf Stone/Level Up"
       },
       {
         "dex": 471,
-        "name": "glaceon"
+        "name": "glaceon",
+        "evolves_from_dex": 133,
+        "trigger": "Ice Stone/Level Up"
       },
       {
         "dex": 700,
-        "name": "sylveon"
+        "name": "sylveon",
+        "evolves_from_dex": 133,
+        "trigger": "Fairy-type move + Friendship"
       }
     ],
     "abilities": [
@@ -6159,39 +6855,57 @@
     "evolutions": [
       {
         "dex": 133,
-        "name": "eevee"
+        "name": "eevee",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 134,
-        "name": "vaporeon"
+        "name": "vaporeon",
+        "evolves_from_dex": 133,
+        "trigger": "Water Stone"
       },
       {
         "dex": 135,
-        "name": "jolteon"
+        "name": "jolteon",
+        "evolves_from_dex": 133,
+        "trigger": "Thunder Stone"
       },
       {
         "dex": 136,
-        "name": "flareon"
+        "name": "flareon",
+        "evolves_from_dex": 133,
+        "trigger": "Fire Stone"
       },
       {
         "dex": 196,
-        "name": "espeon"
+        "name": "espeon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Day"
       },
       {
         "dex": 197,
-        "name": "umbreon"
+        "name": "umbreon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Night"
       },
       {
         "dex": 470,
-        "name": "leafeon"
+        "name": "leafeon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       },
       {
         "dex": 471,
-        "name": "glaceon"
+        "name": "glaceon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       },
       {
         "dex": 700,
-        "name": "sylveon"
+        "name": "sylveon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       }
     ],
     "abilities": [
@@ -6227,39 +6941,57 @@
     "evolutions": [
       {
         "dex": 133,
-        "name": "eevee"
+        "name": "eevee",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 134,
-        "name": "vaporeon"
+        "name": "vaporeon",
+        "evolves_from_dex": 133,
+        "trigger": "Water Stone"
       },
       {
         "dex": 135,
-        "name": "jolteon"
+        "name": "jolteon",
+        "evolves_from_dex": 133,
+        "trigger": "Thunder Stone"
       },
       {
         "dex": 136,
-        "name": "flareon"
+        "name": "flareon",
+        "evolves_from_dex": 133,
+        "trigger": "Fire Stone"
       },
       {
         "dex": 196,
-        "name": "espeon"
+        "name": "espeon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Day"
       },
       {
         "dex": 197,
-        "name": "umbreon"
+        "name": "umbreon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Night"
       },
       {
         "dex": 470,
-        "name": "leafeon"
+        "name": "leafeon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       },
       {
         "dex": 471,
-        "name": "glaceon"
+        "name": "glaceon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       },
       {
         "dex": 700,
-        "name": "sylveon"
+        "name": "sylveon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       }
     ],
     "abilities": [
@@ -6295,39 +7027,57 @@
     "evolutions": [
       {
         "dex": 133,
-        "name": "eevee"
+        "name": "eevee",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 134,
-        "name": "vaporeon"
+        "name": "vaporeon",
+        "evolves_from_dex": 133,
+        "trigger": "Water Stone"
       },
       {
         "dex": 135,
-        "name": "jolteon"
+        "name": "jolteon",
+        "evolves_from_dex": 133,
+        "trigger": "Thunder Stone"
       },
       {
         "dex": 136,
-        "name": "flareon"
+        "name": "flareon",
+        "evolves_from_dex": 133,
+        "trigger": "Fire Stone"
       },
       {
         "dex": 196,
-        "name": "espeon"
+        "name": "espeon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Day"
       },
       {
         "dex": 197,
-        "name": "umbreon"
+        "name": "umbreon",
+        "evolves_from_dex": 133,
+        "trigger": "Friendship, Night"
       },
       {
         "dex": 470,
-        "name": "leafeon"
+        "name": "leafeon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       },
       {
         "dex": 471,
-        "name": "glaceon"
+        "name": "glaceon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       },
       {
         "dex": 700,
-        "name": "sylveon"
+        "name": "sylveon",
+        "evolves_from_dex": 133,
+        "trigger": "Level Up"
       }
     ],
     "abilities": [
@@ -6363,15 +7113,21 @@
     "evolutions": [
       {
         "dex": 137,
-        "name": "porygon"
+        "name": "porygon",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 233,
-        "name": "porygon2"
+        "name": "porygon2",
+        "evolves_from_dex": 137,
+        "trigger": "Trade, holding Up Grade"
       },
       {
         "dex": 474,
-        "name": "porygon-z"
+        "name": "porygon-z",
+        "evolves_from_dex": 233,
+        "trigger": "Trade, holding Dubious Disc"
       }
     ],
     "abilities": [
@@ -6413,11 +7169,15 @@
     "evolutions": [
       {
         "dex": 138,
-        "name": "omanyte"
+        "name": "omanyte",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 139,
-        "name": "omastar"
+        "name": "omastar",
+        "evolves_from_dex": 138,
+        "trigger": "Level 40"
       }
     ],
     "abilities": [
@@ -6459,11 +7219,15 @@
     "evolutions": [
       {
         "dex": 138,
-        "name": "omanyte"
+        "name": "omanyte",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 139,
-        "name": "omastar"
+        "name": "omastar",
+        "evolves_from_dex": 138,
+        "trigger": "Level 40"
       }
     ],
     "abilities": [
@@ -6505,11 +7269,15 @@
     "evolutions": [
       {
         "dex": 140,
-        "name": "kabuto"
+        "name": "kabuto",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 141,
-        "name": "kabutops"
+        "name": "kabutops",
+        "evolves_from_dex": 140,
+        "trigger": "Level 40"
       }
     ],
     "abilities": [
@@ -6551,11 +7319,15 @@
     "evolutions": [
       {
         "dex": 140,
-        "name": "kabuto"
+        "name": "kabuto",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 141,
-        "name": "kabutops"
+        "name": "kabutops",
+        "evolves_from_dex": 140,
+        "trigger": "Level 40"
       }
     ],
     "abilities": [
@@ -6597,7 +7369,9 @@
     "evolutions": [
       {
         "dex": 142,
-        "name": "aerodactyl"
+        "name": "aerodactyl",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6637,12 +7411,16 @@
     "weight_kg": 460.0,
     "evolutions": [
       {
-        "dex": 446,
-        "name": "munchlax"
+        "dex": 143,
+        "name": "snorlax",
+        "evolves_from_dex": 446,
+        "trigger": "Friendship"
       },
       {
-        "dex": 143,
-        "name": "snorlax"
+        "dex": 446,
+        "name": "munchlax",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6684,7 +7462,9 @@
     "evolutions": [
       {
         "dex": 144,
-        "name": "articuno"
+        "name": "articuno",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6721,7 +7501,9 @@
     "evolutions": [
       {
         "dex": 145,
-        "name": "zapdos"
+        "name": "zapdos",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6758,7 +7540,9 @@
     "evolutions": [
       {
         "dex": 146,
-        "name": "moltres"
+        "name": "moltres",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6794,15 +7578,21 @@
     "evolutions": [
       {
         "dex": 147,
-        "name": "dratini"
+        "name": "dratini",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 148,
-        "name": "dragonair"
+        "name": "dragonair",
+        "evolves_from_dex": 147,
+        "trigger": "Level 30"
       },
       {
         "dex": 149,
-        "name": "dragonite"
+        "name": "dragonite",
+        "evolves_from_dex": 148,
+        "trigger": "Level 55"
       }
     ],
     "abilities": [
@@ -6838,15 +7628,21 @@
     "evolutions": [
       {
         "dex": 147,
-        "name": "dratini"
+        "name": "dratini",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 148,
-        "name": "dragonair"
+        "name": "dragonair",
+        "evolves_from_dex": 147,
+        "trigger": "Level 30"
       },
       {
         "dex": 149,
-        "name": "dragonite"
+        "name": "dragonite",
+        "evolves_from_dex": 148,
+        "trigger": "Level 55"
       }
     ],
     "abilities": [
@@ -6883,15 +7679,21 @@
     "evolutions": [
       {
         "dex": 147,
-        "name": "dratini"
+        "name": "dratini",
+        "evolves_from_dex": null,
+        "trigger": null
       },
       {
         "dex": 148,
-        "name": "dragonair"
+        "name": "dragonair",
+        "evolves_from_dex": 147,
+        "trigger": "Level 30"
       },
       {
         "dex": 149,
-        "name": "dragonite"
+        "name": "dragonite",
+        "evolves_from_dex": 148,
+        "trigger": "Level 55"
       }
     ],
     "abilities": [
@@ -6927,7 +7729,9 @@
     "evolutions": [
       {
         "dex": 150,
-        "name": "mewtwo"
+        "name": "mewtwo",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
@@ -6963,7 +7767,9 @@
     "evolutions": [
       {
         "dex": 151,
-        "name": "mew"
+        "name": "mew",
+        "evolves_from_dex": null,
+        "trigger": null
       }
     ],
     "abilities": [
