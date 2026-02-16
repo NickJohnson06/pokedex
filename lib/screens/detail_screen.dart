@@ -17,7 +17,9 @@ class _DetailData {
   final List<String>? types;
   final int? hp, atk, def, spa, spd, spe;
   final double? heightM, weightKg;
+  final String? genus;
   final List<EvolutionSpecies>? evolutions;
+  final List<Ability>? abilities;
   final String source; // 'catalog' | 'cache' | 'api'
 
   const _DetailData({
@@ -31,7 +33,9 @@ class _DetailData {
     this.spe,
     this.heightM,
     this.weightKg,
+    this.genus,
     this.evolutions,
+    this.abilities,
     required this.source,
   });
 
@@ -82,7 +86,9 @@ class DetailScreen extends StatelessWidget {
         spe: s.spe,
         heightM: entry.heightM,
         weightKg: entry.weightKg,
+        genus: entry.genus,
         evolutions: entry.evolutions,
+        abilities: entry.abilities,
         source: 'catalog',
       );
     }
@@ -103,6 +109,7 @@ class DetailScreen extends StatelessWidget {
           spe: api.stats['spe'],
           heightM: api.heightM,
           weightKg: api.weightKg,
+          genus: null, // Cache/API might not have genus unless we update PokeApiEntry too
           source: 'cache',
         );
       }
@@ -145,8 +152,38 @@ class DetailScreen extends StatelessWidget {
       spe: api.stats['spe'],
       heightM: api.heightM,
       weightKg: api.weightKg,
+      genus: null,
       evolutions: null, // API entry doesn't have evolutions yet
+      abilities: null, // API entry doesn't have abilities yet (or we need to map them if PokeApiEntry support it)
       source: 'api',
+    );
+  }
+
+  Widget _buildAbilities(BuildContext context, List<Ability> abilities) {
+    if (abilities.isEmpty) return const SizedBox.shrink();
+
+    return Column(
+      children: [
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 8,
+          runSpacing: 4,
+          alignment: WrapAlignment.center,
+          children: abilities.map((a) {
+            return Chip(
+              label: Text(
+                a.name + (a.isHidden ? ' (H)' : ''),
+                style: TextStyle(
+                  fontStyle: a.isHidden ? FontStyle.italic : FontStyle.normal,
+                  fontSize: 12,
+                ),
+              ),
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+              visualDensity: VisualDensity.compact,
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 
@@ -283,8 +320,11 @@ class DetailScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 _avatar(),
+                
                 const SizedBox(height: 16),
-                HeroText( // animate name in page body too
+                
+                // 1. Name
+                HeroText(
                   tag: 'name-${pokemon.id}',
                   child: Text(
                     pokemon.name[0].toUpperCase() + pokemon.name.substring(1),
@@ -292,17 +332,24 @@ class DetailScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                
                 const SizedBox(height: 8),
-                DualTypeChip(type1: pokemon.type, type2: pokemon.type2),
 
-                const SizedBox(height: 24),
                 FutureBuilder<_DetailData?>(
                   future: _loadDetailData(),
                   builder: (context, snap) {
                     if (snap.connectionState != ConnectionState.done) {
-                      return const SizedBox(
-                        height: 120,
-                        child: Center(child: CircularProgressIndicator()),
+                      // Show minimal info while loading
+                      return Column(
+                        children: [
+                          if (pokemon.dex != null)
+                             HeroText(
+                                tag: 'dex-${pokemon.id}',
+                                child: Text(formatDex(pokemon.dex!), style: Theme.of(context).textTheme.labelLarge),
+                             ),
+                           const SizedBox(height: 24),
+                           const CircularProgressIndicator(),
+                        ],
                       );
                     }
                     final data = snap.data;
@@ -310,15 +357,25 @@ class DetailScreen extends StatelessWidget {
                       return const Text('No additional details available.');
                     }
 
-                    // ✅ Show corrected dex immediately, with Hero transition
-                    final dexLine = HeroText(
-                      tag: 'dex-${pokemon.id}',
+                    // 2. Species | Dex Line
+                    // "Electric Pokemon | Pokedex #145"
+                    final combinedLine = HeroText(
+                      tag: 'dex-${pokemon.id}', // keep dex tag for hero transition if possible, though text changes
                       child: Text(
-                        formatDex(data.dex),
-                        style: Theme.of(context).textTheme.labelLarge,
+                        [
+                          if (data.genus != null) data.genus,
+                          'Pokedex ${formatDex(data.dex)}'
+                        ].join(' | '),
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.black87,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                     );
+
+                    // 3. Typing
+                    final typing = DualTypeChip(type1: pokemon.type, type2: pokemon.type2);
+
 
                     final statsSection = data.hasStats
                         ? StatViewContainer(
@@ -345,11 +402,29 @@ class DetailScreen extends StatelessWidget {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        dexLine,
+                        combinedLine,
                         const SizedBox(height: 8),
+                        typing,
+                        const SizedBox(height: 8),
+
+                        // 5. Abilities (with label)
+                        if (data.abilities != null && data.abilities!.isNotEmpty) ...[
+                          const SizedBox(height: 16),
+                          Text(
+                            'Abilities',
+                            style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                          _buildAbilities(context, data.abilities!),
+                        ],
+
+                        const SizedBox(height: 16),
+                        
+                        // 6. Stats & Size
                         if (statsSection is! SizedBox) statsSection,
                         if (statsSection is! SizedBox) const SizedBox(height: 12),
                         sizeLine,
+                        
                         if (data.evolutions != null) _buildEvolutions(context, data.evolutions!),
                       ],
                     );
