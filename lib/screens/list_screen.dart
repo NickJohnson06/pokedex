@@ -13,6 +13,7 @@ import '../widgets/filter_sheet.dart';
 import 'add_edit_screen.dart';
 import 'detail_screen.dart';
 import 'settings_screen.dart';
+import 'stats_screen.dart';
 import '../widgets/daily_pokemon_widget.dart';
 
 class ListScreen extends StatefulWidget {
@@ -224,7 +225,14 @@ class _ListScreenState extends State<ListScreen> {
             icon: Icon(_sortFilter.filter.favoritesOnly ? Icons.star : Icons.star_border),
             onPressed: _toggleFavFilter,
           ),
-          // Settings
+          IconButton(
+            tooltip: 'Collection Stats',
+            icon: const Icon(Icons.bar_chart),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const StatsScreen()),
+            ),
+          ),
           IconButton(
             tooltip: 'Settings',
             icon: const Icon(Icons.settings),

@@ -127,4 +127,9 @@ class PokedexCatalog {
     names.sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()));
     return names;
   }
+
+  Future<List<PokedexEntry>> allEntries() async {
+    await _ensureLoaded();
+    return _byDex!.values.toList();
+  }
 }

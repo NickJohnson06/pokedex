@@ -109,4 +109,51 @@ class PokemonRepository {
       whereArgs: [id],
     );
   }
+
+  Future<int> getTotalCount() async {
+    final db = await DatabaseHelper.instance.database;
+    final result = await db.rawQuery('SELECT COUNT(*) as count FROM $_table');
+    return Sqflite.firstIntValue(result) ?? 0;
+  }
+
+  Future<Map<String, int>> getTypeDistribution() async {
+    final all = await getAll();
+    final distribution = <String, int>{};
+    
+    for (final pokemon in all) {
+      distribution[pokemon.type] = (distribution[pokemon.type] ?? 0) + 1;
+      if (pokemon.type2 != null) {
+        distribution[pokemon.type2!] = (distribution[pokemon.type2!] ?? 0) + 1;
+      }
+    }
+    
+    return distribution;
+  }
+
+  Future<Map<int, int>> getGenerationDistribution() async {
+    final all = await getAll();
+    final distribution = <int, int>{};
+    
+    for (final pokemon in all) {
+      if (pokemon.dex != null) {
+        final gen = _getGeneration(pokemon.dex!);
+        distribution[gen] = (distribution[gen] ?? 0) + 1;
+      }
+    }
+    
+    return distribution;
+  }
+
+  int _getGeneration(int dex) {
+    if (dex >= 1 && dex <= 151) return 1;
+    if (dex >= 152 && dex <= 251) return 2;
+    if (dex >= 252 && dex <= 386) return 3;
+    if (dex >= 387 && dex <= 493) return 4;
+    if (dex >= 494 && dex <= 649) return 5;
+    if (dex >= 650 && dex <= 721) return 6;
+    if (dex >= 722 && dex <= 809) return 7;
+    if (dex >= 810 && dex <= 905) return 8;
+    if (dex >= 906 && dex <= 1025) return 9;
+    return 0;
+  }
 }

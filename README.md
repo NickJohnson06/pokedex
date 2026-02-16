@@ -22,6 +22,12 @@ A feature-rich, Pokedex application built with Flutter that allows you to manage
 - **Hero Animations**: Smooth transitions between list and detail views.
 - **Daily Pokemon**: A featured Pokemon widget to discover new favorites every day.
 
+### 🏆 **Achievements & Collection Stats**
+- **Tiered Badge System**: Unlock progressive badges for catching Pokemon, with separate tiers for every milestone (e.g., "Aspiring Trainer" ➔ "Getting Started").
+- **Type Mastery**: Earn distinct badges for mastering each of the 18 Pokemon types (Fire Master I, II, III), featuring meaningful type-specific colors.
+- **Generation Progress**: Visual breakdown of your collection across all 9 Generations (Kanto through Paldea).
+- **Badge Showcase**: A dedicated settings view to admire your earned accolades.
+
 ### 📊 **Detailed Insights**
 - **Stats Visualization**: View Base Stats (HP, Attack, Defense, etc.) with toggleable **Radar Charts** or **Bar Graphs**.
 - **Evolution Chains**: See the complete evolutionary lineage with evolution triggers (level, items, trade, etc.) and arrows showing the path. Branching evolutions intelligently show only the relevant lineage.

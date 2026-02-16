@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import '../theme/theme_controller.dart';
+import '../services/achievement_service.dart';
+import '../repo/pokemon_repository.dart';
+import '../services/pokedex_catalog.dart';
+import '../widgets/completed_badge.dart';
+import '../models/achievement.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -25,6 +30,8 @@ class SettingsScreen extends StatelessWidget {
         children: [
           _buildInfoSection(context),
           const Divider(),
+          _buildBadgeShowcase(context),
+          const Divider(),
           _buildThemeSection(context),
           const Divider(),
           _buildAppInfo(),
@@ -38,6 +45,70 @@ class SettingsScreen extends StatelessWidget {
       leading: const CircleAvatar(child: Icon(Icons.person)),
       title: const Text('Trainer Preferences'),
       subtitle: const Text('Customize your Pokedex experience.'),
+    );
+  }
+
+  Widget _buildBadgeShowcase(BuildContext context) {
+    final service = AchievementService(
+      repo: PokemonRepository(),
+    );
+
+    return FutureBuilder<List<Achievement>>(
+      future: service.getAchievements(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Padding(
+            padding: EdgeInsets.all(16),
+            child: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        final achievements = snapshot.data!;
+        final earnedAchievements = achievements.where((a) => a.isUnlocked).toList();
+        final maxedAchievements = earnedAchievements.where((a) => a.isMaxed).toList();
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.fromLTRB(16, 16, 16, 8),
+              child: Text(
+                'Badge Showcase',
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Text(
+                '${earnedAchievements.length} Earned • ${maxedAchievements.length} Maxed',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ),
+            if (earnedAchievements.isEmpty)
+              const Padding(
+                padding: EdgeInsets.all(16),
+                child: Center(
+                  child: Text(
+                    'No badges earned yet. Start catching Pokemon!',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              )
+            else
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: earnedAchievements
+                      .map((a) => CompletedBadge(achievement: a))
+                      .toList(),
+                ),
+              ),
+            const SizedBox(height: 16),
+          ],
+        );
+      },
     );
   }
 
@@ -118,7 +189,7 @@ class SettingsScreen extends StatelessWidget {
     return const ListTile(
       leading: Icon(Icons.info_outline),
       title: Text('Version'),
-      subtitle: Text('1.0.0 - Phase 3'),
+      subtitle: Text('1.0.1'),
     );
   }
 }
