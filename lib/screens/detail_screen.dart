@@ -67,7 +67,6 @@ class DetailScreen extends StatelessWidget {
   }
 
   Future<_DetailData?> _loadDetailData() async {
-    // 1. Check local catalog
     final catalog = PokedexCatalog.instance;
     final entry = pokemon.dex != null
         ? await catalog.byDex(pokemon.dex!)
@@ -93,7 +92,6 @@ class DetailScreen extends StatelessWidget {
       );
     }
 
-    // 2. Check cache
     if (pokemon.dex != null) {
       final cachedMap = await PokeCache.getByDex(pokemon.dex!);
       if (cachedMap != null) {
@@ -109,13 +107,12 @@ class DetailScreen extends StatelessWidget {
           spe: api.stats['spe'],
           heightM: api.heightM,
           weightKg: api.weightKg,
-          genus: null, // Cache/API might not have genus unless we update PokeApiEntry too
+          genus: null,
           source: 'cache',
         );
       }
     }
 
-    // 3. Network fallback
     PokeApiEntry? api = await PokeApiService.fetchByName(pokemon.name, ttlMs: 0);
     api ??= (pokemon.dex != null)
         ? await PokeApiService.fetchByDex(pokemon.dex!, ttlMs: 0)
@@ -136,9 +133,7 @@ class DetailScreen extends StatelessWidget {
           favorite: pokemon.favorite,
         );
         await repo.update(updated);
-      } catch (_) {
-        // Ignore if update collides; we still display correct info
-      }
+      } catch (_) {}
     }
 
     return _DetailData(
@@ -153,8 +148,8 @@ class DetailScreen extends StatelessWidget {
       heightM: api.heightM,
       weightKg: api.weightKg,
       genus: null,
-      evolutions: null, // API entry doesn't have evolutions yet
-      abilities: null, // API entry doesn't have abilities yet (or we need to map them if PokeApiEntry support it)
+      evolutions: null,
+      abilities: null,
       source: 'api',
     );
   }
@@ -195,7 +190,6 @@ class DetailScreen extends StatelessWidget {
       final isCurrent = e.dex == pokemon.dex;
       final path = assetPathFromName(e.name);
       
-      // Add the Pokemon widget
       widgets.add(
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -258,7 +252,6 @@ class DetailScreen extends StatelessWidget {
         ),
       );
       
-      // Add arrow with trigger text if not the last item
       if (i < displayList.length - 1) {
         final nextEvolution = displayList[i + 1];
         final triggerText = nextEvolution.trigger ?? '';
@@ -291,8 +284,6 @@ class DetailScreen extends StatelessWidget {
   Widget _buildEvolutions(BuildContext context, List<EvolutionSpecies> evos) {
     if (evos.isEmpty) return const SizedBox.shrink();
 
-    // Filter to show only relevant lineage: Ancestors + Current + Direct Descendants
-    // 1. Find current
     final currentDex = pokemon.dex;
     if (currentDex == null) return const SizedBox.shrink();
 
@@ -303,7 +294,6 @@ class DetailScreen extends StatelessWidget {
       return const SizedBox.shrink(); 
     }
 
-    // 2. Find ancestors (walk up)
     final ancestors = <EvolutionSpecies>[];
     var parentDex = currentNode.evolvesFromDex;
     while (parentDex != null) {
@@ -312,26 +302,21 @@ class DetailScreen extends StatelessWidget {
         ancestors.add(parent);
         parentDex = parent.evolvesFromDex;
       } catch (_) {
-        break; // parent not found in list (shouldn't happen with full chain)
+        break;
       }
     }
     
-    // 3. Find all descendants recursively (walk down)
     final descendants = <EvolutionSpecies>[];
     final queue = [...evos.where((e) => e.evolvesFromDex == currentDex)];
     
     while (queue.isNotEmpty) {
       final child = queue.removeAt(0);
       descendants.add(child);
-      // Add this child's children to queue
       queue.addAll(evos.where((e) => e.evolvesFromDex == child.dex));
     }
 
-    // Combine: Root -> ... -> Parent -> Current -> Children -> ... -> Grandchildren
     final displayList = [...ancestors.reversed, currentNode, ...descendants];
 
-    // If only 1 member (itself) in the *filtered* list, it means no visible evolution chain
-    // (e.g. Zapdos, or a Pokemon with no ancestors/descendants in this view)
     if (displayList.length <= 1) {
       return Padding(
         padding: const EdgeInsets.only(top: 24),
@@ -423,7 +408,6 @@ class DetailScreen extends StatelessWidget {
                 
                 const SizedBox(height: 16),
                 
-                // 1. Name
                 HeroText(
                   tag: 'name-${pokemon.id}',
                   child: Text(
@@ -439,7 +423,6 @@ class DetailScreen extends StatelessWidget {
                   future: _loadDetailData(),
                   builder: (context, snap) {
                     if (snap.connectionState != ConnectionState.done) {
-                      // Show minimal info while loading
                       return Column(
                         children: [
                           if (pokemon.dex != null)
@@ -457,10 +440,8 @@ class DetailScreen extends StatelessWidget {
                       return const Text('No additional details available.');
                     }
 
-                    // 2. Species | Dex Line
-                    // "Electric Pokemon | Pokedex #145"
                     final combinedLine = HeroText(
-                      tag: 'dex-${pokemon.id}', // keep dex tag for hero transition if possible, though text changes
+                      tag: 'dex-${pokemon.id}',
                       child: Text(
                         [
                           if (data.genus != null) data.genus,
@@ -473,7 +454,6 @@ class DetailScreen extends StatelessWidget {
                       ),
                     );
 
-                    // 3. Typing
                     final typing = DualTypeChip(type1: pokemon.type, type2: pokemon.type2);
 
 
@@ -507,7 +487,6 @@ class DetailScreen extends StatelessWidget {
                         typing,
                         const SizedBox(height: 8),
 
-                        // 5. Abilities (with label)
                         if (data.abilities != null && data.abilities!.isNotEmpty) ...[
                           const SizedBox(height: 16),
                           Text(
@@ -520,7 +499,6 @@ class DetailScreen extends StatelessWidget {
 
                         const SizedBox(height: 16),
                         
-                        // 6. Stats & Size
                         if (statsSection is! SizedBox) statsSection,
                         if (statsSection is! SizedBox) const SizedBox(height: 12),
                         sizeLine,

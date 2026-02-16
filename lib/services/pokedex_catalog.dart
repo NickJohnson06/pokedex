@@ -117,7 +117,6 @@ class PokedexCatalog {
     return e?.dex;
   }
 
-  // Provide a sorted list of display names for Autocomplete.
   Future<List<String>> allNames() async {
     await _ensureLoaded();
     final names = _byName!.keys.map((n) {

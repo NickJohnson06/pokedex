@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/sort_filter.dart';
 import '../controllers/sort_filter_controller.dart';
 import '../utils/type_colors.dart';
 
@@ -55,7 +54,6 @@ class _FilterSheetState extends State<FilterSheet> {
       minChildSize: 0.5,
       builder: (_, scrollController) => Column(
         children: [
-          // Handle
           const SizedBox(height: 12),
           Container(
             width: 40, height: 4,
@@ -66,7 +64,6 @@ class _FilterSheetState extends State<FilterSheet> {
           ),
           const SizedBox(height: 12),
           
-          // Header
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
@@ -79,7 +76,6 @@ class _FilterSheetState extends State<FilterSheet> {
           ),
           const Divider(),
 
-          // Content
           Expanded(
             child: ListView(
               controller: scrollController,
@@ -132,7 +128,6 @@ class _FilterSheetState extends State<FilterSheet> {
             ),
           ),
 
-          // Footer
           Padding(
             padding: const EdgeInsets.all(16),
             child: SizedBox(

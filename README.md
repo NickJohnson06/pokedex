@@ -24,7 +24,9 @@ A feature-rich, Pokedex application built with Flutter that allows you to manage
 
 ### 📊 **Detailed Insights**
 - **Stats Visualization**: View Base Stats (HP, Attack, Defense, etc.) with toggleable **Radar Charts** or **Bar Graphs**.
-- **Comprehensive Info**: See Height, Weight, Types, and Dex Number.
+- **Evolution Chains**: See the complete evolutionary lineage with evolution triggers (level, items, trade, etc.) and arrows showing the path. Branching evolutions intelligently show only the relevant lineage.
+- **Comprehensive Info**: See Height, Weight, Types, Dex Number, Species (e.g., "Flame Pokemon"), and Abilities (including hidden abilities) in a clean, organized layout.
+- **Rich Data Catalog**: Pre-loaded with 150+ Pokemon entries including stats, types, abilities, evolution chains, and species data.
 - **Automated Data Fetching**: While you can manually add Pokemon, the app intelligently fetches official data and stats from [PokeAPI](https://pokeapi.co/) when available.
 
 ## Technical Highlights

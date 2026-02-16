@@ -34,16 +34,6 @@ class _DailyPokemonWidgetState extends State<DailyPokemonWidget> {
         return;
       }
       
-      // We pick from the count of available mons in DB? 
-      // Wait, IDs might be sparse if users delete. 
-      // Better strategy: Pick a random index from the list.
-      // Modifying Service to return index or just handle it here?
-      // Let's modify logic briefly: Service gives "Random Seed" or we pass list length.
-      
-      // Actually, standard Pokedex has fixed IDs usually. 
-      // But this is "Your Personal Pokedex".
-      // Let's rely on the list of captured mons.
-      
       final dailyIndex = await DailyRotationService.getDailyId(all.length); 
       // dailyIndex is 1-based from service. 
       final index = (dailyIndex - 1) % all.length;

@@ -42,15 +42,12 @@ class SortFilterController extends ChangeNotifier {
   }
 
   List<Pokemon> apply(List<Pokemon> items) {
-    // 1. Filter
     var out = items.where((p) {
-      // Filter by Type
       if (_filter.types.isNotEmpty) {
         final hasType = _filter.types.contains(p.type) || (p.type2 != null && _filter.types.contains(p.type2));
         if (!hasType) return false;
       }
 
-      // Filter by Generation
       if (_filter.generations.isNotEmpty) {
         final dex = p.dex ?? 99999;
         bool matchGen = false;
@@ -63,13 +60,11 @@ class SortFilterController extends ChangeNotifier {
         if (!matchGen) return false;
       }
 
-      // Filter by Favorites
       if (_filter.favoritesOnly && !p.favorite) return false;
 
       return true;
     }).toList();
 
-    // 2. Sort
     out.sort((a, b) {
       int cmp = 0;
       switch (_sort.mode) {

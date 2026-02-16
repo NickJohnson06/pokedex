@@ -200,7 +200,7 @@ class _ListScreenState extends State<ListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Personal Pokedex'),
+        title: const Text('Personal Pokedex'),
         actions: [
           // Sort
           IconButton(

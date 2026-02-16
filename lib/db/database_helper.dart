@@ -32,7 +32,6 @@ class DatabaseHelper {
   }
 
   FutureOr<void> _onCreate(Database db, int version) async {
-    // Main table (fresh installs get the full, current schema)
     await db.execute('''
       CREATE TABLE $_table (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,15 +44,12 @@ class DatabaseHelper {
     ''');
 
     await db.execute('CREATE UNIQUE INDEX idx_pokemon_name ON $_table(name);');
-    // SQLite UNIQUE allows multiple NULLs; so dex can be NULL for unresolved entries
     await db.execute('CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_dex ON $_table(dex);');
 
-    // Create cache table on fresh install
     await _createCacheTable(db);
   }
 
   FutureOr<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    // Keep existing upgrade steps for users coming from older versions
     if (oldVersion < 2) {
       await db.execute(
         'CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_name ON $_table(name COLLATE NOCASE);',
@@ -67,14 +63,12 @@ class DatabaseHelper {
       await db.execute('CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_dex ON $_table(dex);');
     }
     if (oldVersion < 6) {
-      // v6 migration: add favorite column + create cache table
       await _ensureFavoriteColumn(db);
       await _createCacheTable(db);
     }
   }
 
   FutureOr<void> _onOpen(Database db) async {
-    // Safety net for partially-migrated states
     await _createCacheTable(db);
     await _ensureFavoriteColumn(db);
   }
