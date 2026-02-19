@@ -94,7 +94,7 @@ class _FilterSheetState extends State<FilterSheet> {
                       selectedColor: typeColor(t).withOpacity(0.3),
                       checkmarkColor: typeColor(t),
                       labelStyle: TextStyle(
-                        color: isSelected ? typeColor(t) : Colors.black87,
+                        color: isSelected ? typeColor(t) : Theme.of(context).textTheme.bodyLarge?.color,
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                       ),
                       onSelected: (v) => setState(() {

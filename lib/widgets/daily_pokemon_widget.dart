@@ -101,7 +101,7 @@ class _DailyPokemonWidgetState extends State<DailyPokemonWidget> {
                       formatDex(p.dex),
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black.withOpacity(0.6),
+                        color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.6),
                         fontWeight: FontWeight.w500,
                       ),
                     ),

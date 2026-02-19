@@ -70,7 +70,7 @@ class StatsScreen extends StatelessWidget {
               '${stats.totalCaught} / ${stats.totalAvailable}',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
             ),
             const SizedBox(height: 8),

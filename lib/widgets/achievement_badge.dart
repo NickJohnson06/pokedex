@@ -21,16 +21,31 @@ class AchievementBadge extends StatelessWidget {
         width: 100,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: achievement.isUnlocked
+          color: achievement.isUnlocked && !achievement.isRainbow
               ? (achievement.isMaxed 
                   ? Colors.amber.withOpacity(0.2)
                   : badgeColor.withOpacity(0.1))
-              : badgeColor.withOpacity(0.05), // Use type color even if locked, but lighter
+              : (achievement.isRainbow && achievement.isUnlocked ? null : badgeColor.withOpacity(0.05)),
+          gradient: (achievement.isUnlocked && achievement.isRainbow)
+              ? const LinearGradient(
+                  colors: [
+                    Colors.red,
+                    Colors.orange,
+                    Colors.yellow,
+                    Colors.green,
+                    Colors.blue,
+                    Colors.indigo,
+                    Colors.purple,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+              : null,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: achievement.isUnlocked
-                ? (achievement.isMaxed ? Colors.amber : badgeColor)
-                : badgeColor.withOpacity(0.5), // Use type color for border
+                ? (achievement.isRainbow ? Colors.white.withOpacity(0.5) : (achievement.isMaxed ? Colors.amber : badgeColor))
+                : badgeColor.withOpacity(0.5), 
             width: 2,
           ),
         ),
@@ -51,10 +66,10 @@ class AchievementBadge extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               displayName,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Theme.of(context).textTheme.bodySmall?.color,
               ),
               textAlign: TextAlign.center,
               maxLines: 2,

@@ -448,7 +448,7 @@ class DetailScreen extends StatelessWidget {
                           'Pokedex ${formatDex(data.dex)}'
                         ].join(' | '),
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: Colors.black87,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                         ),
                         textAlign: TextAlign.center,
                       ),

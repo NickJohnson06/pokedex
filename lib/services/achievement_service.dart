@@ -119,8 +119,17 @@ class AchievementService {
       final tier = tiers[i];
       final target = tier['target'] as int;
       final isUnlocked = totalCaught >= target;
-      final isMaxed = isUnlocked; // Each tier is maxed when unlocked
       
+      final tierIndex = i;
+      Color? tierColor;
+      switch (tierIndex) {
+        case 0: tierColor = const Color(0xFFCD7F32); break; // Bronze
+        case 1: tierColor = const Color(0xFFC0C0C0); break; // Silver
+        case 2: tierColor = const Color(0xFFFFD700); break; // Gold
+        case 3: tierColor = const Color(0xFFE5E4E2); break; // Platinum
+        case 4: tierColor = const Color(0xFFB9F2FF); break; // Diamond
+      }
+
       achievements.add(Achievement(
         id: tier['id'] as String,
         name: tier['name'] as String,
@@ -134,6 +143,7 @@ class AchievementService {
         category: AchievementCategory.milestone,
         currentTier: isUnlocked ? (tier['tier'] as String) : null,
         maxTier: 5,
+        color: tierColor,
       ));
     }
     
@@ -157,6 +167,7 @@ class AchievementService {
         category: AchievementCategory.special,
         currentTier: totalCaught >= nationalPokedexTotal ? 'MAX' : null,
         maxTier: 1,
+        isRainbow: true,
       ),
     ];
   }

@@ -12,6 +12,7 @@ class Achievement {
   final String? currentTier;
   final int? maxTier;
   final Color? color;
+  final bool isRainbow;
 
   const Achievement({
     required this.id,
@@ -25,6 +26,7 @@ class Achievement {
     this.currentTier,
     this.maxTier,
     this.color,
+    this.isRainbow = false,
   });
 
   double get progressPercentage {
